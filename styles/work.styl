@@ -1,0 +1,163 @@
+.work
+    padding 10rem 1rem 0
+    @media screen and (min-width: 760px)
+        padding 12rem 2rem 0
+    @media screen and (min-width: 1440px)
+        display grid
+        grid-template-columns repeat(2, 1fr)
+        grid-auto-rows 100%
+        gap 2rem
+        position relative
+        height 61.2rem
+        overflow hidden
+.work__title
+    padding 0 1rem
+    font-size 3rem
+    line-height 1.1
+    margin-bottom 4rem
+    @media screen and (min-width: 760px)
+        padding 0
+        line-height 1
+        width 35rem
+    @media screen and (min-width: 1440px)
+        position absolute
+        z-index 10
+        top 15rem
+        left 5rem
+        line-height 1.1
+        width 37rem
+        .iris-txt
+            color white
+.work__cards
+    display grid
+    gap 1rem
+    margin-bottom 1rem
+    @media screen and (min-width: 760px)
+        grid-template-columns repeat(2, 1fr)
+        gap 2rem
+        margin-bottom 4rem
+    @media screen and (min-width: 1440px)
+        height 100%
+        overflow-x hidden
+        overflow-y auto
+        grid-column-start 2
+        grid-template-rows 7.1rem 35.8rem 7.1rem 35.8rem 7.1rem
+.work-item
+    height 35rem
+    box-sizing border-box
+    padding 3rem
+    display grid
+    grid-template-rows 2.8rem 1fr
+    gap 1.2rem
+    border .15rem solid iris
+    border-radius 1.6rem
+    position relative
+    @media screen and (min-width: 760px)
+        height 32rem
+        gap 1rem
+        grid-template-rows 3.2rem 1fr
+    @media screen and (min-width: 1440px)
+        padding 2.8rem
+        border-radius 1.5rem
+        gap 2rem
+        grid-row-end span 2
+        height 100%
+        &:nth-child(2)
+            grid-column-start 2
+            grid-row-start 2
+        &:nth-child(3)
+            grid-column-start 1
+            grid-row-start 3
+    &::before
+        content ""
+        position absolute
+        top 6rem
+        bottom 6rem
+        left -.5rem
+        right -.5rem
+        border-left 1rem solid lGray
+        border-right 1rem solid lGray
+        user-select none
+    &::after
+        content ""
+        position absolute
+        border-top 1rem solid lGray
+        border-bottom 1rem solid lGray
+        user-select none
+        left 6rem
+        right 6rem
+        top -.5rem
+        bottom -.5rem
+.work-item__header
+    display flex
+    justify-content space-between
+    align-items center
+    svg
+        width 2.8rem
+        height 2.8rem
+        @media screen and (min-width: 760px)
+            width 3.2rem
+            height 3.2rem
+.work-item__caption
+    font-size 1.2rem
+    color iris
+    text-transform uppercase
+    @media screen and (min-width: 1440px)
+        font-size 1rem
+.work-item__content
+    display flex
+    flex-direction column
+    justify-content space-between
+    font-size 1.4rem
+    @media screen and (min-width: 760px)
+        font-size 1.6rem
+    @media screen and (min-width: 1440px)
+        font-size 1.4rem
+    h3
+        font-size 1.5rem
+        @media screen and (min-width: 760px)
+            font-size 2.2rem
+.work__image
+    height 35rem
+    overflow hidden
+    border-radius 1.6rem
+    position relative
+    @media screen and (min-width: 760px)
+        height 42.5rem
+    @media screen and (min-width: 1440px)
+        grid-row-start 1
+        height 100%
+    video
+        width 100%
+        height 100%
+        object-fit cover
+    &::before
+        content ""
+        position absolute
+        width 100%
+        height 100%
+        background-color cloudyBlue
+        mix-blend-mode hue
+.work__labels
+    display none
+    @media screen and (min-width: 760px)
+        display flex
+        flex-wrap wrap
+        width 40rem
+        gap 1.2rem
+        position absolute
+        left 2rem
+        bottom 2rem
+        font-size 1.2rem
+    @media screen and (min-width: 1440px)
+        left 3rem
+        bottom 3rem
+        font-size 1rem
+.label-item
+    border-radius .6rem
+    background-color cloudyBlue5
+    backdrop-filter blur(40px)
+    padding 1rem
+    z-index 1
+
+
