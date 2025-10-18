@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("./fonts/web/SuisseIntl-Black-WebM.eot") format("embedded-opentype"), url("./fonts/web/SuisseIntl-Black-WebM.ttf") format("truetype"), url("./fonts/web/SuisseIntl-Black-WebM.woff") format("woff"), url("./fonts/web/SuisseIntl-Black-WebM.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("./fonts/web/SuisseIntl-Book-WebXL.eot") format("embedded-opentype"), url("./fonts/web/SuisseIntl-Book-WebXL.ttf") format("truetype"), url("./fonts/web/SuisseIntl-Book-WebXL.woff") format("woff"), url("./fonts/web/SuisseIntl-Book-WebXL.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("./fonts/web/SuisseIntl-Book-WebM.eot") format("embedded-opentype"), url("./fonts/web/SuisseIntl-Book-WebM.ttf") format("truetype"), url("./fonts/web/SuisseIntl-Book-WebM.woff") format("woff"), url("./fonts/web/SuisseIntl-Book-WebM.woff2") format("woff2");
+  font-weight: 300;
+}
 html {
   font-size: 2.56vw;
 }
@@ -14,7 +29,8 @@ html {
 body {
   background-color: #f1f1f1;
   color: #32364c;
-  font-family: sans-serif;
+  font-family: "Suisse Intl", sans-serif;
+  font-weight: 300;
   margin: 0;
 }
 h1,
@@ -36,6 +52,48 @@ p {
 }
 .fill_iris {
   fill: #6f92e8;
+}
+.title-label {
+  background-color: #010101;
+  border: 0.16rem solid #d6dcff;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: -0.1;
+  height: 3rem;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  margin: 0 auto 1rem;
+}
+.figures {
+  height: 3.6rem;
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+  position: relative;
+}
+.figures .line {
+  background-color: #6f92e8;
+  height: 0.14rem;
+}
+.figures .square {
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: #6f92e8;
+  position: absolute;
+  left: calc(50% - 0.55rem);
+  top: 0.5rem;
+  border-radius: 0.2rem;
+}
+.figures .square::after {
+  content: "";
+  position: absolute;
+  width: 0.1rem;
+  height: 4rem;
+  left: 0.5rem;
+  top: 0;
+  background-color: #6f92e8;
 }
 .work {
   padding: 10rem 1rem 0;
@@ -267,4 +325,65 @@ p {
   backdrop-filter: blur(40px);
   padding: 1rem;
   z-index: 1;
+}
+.methodic {
+  padding: 10rem 0 0;
+}
+.methodic .figures {
+  position: absolute;
+  top: 20.4rem;
+  left: 0;
+  width: 100%;
+}
+.methodic__title {
+  margin-bottom: 4.6rem;
+  font-size: 2.4rem;
+  line-height: 0.9;
+  text-align: center;
+}
+.map {
+  width: 100%;
+  height: 64rem;
+  position: relative;
+}
+.map img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.methodic__cards {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  gap: 1rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 35.8rem);
+  grid-template-rows: 10.8rem;
+}
+.methodic-item {
+  padding: 1rem;
+  background-color: #131313;
+  border-radius: 0.8rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+.methodic-item svg {
+  height: 100%;
+}
+.methodic__text {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: rgba(255,255,255,0.702);
 }

@@ -9,8 +9,8 @@ html
 body
     background-color lGray
     color inkDark
-    font-family sans-serif
-    //width 390px
+    font-family "Suisse Intl", sans-serif
+    font-weight 300
     margin 0
 h1
 h2
@@ -29,5 +29,43 @@ p
     stroke iris
 .fill_iris
     fill iris
-
+.title-label
+    background-color #010101
+    border .16rem solid lavender
+    color white
+    font-size 1.2rem
+    letter-spacing -.1
+    height 3rem
+    width 8rem
+    display flex
+    align-items center
+    justify-content center
+    border-radius .6rem
+    margin 0 auto 1rem
+.figures
+    height 3.6rem
+    box-sizing border-box
+    padding 1rem 2rem
+    position relative
+    .line
+        background-color iris
+        height .14rem
+    .square
+        width 1.1rem
+        height 1.1rem
+        background-color iris
+        position absolute
+        left calc(50% - .55rem)
+        top .5rem
+        border-radius .2rem
+        &::after
+            content ""
+            position absolute
+            width .1rem
+            height 4rem
+            left .5rem
+            top 0
+            background-color iris
 @import "styles/work.styl"
+@import "styles/methodic.styl"
+
