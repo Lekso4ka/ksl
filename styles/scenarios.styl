@@ -1,0 +1,39 @@
+.scenarios
+    overflow hidden
+.circles-block
+    width 100%
+    overflow hidden
+.circles
+    position relative
+    height 36rem
+    overflow-x hidden
+    overflow-y hidden
+    transform translate(0rem, 0)
+    svg
+        width 36rem
+        height 36rem
+        position absolute
+        top 0
+        left calc(50% - 18rem)
+        &:nth-child(1)
+            left calc(50% - 43.5rem)
+        &:nth-child(3)
+            left calc(50% + 7.5rem)
+        &:nth-child(4)
+            left calc(50% + 33rem)
+        &:nth-child(5)
+            left calc(50% + 58.5rem)
+    @media screen and (min-width: 760px)
+        height 56.9rem
+        svg
+            width 56.9rem
+            height 56.9rem
+            left calc(50% - 28.45rem)
+            &:nth-child(1)
+                left calc(50% - 68.65rem)
+            &:nth-child(3)
+                left calc(50% + 11.75rem)
+            &:nth-child(4)
+                left calc(50% + 51.95rem)
+            &:nth-child(5)
+                left calc(50% + 92.15rem)

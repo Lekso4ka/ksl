@@ -37,21 +37,29 @@ h2
     @media screen and (min-width: 1440px)
         font-size 2.8rem
         line-height 1.1
-
-
 h3
     margin 0
     font-weight 300
     font-size 1.5rem
+    @media screen and (min-width: 760px)
+        font-size 2.2rem
+    @media screen and (min-width: 1440px)
+        font-size 2rem
 h4 //LabelTAllcaps
     margin 0
     font-weight 400
     font-size 1.2rem
     text-transform uppercase
+    @media screen and (min-width: 1440px)
+        font-size 1rem
 p
     margin 0
     font-weight 300
     font-size 1.4rem
+    @media screen and (min-width: 760px)
+        font-size 1.6rem
+    @media screen and (min-width: 1440px)
+        font-size 1.4rem
 
 
 
@@ -64,6 +72,9 @@ button
     background-color transparent
     border none
     outline none
+a
+    color inherit
+    text-decoration none
 .iris-txt
     color iris
 .lavender-txt
@@ -76,8 +87,12 @@ button
     stroke inkDark
 .fill_iris
     fill iris
+.fill_cloudyBlue
+    fill cloudyBlue
 .fill_lavender
     fill lavender
+.stroke_lavender
+    stroke lavender
 
 .title-label
     background-color #010101
@@ -145,6 +160,8 @@ button
             top 0
             background-color iris
 @import "styles/banner.styl"
+@import "styles/tasks.styl"
+@import "styles/scenarios.styl"
 @import "styles/work.styl"
 @import "styles/methodic.styl"
 
