@@ -102,15 +102,18 @@ p {
   margin: 0;
   font-weight: 300;
   font-size: 1.4rem;
+  line-height: 1.6rem;
 }
 @media screen and (min-width: 760px) {
   p {
     font-size: 1.6rem;
+    line-height: 1.9rem;
   }
 }
 @media screen and (min-width: 1440px) {
   p {
     font-size: 1.4rem;
+    line-height: 1.6rem;
   }
 }
 h5,
@@ -231,6 +234,23 @@ a {
   left: 0.5rem;
   top: 0;
   background-color: #6f92e8;
+}
+.figures_simple {
+  height: 2.4rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.figures_simple .line {
+  background-color: #6f92e8;
+  height: 0.14rem;
+}
+.figures_simple .line2 {
+  background-color: #6f92e8;
+  width: 0.14rem;
+  height: 100%;
+  position: absolute;
+  left: calc(50% - 0.07rem);
+  top: 0;
 }
 .main-banner {
   height: 99.1rem;
@@ -898,4 +918,322 @@ a {
   font-size: 1.2rem;
   line-height: 1.1;
   color: rgba(255,255,255,0.702);
+}
+.ksl {
+  padding: 10rem 1rem 0;
+}
+@media screen and (min-width: 760px) {
+  .ksl {
+    padding: 12rem 2rem 0;
+  }
+}
+.ksl .title-label {
+  margin-bottom: 1rem;
+}
+.ksl h2 {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 1440px) {
+  .ksl h2 {
+    margin-bottom: 1rem;
+  }
+}
+.ksl h2 .span {
+  color: #6f92e8;
+}
+@media screen and (min-width: 1440px) {
+  .ksl h2 .span {
+    color: #32364c;
+  }
+}
+.ksl .figures {
+  padding: 1rem 0;
+  margin-bottom: 1.3rem;
+}
+@media screen and (min-width: 1440px) {
+  .ksl .figures {
+    margin-bottom: 2rem;
+  }
+}
+.ksl__cards {
+  display: grid;
+  gap: 1rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl__cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ksl__cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.ksl-item {
+  background-image: url("images/banner2.jpg");
+  background-size: auto 125%;
+  background-position: center top;
+  height: 41rem;
+  position: relative;
+  border-radius: 2rem;
+  display: grid;
+  align-content: flex-end;
+  box-sizing: border-box;
+  padding: 0 5.5rem 4rem 3rem;
+  gap: 1.2rem;
+  color: #fff;
+}
+.ksl-item h3,
+.ksl-item p {
+  position: relative;
+  z-index: 2;
+}
+.ksl-item svg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+.ksl-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #131313;
+  mix-blend-mode: multiply;
+  border-radius: 2rem;
+}
+.ksl-item::after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-right: 7rem solid #f1f1f1;
+  border-top: 7rem solid transparent;
+  right: 0;
+  bottom: 0;
+}
+@media screen and (min-width: 760px) {
+  .ksl-item:last-child {
+    grid-column-start: 2;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ksl-item:nth-child(2) {
+    grid-column-start: 3;
+  }
+  .ksl-item:nth-child(3) {
+    grid-column-start: 4;
+  }
+}
+.ksl__text {
+  display: grid;
+  padding: 8rem 1rem 10rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8rem 1.2rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl__text {
+    padding: 12rem 0;
+    gap: 8rem 2rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ksl__text {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem 2rem;
+  }
+}
+.ksl-card {
+  display: grid;
+  gap: 2rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl-card {
+    grid-template-rows: 7.7rem auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ksl-card {
+    grid-template-rows: 7.8rem auto;
+  }
+  .ksl-card>:first-child {
+    align-self: center;
+  }
+  .ksl-card:nth-child(2) {
+    grid-column-start: 3;
+  }
+}
+.ksl-card svg {
+  height: 3.9rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl-card svg {
+    height: 7.7rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ksl-card svg {
+    height: 4.5rem;
+  }
+}
+.ksl-card h3 {
+  font-size: 5rem;
+  color: #6f92e8;
+}
+.ksl-card h3 span {
+  font-size: 2.4rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl-card h3 {
+    font-size: 7rem;
+    line-height: 7.7rem;
+  }
+  .ksl-card h3 span {
+    font-size: 3rem;
+  }
+}
+.ksl-card:nth-child(1) {
+  grid-column-end: span 2;
+}
+.ksl-card:nth-child(1) p {
+  width: 24rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl-card:nth-child(1) {
+    grid-column-end: span 1;
+  }
+  .ksl-card:nth-child(1) p {
+    width: 26.1rem;
+  }
+}
+.ksl-card:nth-child(4) {
+  grid-column-end: span 2;
+  gap: 0;
+}
+@media screen and (min-width: 760px) {
+  .ksl-card:nth-child(4) {
+    grid-column: 1/2;
+    grid-row-start: 2;
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .ksl-card:nth-child(4) {
+    grid-column: 3/4;
+    gap: 0;
+    grid-template-rows: auto;
+    width: 90%;
+  }
+}
+.figures_simple {
+  margin: 0 1rem 2rem;
+}
+@media screen and (min-width: 760px) {
+  .figures_simple {
+    margin: 0 -2rem 2rem;
+  }
+}
+.quote {
+  height: 2.8rem;
+  margin-bottom: 2rem;
+}
+.quote svg {
+  height: 100%;
+}
+.ksl__article {
+  padding: 0 1rem;
+}
+.ksl__article .big-text {
+  font-size: 2.4rem;
+  margin-bottom: 5rem;
+  color: rgba(111,146,232,0.2);
+}
+.ksl__article>p {
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 760px) {
+  .ksl__article {
+    display: grid;
+    grid-template-columns: 1fr 35rem;
+    padding: 0;
+  }
+  .ksl__article .quote {
+    grid-column-end: span 2;
+    height: 2.8rem;
+    margin-bottom: 1.1rem;
+  }
+  .ksl__article .big-text {
+    grid-column-end: span 2;
+    font-size: 3.6rem;
+  }
+}
+@media screen and (min-width: 760px) and (min-width: 1440px) {
+  .ksl__article {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .ksl__article .quote {
+    grid-column-end: span 1;
+  }
+  .ksl__article .big-text {
+    grid-column-end: span 1;
+    width: 66.1rem;
+  }
+}
+.person {
+  display: grid;
+  grid-template-columns: 15.8rem 14.8rem;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+@media screen and (min-width: 760px) {
+  .person {
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+  }
+}
+.person__img {
+  background-color: #e5e5e5;
+  height: 20rem;
+  width: 15.8rem;
+  overflow: hidden;
+}
+.person__img img {
+  width: 90%;
+  object-fit: cover;
+  object-position: center top;
+}
+.person__content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.person__content p {
+  font-size: 1.2rem;
+  color: rgba(50,54,76,0.6);
+}
+@media screen and (min-width: 760px) {
+  .person__content {
+    grid-row-start: 1;
+    width: 22rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .article-txt {
+    display: grid;
+    gap: 3rem;
+    align-content: flex-start;
+  }
+  .article-txt p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .article-txt {
+    align-content: flex-end;
+    gap: 4.3rem;
+    width: 42.2rem;
+  }
 }

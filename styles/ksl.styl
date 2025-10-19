@@ -1,0 +1,211 @@
+.ksl
+    padding 10rem 1rem 0
+    @media screen and (min-width: 760px)
+        padding 12rem 2rem 0
+    .title-label
+        margin-bottom 1rem
+    h2
+        margin-bottom 2rem
+        @media screen and (min-width: 1440px)
+            margin-bottom 1rem
+        .span
+            color iris
+            @media screen and (min-width: 1440px)
+                color inkDark
+    .figures
+        padding 1rem 0
+        margin-bottom 1.3rem
+        @media screen and (min-width: 1440px)
+            margin-bottom 2rem
+
+.ksl__cards
+    display grid
+    gap 1rem
+    @media screen and (min-width: 760px)
+        grid-template-columns repeat(2, 1fr)
+        gap 2rem
+    @media screen and (min-width: 1440px)
+        grid-template-columns repeat(4, 1fr)
+.ksl-item
+    background-image url(images/banner2.jpg)
+    background-size auto 125%
+    background-position center top
+    height 41rem
+    position relative
+    border-radius 2rem
+    display grid
+    align-content flex-end
+    box-sizing border-box
+    padding 0 5.5rem 4rem 3rem
+    gap 1.2rem
+    color white
+    h3
+    p
+        position relative
+        z-index 2
+    svg
+        position absolute
+        z-index 1
+        width 100%
+    &::before
+        content ""
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        background-color #131313
+        mix-blend-mode multiply
+        border-radius 2rem
+    &::after
+        content ""
+        position absolute
+        height 0
+        width 0
+        border-right 7rem solid lGray
+        border-top 7rem solid transparent
+        right 0
+        bottom 0
+    @media screen and (min-width: 760px)
+        &:last-child
+            grid-column-start 2
+    @media screen and (min-width: 1440px)
+        &:nth-child(2)
+            grid-column-start 3
+        &:nth-child(3)
+            grid-column-start 4
+.ksl__text
+    display grid
+    padding 8rem 1rem 10rem
+    grid-template-columns repeat(2, 1fr)
+    gap 8rem 1.2rem
+    @media screen and (min-width: 760px)
+        padding 12rem 0
+        gap 8rem 2rem
+    @media screen and (min-width: 1440px)
+        grid-template-columns repeat(4, 1fr)
+        gap 4rem 2rem
+.ksl-card
+    display grid
+    gap 2rem
+    @media screen and (min-width: 760px)
+        grid-template-rows 7.7rem auto
+    @media screen and (min-width: 1440px)
+        grid-template-rows 7.8rem auto
+        &>:first-child
+            align-self center
+        &:nth-child(2)
+            grid-column-start 3
+    svg
+        height 3.9rem
+        @media screen and (min-width: 760px)
+            height 7.7rem
+        @media screen and (min-width: 1440px)
+            height 4.5rem
+    h3
+        font-size 5rem
+        color iris
+        span
+            font-size 2.4rem
+        @media screen and (min-width: 760px)
+            font-size 7rem
+            line-height 7.7rem
+            span
+                font-size 3rem
+    &:nth-child(1)
+        grid-column-end span 2
+        p
+            width 24rem
+        @media screen and (min-width: 760px)
+            grid-column-end span 1
+            p
+                width 26.1rem
+    &:nth-child(4)
+        grid-column-end span 2
+        gap 0
+        @media screen and (min-width: 760px)
+            grid-column 1 / 2
+            grid-row-start 2
+            gap 2rem
+        @media screen and (min-width: 1440px)
+            grid-column 3 / 4
+            gap 0
+            grid-template-rows auto
+            width 90%
+.figures_simple
+    margin 0 1rem 2rem
+    @media screen and (min-width: 760px)
+        margin 0 -2rem 2rem
+.quote
+    height 2.8rem
+    margin-bottom 2rem
+    svg
+        height 100%
+.ksl__article
+    padding 0 1rem
+    .big-text
+        font-size 2.4rem
+        margin-bottom 5rem
+        color iris20
+    &>p
+        margin-bottom 3rem
+    @media screen and (min-width: 760px)
+        display grid
+        grid-template-columns 1fr 35rem
+        padding 0
+        .quote
+            grid-column-end span 2
+            height 2.8rem
+            margin-bottom 1.1rem
+        .big-text
+            grid-column-end span 2
+            font-size 3.6rem
+        @media screen and (min-width: 1440px)
+            grid-template-columns repeat(2, 1fr)
+            gap 2rem
+            .quote
+                grid-column-end span 1
+            .big-text
+                grid-column-end span 1
+                width 66.1rem
+
+.person
+    display grid
+    grid-template-columns 15.8rem 14.8rem
+    gap 2rem
+    margin-bottom 5rem
+    @media screen and (min-width: 760px)
+        grid-template-columns 1fr
+        margin-bottom 0
+.person__img
+    background-color #E5E5E5
+    height 20rem
+    width 15.8rem
+    overflow hidden
+    img
+        width 90%
+        object-fit cover
+        object-position center top
+.person__content
+    h3
+        font-size 1.6rem
+        margin-bottom 1rem
+    p
+        font-size 1.2rem
+        color inkDark60
+    @media screen and (min-width: 760px)
+        grid-row-start 1
+        width 22rem
+.article-txt
+    @media screen and (min-width: 760px)
+        display grid
+        gap 3rem
+        align-content flex-start
+        p
+            font-size 1.6rem
+    @media screen and (min-width: 1440px)
+        align-content flex-end
+        gap 4.3rem
+        width 42.2rem
+
+

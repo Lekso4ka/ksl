@@ -56,10 +56,13 @@ p
     margin 0
     font-weight 300
     font-size 1.4rem
+    line-height 1.6rem
     @media screen and (min-width: 760px)
         font-size 1.6rem
+        line-height 1.9rem
     @media screen and (min-width: 1440px)
         font-size 1.4rem
+        line-height 1.6rem
 
 
 
@@ -159,9 +162,24 @@ a
             left .5rem
             top 0
             background-color iris
+.figures_simple
+    height 2.4rem
+    box-sizing border-box
+    position relative
+    .line
+        background-color iris
+        height .14rem
+    .line2
+        background-color iris
+        width .14rem
+        height 100%
+        position absolute
+        left calc(50% - .07rem)
+        top 0
 @import "styles/banner.styl"
 @import "styles/tasks.styl"
 @import "styles/scenarios.styl"
 @import "styles/work.styl"
 @import "styles/methodic.styl"
+@import "styles/ksl.styl"
 
