@@ -1,17 +1,29 @@
-section
-    h4 Профит
-    h2 Результаты клиентов сокращение затрат и рост эффективности
-    div
+section.profit
+    h4.title-label.title-label_light Профит
+    h2
+        .iris-txt Результаты клиентов
+        |&#32;
+        span сокращение
+        |&#32;затрат и рост эффективности
+    .figures
+        .line
+        .square
+    h4.cnt
         span Кейс
         span / <span>01</span> — 05 /
-    div
-        div
-            div
+    div.profit-cards
+        div.profit-item
+            header
                 h3 Askona
                 p производитель и ритейлер товаров для сна и household
-            div
+            div.content
                 h4 результат
                 p Снизили годовые затраты на логистику на 1,4% при росте рыночных тарифов на 22%
+                .widgets
+
+                    include vectors/widget1
+                    include vectors/widget2
+
                 h4 что сделали
                 ul
                     li Перераспределили товарные потоки и запасы между складами

@@ -926,6 +926,82 @@ ul {
   line-height: 1.1;
   color: rgba(255,255,255,0.702);
 }
+.profit {
+  background-image: url("./images/banner2.jpg");
+  background-size: cover;
+  background-position: bottom center;
+  padding: 10rem 1rem 2rem;
+}
+@media screen and (min-width: 1440px) {
+  .profit {
+    padding: 12rem 2rem 3rem;
+  }
+}
+.profit h2 {
+  color: #e5e5e5;
+  margin: 1rem 0 2rem;
+}
+.profit .figures {
+  margin: 0 1rem;
+  opacity: 0.2;
+}
+.profit .cnt {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profit-cards {
+  height: 69.5rem;
+  position: relative;
+}
+.profit-item {
+  position: absolute;
+  bottom: 0;
+  height: 66.4rem;
+  background-color: #f1f1f1;
+  border-radius: 2rem;
+  padding: 1rem 1rem 2rem;
+}
+.profit-item header {
+  display: grid;
+  grid-template-columns: 60%;
+  align-content: space-between;
+  padding: 1rem;
+  height: 19.9rem;
+  box-sizing: border-box;
+  background-image: url("./images/profit1.png");
+  background-position: 200% 30%;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-radius: 1.6rem;
+}
+.profit-item header h3 {
+  font-size: 1.8rem;
+}
+.profit-item header p {
+  font-size: 1.2rem;
+  color: rgba(50,54,76,0.6);
+}
+.profit-item .content {
+  padding: 2rem 1rem 0;
+}
+.profit-item .content h4 {
+  display: none;
+}
+.profit-item .content p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+.profit-item .content .widgets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.profit-item .content .widgets svg {
+  width: 100%;
+}
 .ksl {
   padding: 10rem 1rem 0;
 }
