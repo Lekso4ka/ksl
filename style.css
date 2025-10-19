@@ -177,6 +177,7 @@ ul {
   border-radius: 0.6rem;
   margin: 0 auto 1rem;
   box-sizing: border-box;
+  text-transform: none;
 }
 .btn-label {
   height: 3.6rem;
