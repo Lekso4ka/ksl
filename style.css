@@ -55,22 +55,6 @@ h1 {
 }
 h2 {
   margin: 0;
-  font-size: 2.4rem;
-  font-weight: 300;
-  line-height: 0.9;
-  text-align: center;
-}
-@media screen and (min-width: 760px) {
-  h2 {
-    font-size: 3rem;
-    line-height: 1;
-  }
-}
-@media screen and (min-width: 1440px) {
-  h2 {
-    font-size: 2.8rem;
-    line-height: 1.1;
-  }
 }
 h3 {
   margin: 0;
@@ -275,6 +259,74 @@ ul {
 @media screen and (min-width: 1440px) {
   .label-btn_lit {
     letter-spacing: 0;
+  }
+}
+.primary-caption {
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 2.2rem;
+  color: #32364c;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 760px) {
+  .primary-caption {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .primary-caption {
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    line-height: 3.1rem;
+  }
+}
+.primary-caption_center {
+  text-align: center;
+}
+.primary-caption_center_760 {
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .primary-caption_center_760 {
+    text-align: left;
+  }
+}
+.primary-caption_light {
+  color: #e5e5e5;
+}
+.primary-caption_iris {
+  color: #6f92e8;
+}
+.primary-caption_iris_390 {
+  color: #6f92e8;
+}
+@media screen and (min-width: 760px) {
+  .primary-caption_iris_390 {
+    color: inherit;
+  }
+}
+@media screen and (min-width: 760px) {
+  .primary-caption_iris_760 {
+    color: #6f92e8;
+  }
+}
+.primary-caption_iris_390_1440 {
+  color: #6f92e8;
+}
+@media screen and (min-width: 760px) {
+  .primary-caption_iris_390_1440 {
+    color: inherit;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .primary-caption_iris_390_1440 {
+    color: #6f92e8;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .primary-caption_white_1440 {
+    color: #fff;
   }
 }
 .main-banner {
@@ -674,27 +726,24 @@ ul {
     overflow: hidden;
   }
 }
-.work__title {
+.work .primary-caption {
   padding: 0 1rem;
   margin-bottom: 4rem;
   text-align: left;
 }
 @media screen and (min-width: 760px) {
-  .work__title {
+  .work .primary-caption {
     padding: 0;
     width: 35rem;
   }
 }
 @media screen and (min-width: 1440px) {
-  .work__title {
+  .work .primary-caption {
     position: absolute;
     z-index: 10;
     top: 15rem;
     left: 5rem;
     width: 37rem;
-  }
-  .work__title .iris-txt {
-    color: #fff;
   }
 }
 .work__cards {
