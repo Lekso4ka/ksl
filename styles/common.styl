@@ -31,12 +31,12 @@
     font-size 2.4rem
     line-height 2.2rem
     color inkDark
-    margin-bottom 2rem
+    padding-bottom 2rem
     @media screen and (min-width: 760px)
         font-size 3rem
         line-height 1
     @media screen and (min-width: 1440px)
-        margin-bottom 1.5rem
+        padding-bottom 1.5rem
         font-size 2.8rem
         line-height 3.1rem
         //text-align center
@@ -66,3 +66,62 @@
 .primary-caption_white_1440
     @media screen and (min-width: 1440px)
         color white
+
+.container
+    padding 10rem 1rem 0
+    @media screen and (min-width: 760px)
+        padding 12rem 2rem 0
+    @media screen and (min-width: 760px)
+        padding-top 15rem
+.container_h0
+    padding-left 0
+    padding-right 0
+.container_h2
+    padding-left 2rem
+    padding-right 2rem
+.container_top15_1440
+    @media screen and (min-width: 1440px)
+        padding-top 15rem
+
+.sq_line
+    margin-top .5rem
+    height .1rem
+    margin-bottom 3.4rem
+    width 100%
+    position relative
+    background-color iris
+    display flex
+    justify-content center
+    &::before
+    &::after
+        content ""
+        position absolute
+    &::before
+        top -.5rem
+        width 1rem
+        height 1rem
+        background-color inherit
+        border-radius .2rem
+    &::after
+        top -.5rem
+        width .1rem
+        height 4rem
+        background-color inherit
+    @media screen and (min-width: 760px)
+        margin-top .65rem
+        margin-bottom 2.95rem
+        &::before
+            top -.65rem
+            width 1.3rem
+            height 1.3rem
+        &::after
+            height 3rem
+            top 0
+    @media screen and (min-width: 1440px)
+        margin-top .5rem
+        margin-bottom 4.4rem
+        &::before
+            top -.5rem
+        &::after
+            height 5rem
+            top -.5rem
