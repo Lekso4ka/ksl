@@ -90,6 +90,8 @@ ul
     stroke iris
 .stroke_white
     stroke white
+.fill_white
+    fill white
 .stroke_dark
     stroke inkDark
 .fill_iris
@@ -101,21 +103,6 @@ ul
 .stroke_lavender
     stroke lavender
 
-.title-label
-    background-color #010101
-    border .16rem solid lavender
-    color white
-    font-size 1.2rem
-    letter-spacing -.01
-    height 3rem
-    width 8rem
-    display flex
-    align-items center
-    justify-content center
-    border-radius .6rem
-    margin 0 auto 1rem
-    box-sizing border-box
-    text-transform none
 .btn-label
     height 3.6rem
     padding .7rem 1.05rem
@@ -139,10 +126,7 @@ ul
     @media screen and (min-width: 760px)
         height 4rem
         padding .9rem 2rem
-.title-label_light
-    background-color #E5E5E5
-    border-color lavender20
-    color inkDark
+
 .figures
     height 3.6rem
     box-sizing border-box
@@ -181,11 +165,13 @@ ul
         position absolute
         left calc(50% - .07rem)
         top 0
+@import "styles/common.styl"
 @import "styles/banner.styl"
 @import "styles/tasks.styl"
 @import "styles/scenarios.styl"
 @import "styles/work.styl"
 @import "styles/methodic.styl"
+@import "styles/effect.styl"
 @import "styles/profit.styl"
 @import "styles/ksl.styl"
 @import "styles/partners.styl"
