@@ -1,0 +1,59 @@
+.faq
+    display grid
+    gap 2rem
+    .list
+        display grid
+        //gap 3.2rem
+        counter-reset: section
+        li
+            padding 1rem 0 0 2rem
+            counter-increment section
+            position relative
+            border-top .1rem solid ltGray
+            .q
+                font-size 1.6rem
+                width 27.2rem
+                height 7rem
+            .a
+                font-size 1.4rem
+                padding 1.6rem 0 3rem
+                color inkDark60
+                display none
+            &:last-child
+                border-bottom .1rem solid ltGray
+            &.active
+                .q
+                    height auto
+                .a
+                    display block
+                &::after
+                    transform rotate(45deg)
+            &::before
+                content counter(section, decimal) "."
+                position absolute
+                left 0
+                font-family Tipography, monospace
+                font-size 1.2rem
+                top 1rem
+            &::after
+                content url("./images/plus.svg")
+                position absolute
+                right 0
+                top 1rem
+                filter invert(1)
+.faq__text
+    padding 3rem 0 6rem
+    display grid
+    gap 2rem
+    .img
+        width 6rem
+        height 6rem
+        border-radius 50%
+        background-image url(./images/faq.jpg)
+        background-size auto 170%
+        background-position 55% 15%
+        border .1rem solid white
+    p
+        width 28rem
+
+        //object-view-box: inset(20%);
