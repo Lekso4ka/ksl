@@ -2166,9 +2166,22 @@ ol {
   display: grid;
   gap: 2rem;
 }
+@media screen and (min-width: 1440px) {
+  .faq {
+    padding-bottom: 12rem;
+    display: grid;
+    grid-template-columns: 32.5rem 1fr;
+    gap: 30rem;
+  }
+}
 .faq .list {
   display: grid;
   counter-reset: section;
+}
+@media screen and (min-width: 1440px) {
+  .faq .list {
+    grid-row-end: span 2;
+  }
 }
 .faq .list li {
   padding: 1rem 0 0 2rem;
@@ -2180,6 +2193,11 @@ ol {
   font-size: 1.6rem;
   width: 27.2rem;
   height: 7rem;
+}
+@media screen and (min-width: 760px) {
+  .faq .list li .q {
+    width: 50rem;
+  }
 }
 .faq .list li .a {
   font-size: 1.4rem;
@@ -2230,4 +2248,31 @@ ol {
 }
 .faq__text p {
   width: 28rem;
+}
+@media screen and (min-width: 760px) {
+  .faq__text {
+    padding-bottom: 12rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .faq__text {
+    padding-bottom: 0;
+  }
+}
+footer {
+  background-color: #131313;
+  color: #e5e5e5;
+  padding: 6.4rem 2rem 3rem;
+}
+footer .logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+footer .logo svg {
+  height: 3rem;
+}
+footer .logo .fill_iris {
+  fill: #fff;
 }
