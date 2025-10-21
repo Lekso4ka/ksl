@@ -16,9 +16,14 @@
         display flex
         align-items center
         justify-content space-between
+        color white
 .profit-cards
     height 69.5rem
     position relative
+    @media screen and (min-width: 760px)
+        height 57.7rem
+    @media screen and (min-width: 1440px)
+        height 53.1rem
 .profit-item
     position absolute
     bottom 0
@@ -26,6 +31,34 @@
     background-color #F1F1F1
     border-radius 2rem
     padding 1rem 1rem 2rem
+    box-sizing border-box
+    margin-top 3.1rem
+    transform-origin top center
+    width 100%
+    @media screen and (min-width: 760px)
+        height 50rem
+        display grid
+        grid-template-columns repeat(2, 1fr)
+        gap 2rem
+        padding 2rem
+    &:nth-child(1)
+        z-index 5
+    &:nth-child(2)
+        z-index 4
+        opacity .8
+        transform translate(0, -.8rem) scale(94%)
+    &:nth-child(3)
+        z-index 3
+        opacity .6
+        transform translate(0, -1.6rem) scale(88%)
+    &:nth-child(4)
+        z-index 2
+        opacity .4
+        transform translate(0, -2.4rem) scale(82%)
+    &:nth-child(5)
+        z-index 1
+        opacity .2
+        transform translate(0, -3.2rem) scale(74%)
     header
         display grid
         grid-template-columns 60%
@@ -41,13 +74,25 @@
         border-radius 1.6rem
         h3
             font-size 1.8rem
+            text-transform uppercase
         p
             font-size 1.2rem
             color inkDark60
+        @media screen and (min-width: 760px)
+            height 100%
+            padding 2rem
+            p
+                width 19.9rem
+        @media screen and (min-width: 1440px)
+            width 50.3rem
     .content
         padding 2rem 1rem 0
         h4
             display none
+            @media screen and (min-width: 1440px)
+                display block
+                color iris
+                margin-bottom 1.5rem
         p
             font-size 1.8rem
             margin-bottom 2rem
@@ -56,5 +101,34 @@
             display grid
             grid-template-columns repeat(2, 1fr)
             gap 1.5rem
+            margin-bottom 3rem
             svg
                 width 100%
+            @media screen and (min-width: 1440px)
+                height 8.6rem
+                width auto
+                justify-content flex-start
+                gap 2rem
+                grid-template-columns repeat(2, auto)
+                svg
+                    height 100%
+        ul
+            display grid
+            gap 2rem
+            font-size 1.4rem
+        li
+            padding-left 2.8rem
+            position relative
+            &::before
+                content url("./images/check.svg")
+                position absolute
+                left 0
+    .bottom
+        //margin-top 6.4rem
+        display flex
+        position absolute
+        bottom 2rem
+        gap 1rem
+        align-items center
+        font-size 1.2
+        text-transform uppercase

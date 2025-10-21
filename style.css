@@ -694,13 +694,12 @@ ol {
   background-color: rgba(255,255,255,0.8);
   border-radius: 2rem;
   padding: 2rem 1rem;
-  transform: translate(0, -32rem);
+  transform: translate(0, -43rem);
   backdrop-filter: blur(40rem);
 }
 @media screen and (min-width: 760px) {
   .tasks {
     padding: 3rem;
-    transform: translate(0, -37rem);
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1637,10 +1636,21 @@ ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #fff;
 }
 .profit-cards {
   height: 69.5rem;
   position: relative;
+}
+@media screen and (min-width: 760px) {
+  .profit-cards {
+    height: 57.7rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .profit-cards {
+    height: 53.1rem;
+  }
 }
 .profit-item {
   position: absolute;
@@ -1649,6 +1659,42 @@ ol {
   background-color: #f1f1f1;
   border-radius: 2rem;
   padding: 1rem 1rem 2rem;
+  box-sizing: border-box;
+  margin-top: 3.1rem;
+  transform-origin: top center;
+  width: 100%;
+}
+@media screen and (min-width: 760px) {
+  .profit-item {
+    height: 50rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+.profit-item:nth-child(1) {
+  z-index: 5;
+}
+.profit-item:nth-child(2) {
+  z-index: 4;
+  opacity: 0.8;
+  transform: translate(0, -0.8rem) scale(94%);
+}
+.profit-item:nth-child(3) {
+  z-index: 3;
+  opacity: 0.6;
+  transform: translate(0, -1.6rem) scale(88%);
+}
+.profit-item:nth-child(4) {
+  z-index: 2;
+  opacity: 0.4;
+  transform: translate(0, -2.4rem) scale(82%);
+}
+.profit-item:nth-child(5) {
+  z-index: 1;
+  opacity: 0.2;
+  transform: translate(0, -3.2rem) scale(74%);
 }
 .profit-item header {
   display: grid;
@@ -1666,16 +1712,38 @@ ol {
 }
 .profit-item header h3 {
   font-size: 1.8rem;
+  text-transform: uppercase;
 }
 .profit-item header p {
   font-size: 1.2rem;
   color: rgba(50,54,76,0.6);
+}
+@media screen and (min-width: 760px) {
+  .profit-item header {
+    height: 100%;
+    padding: 2rem;
+  }
+  .profit-item header p {
+    width: 19.9rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .profit-item header {
+    width: 50.3rem;
+  }
 }
 .profit-item .content {
   padding: 2rem 1rem 0;
 }
 .profit-item .content h4 {
   display: none;
+}
+@media screen and (min-width: 1440px) {
+  .profit-item .content h4 {
+    display: block;
+    color: #6f92e8;
+    margin-bottom: 1.5rem;
+  }
 }
 .profit-item .content p {
   font-size: 1.8rem;
@@ -1685,9 +1753,45 @@ ol {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 .profit-item .content .widgets svg {
   width: 100%;
+}
+@media screen and (min-width: 1440px) {
+  .profit-item .content .widgets {
+    height: 8.6rem;
+    width: auto;
+    justify-content: flex-start;
+    gap: 2rem;
+    grid-template-columns: repeat(2, auto);
+  }
+  .profit-item .content .widgets svg {
+    height: 100%;
+  }
+}
+.profit-item .content ul {
+  display: grid;
+  gap: 2rem;
+  font-size: 1.4rem;
+}
+.profit-item .content li {
+  padding-left: 2.8rem;
+  position: relative;
+}
+.profit-item .content li::before {
+  content: url("./images/check.svg");
+  position: absolute;
+  left: 0;
+}
+.profit-item .bottom {
+  display: flex;
+  position: absolute;
+  bottom: 2rem;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.2;
+  text-transform: uppercase;
 }
 .ksl {
   padding: 10rem 1rem 0;
