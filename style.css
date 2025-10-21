@@ -424,10 +424,12 @@ ol {
 @media screen and (min-width: 760px) {
   .main-banner {
     background-size: 160%;
+    height: 100rem;
   }
 }
 @media screen and (min-width: 1440px) {
   .main-banner {
+    height: 72.1rem;
     background-size: 100%;
     background-position: center -8rem;
   }
@@ -674,6 +676,7 @@ ol {
   background-size: auto 100%;
   background-position: center bottom;
   height: 109.6rem;
+  position: relative;
 }
 @media screen and (min-width: 760px) {
   .second-section {
@@ -692,6 +695,7 @@ ol {
   border-radius: 2rem;
   padding: 2rem 1rem;
   transform: translate(0, -32rem);
+  backdrop-filter: blur(40rem);
 }
 @media screen and (min-width: 760px) {
   .tasks {
@@ -706,7 +710,7 @@ ol {
     grid-template-columns: 61.8rem 2rem 1fr;
     gap: 3rem;
     align-content: flex-start;
-    transform: translate(0, -48rem);
+    transform: translate(0, -17rem);
   }
 }
 .tasks__text {
@@ -900,7 +904,40 @@ ol {
   }
 }
 .scenarios {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   overflow: hidden;
+}
+.scenarios .primary-caption {
+  padding: 0 2rem 2.5rem;
+}
+.scenarios .cnt-b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 1rem 2rem 2rem;
+}
+@media screen and (min-width: 760px) {
+  .scenarios .cnt-b {
+    padding-top: 2rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .scenarios .cnt-b {
+    padding: 3rem 2rem 4rem;
+  }
+}
+.sq_line {
+  background-color: rgba(111,146,232,0.2);
+  margin: 0 2rem;
+  width: calc(100% - 4rem);
+}
+@media screen and (min-width: 1440px) {
+  .sq_line {
+    background-color: #6f92e8;
+  }
 }
 .circles-block {
   width: 100%;
@@ -912,6 +949,21 @@ ol {
   overflow-x: hidden;
   overflow-y: hidden;
   transform: translate(0rem, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.7rem;
+}
+.circles::before {
+  width: 100%;
+  content: "";
+  position: absolute;
+  border: 0.2rem dashed rgba(214,220,255,0.2);
+}
+.circles::before {
+  content: "";
+  position: absolute;
+  height: 0.1rem solid #d6dcff;
 }
 .circles svg {
   width: 36rem;
@@ -952,6 +1004,144 @@ ol {
   }
   .circles svg:nth-child(5) {
     left: calc(50% + 92.15rem);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .circles {
+    height: 50rem;
+  }
+  .circles svg {
+    width: 50rem;
+    height: 50rem;
+  }
+  .circles svg:nth-child(1) {
+    left: calc(50% - 95.5rem);
+  }
+  .circles svg:nth-child(2) {
+    left: calc(50% - 60.3rem);
+  }
+  .circles svg:nth-child(3) {
+    left: calc(50% - 25rem);
+  }
+  .circles svg:nth-child(4) {
+    left: calc(50% + 10.2rem);
+  }
+  .circles svg:nth-child(5) {
+    left: calc(50% + 45.5rem);
+  }
+}
+.sc__item {
+  width: 15rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: rgba(214,220,255,0.2);
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: relative;
+  transform: translate(0, -2.5rem);
+}
+.sc__item :last-child {
+  width: 12rem;
+  display: block;
+  text-align: center;
+  height: 3.6rem;
+}
+.sc__item :first-child {
+  font-size: 1.2rem;
+}
+.sc__item:nth-child(2n - 1) {
+  flex-direction: column-reverse;
+  transform: translate(0, 2.5rem);
+}
+.sc__item:first-of-type {
+  color: #6f92e8;
+}
+.sc__item:first-of-type .l {
+  background-color: #6f92e8;
+}
+.sc__item:first-of-type .c {
+  background-color: #6f92e8;
+}
+.sc__item .l {
+  height: 6rem;
+  width: 0.1rem;
+  background-color: rgba(214,220,255,0.2);
+}
+.sc__item .c {
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  background-color: #212223;
+  border-radius: 50%;
+  border: 0.4rem solid #d6dcff;
+}
+@media screen and (max-width: 1439px) {
+  .sc__item:not(:first-of-type) {
+    display: none;
+  }
+}
+.mi {
+  margin: 1rem auto 2rem;
+  height: 0.1rem;
+  width: 6rem;
+  background-color: #d6dcff;
+}
+.ss {
+  box-sizing: border-box;
+  padding: 0 2.4rem 2rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+}
+.ss>:not(:first-child) {
+  display: none;
+}
+@media screen and (min-width: 1440px) {
+  .ss>:last-child.btn-block {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    right: 2rem;
+  }
+}
+.sc {
+  width: 68rem;
+  display: flex;
+  gap: 1rem;
+}
+@media screen and (min-width: 760px) {
+  .sc {
+    gap: 2rem;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sc {
+    width: 50%;
+  }
+}
+.sc-card {
+  width: 33.5rem;
+  height: 14rem;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  background-color: rgba(140,159,205,0.2);
+  backdrop-filter: blur(4rem);
+  border-radius: 1rem;
+  color: #fff;
+  display: grid;
+  align-content: space-between;
+}
+@media screen and (min-width: 760px) {
+  .sc-card {
+    widthh: 100%;
   }
 }
 .work {
