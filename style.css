@@ -238,6 +238,7 @@ ol {
   color: #e5e5e5;
   font-size: 1.2rem;
   line-height: 1.4rem;
+  text-transform: none;
 }
 @media screen and (min-width: 1440px) {
   .label-btn {
