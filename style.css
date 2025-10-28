@@ -1577,7 +1577,7 @@ ol {
     font-size: 5.8rem;
   }
   .effect__item:nth-child(1)::after {
-    height: calc(var(--size, 0) - 4rem);
+    height: calc(var(--size, 4rem) - 4rem);
     top: 2rem;
   }
   .effect__item:nth-child(1) h3 {
@@ -1612,7 +1612,7 @@ ol {
   }
   .effect__item:nth-child(4)::before {
     display: block;
-    height: calc(var(--size, 0) - 2rem);
+    height: calc(var(--size, 2rem) - 2rem);
     width: 0.1rem;
     top: 0;
     left: -1.1rem;
@@ -1626,7 +1626,7 @@ ol {
   .effect__item:nth-child(5)::before {
     display: block;
     top: 0;
-    height: calc(var(--size, 0) - 2rem);
+    height: calc(var(--size, 2rem) - 2rem);
     left: calc(-100% - 3.2rem);
   }
 }
