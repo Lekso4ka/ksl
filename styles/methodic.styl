@@ -6,11 +6,12 @@
         top 20.4rem
         left 0
         width 100%
-.methodic__title
-    margin-bottom 4.6rem
-    font-size 2.4rem
-    line-height .9
-    text-align center
+    .primary-caption
+        @media screen and (min-width: 1440px)
+            width 45.8rem
+            margin 0 auto
+    .sq_line
+        margin 2rem
 .map
     width 100%
     //overflow hidden
@@ -35,6 +36,10 @@
     display grid
     grid-template-columns repeat(3, 35.8rem)
     grid-template-rows 10.8rem
+    @media screen and (min-width: 1440px)
+        grid-template-columns repeat(3, 1fr)
+        gap 2.2rem
+        padding 0 2rem 2.6rem
 .methodic-item
     padding 1rem
     background-color #131313
@@ -52,5 +57,24 @@
     font-size 1.2rem
     line-height 1.1
     color #FFFFFFB3
+    position relative
+    @media screen and (min-width: 1440px)
+        padding 0 3rem
+
+    svg
+        position absolute
+        height 1.4rem
+        &:nth-of-type(1)
+            top 0
+            left 0
+        &:nth-of-type(2)
+            top 0
+            right 0
+        &:nth-of-type(3)
+            bottom 0
+            left 0
+        &:nth-of-type(4)
+            bottom 0
+            right 0
 
 

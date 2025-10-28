@@ -1457,11 +1457,14 @@ ol {
   left: 0;
   width: 100%;
 }
-.methodic__title {
-  margin-bottom: 4.6rem;
-  font-size: 2.4rem;
-  line-height: 0.9;
-  text-align: center;
+@media screen and (min-width: 1440px) {
+  .methodic .primary-caption {
+    width: 45.8rem;
+    margin: 0 auto;
+  }
+}
+.methodic .sq_line {
+  margin: 2rem;
 }
 .map {
   width: 100%;
@@ -1489,6 +1492,13 @@ ol {
   grid-template-columns: repeat(3, 35.8rem);
   grid-template-rows: 10.8rem;
 }
+@media screen and (min-width: 1440px) {
+  .methodic__cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem;
+    padding: 0 2rem 2.6rem;
+  }
+}
 .methodic-item {
   padding: 1rem;
   background-color: #131313;
@@ -1508,6 +1518,32 @@ ol {
   font-size: 1.2rem;
   line-height: 1.1;
   color: rgba(255,255,255,0.702);
+  position: relative;
+}
+@media screen and (min-width: 1440px) {
+  .methodic__text {
+    padding: 0 3rem;
+  }
+}
+.methodic__text svg {
+  position: absolute;
+  height: 1.4rem;
+}
+.methodic__text svg:nth-of-type(1) {
+  top: 0;
+  left: 0;
+}
+.methodic__text svg:nth-of-type(2) {
+  top: 0;
+  right: 0;
+}
+.methodic__text svg:nth-of-type(3) {
+  bottom: 0;
+  left: 0;
+}
+.methodic__text svg:nth-of-type(4) {
+  bottom: 0;
+  right: 0;
 }
 .effect {
   padding-bottom: 1rem;
