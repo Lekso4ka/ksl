@@ -9,6 +9,11 @@ header
                 |Логистический
                 br
                 |консалтинг
+            span.logo_x
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 6.22222L14 7.77778L-3.39977e-07 7.77778L-2.71982e-07 6.22222L14 6.22222Z" fill="white" style="mix-blend-mode:difference"/>
+                <path d="M7.77778 14L6.22222 14L6.22222 -3.39977e-07L7.77778 -2.03985e-07L7.77778 14Z" fill="white" style="mix-blend-mode:difference"/>
+                </svg>
         nav
             a(href="") Направления
             a(href="") Технология
@@ -34,3 +39,34 @@ header
                 <rect width="22" height="22" rx="6" fill="#6F92E8"/>
                 <path d="M5 15.0518L8.38176 11.8311L10.5611 13.7528L16.9167 7M16.9167 7H13.3739M16.9167 7V10.5428" stroke="white" stroke-width="1.4"/>
                 </svg>
+script.
+    const headerBlock = document.querySelector(".header-block")
+    try {
+        const burgerBtn = document.querySelector(".header-block_mob svg:last-of-type");
+
+        const headerClose = document.querySelector(".logo_x")
+
+        burgerBtn.addEventListener("click", (e) => {
+            e.stopPropagation()
+            headerBlock.classList.toggle("active")
+        })
+        headerClose.addEventListener("click", () => {
+            headerBlock.classList.remove("active")
+        })
+        document.addEventListener("click", (e) => {
+            if (e.target !== headerBlock) {
+                if (headerBlock.classList.contains("active")) {
+                    headerBlock.classList.remove("active")
+                }
+            }
+        })
+    } catch(err) {
+        console.warn("Требуется мобильная версия")
+    }
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1440) {
+            if (headerBlock.classList.contains("active")) {
+                headerBlock.classList.remove("active")
+            }
+        }
+    })

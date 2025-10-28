@@ -22,7 +22,7 @@
 .header-block
     width 100vw
     height 100vh
-    position absolute
+    position fixed
     left -100vw
     background #010101
     top 0
@@ -33,6 +33,14 @@
     display grid
     grid-template-rows auto 1fr auto
     gap 11.6rem
+    transition transform 500ms
+    &.active
+        transform translate(100vw)
+    @media screen and (min-width: 760px)
+        width 39rem
+        left -39rem
+        &.active
+            transform translate(39rem)
     .logo
         display flex
         align-items center
@@ -41,8 +49,7 @@
         padding-bottom 2.4rem
         border-bottom .16rem solid iris20
         position relative
-        &::after
-            content url(./images/plus.svg)
+        .logo_x
             position absolute
             right 0
             top 0
@@ -72,7 +79,6 @@
             left calc(50% - .05rem)
             height 5rem
         .btn-label
-            //width 100%
             height 4.2rem
             background transparent
             color white
@@ -98,12 +104,11 @@
         .logo
             font-size 1rem
             gap 1.4rem
-            //padding-bottom 0
             border-bottom none
             padding 0
             svg
                 height 2.2rem
-            &::after
+            .logo_x
                 display none
         nav
             display flex
@@ -111,20 +116,29 @@
             font-size .8rem
             text-transform uppercase
             color #D6DCFF
+            font-weight 450
         .links
             display flex
             align-items center
             gap 1rem
+            padding-top 0
             .btn-label
-
-                height 4.2rem
+                height 2.8rem
+                width 11rem
                 color inkDark
                 gap .6rem
-                padding .7rem .65rem
+                border-radius .6rem
                 background-color white
                 letter-spacing -.008
+                font-size .8rem
+                font-weight 450
+                display flex
+                justify-content center
+                cursor pointer
                 svg
                     order 1
+                    width 1.4rem
+                    height 1.4rem
                 &:nth-child(2)
                     display none
                 &:last-child

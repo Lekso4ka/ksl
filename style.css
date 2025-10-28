@@ -1,17 +1,12 @@
 @font-face {
   font-family: "Suisse Intl";
-  src: url("./fonts/web/SuisseIntl-Black-WebM.eot") format("embedded-opentype"), url("./fonts/web/SuisseIntl-Black-WebM.ttf") format("truetype"), url("./fonts/web/SuisseIntl-Black-WebM.woff") format("woff"), url("./fonts/web/SuisseIntl-Black-WebM.woff2") format("woff2");
+  src: url("./fonts/design/SuisseIntl-Bold.otf") format("opentype");
   font-weight: 600;
 }
 @font-face {
   font-family: "Suisse Intl";
-  src: url("./fonts/web/SuisseIntl-Book-WebXL.eot") format("embedded-opentype"), url("./fonts/web/SuisseIntl-Book-WebXL.ttf") format("truetype"), url("./fonts/web/SuisseIntl-Book-WebXL.woff") format("woff"), url("./fonts/web/SuisseIntl-Book-WebXL.woff2") format("woff2");
+  src: url("./fonts/design/SuisseIntl-Book.otf") format("opentype");
   font-weight: 400;
-}
-@font-face {
-  font-family: "Suisse Intl";
-  src: url("./fonts/web/SuisseIntl-Book-WebM.eot") format("embedded-opentype"), url("./fonts/web/SuisseIntl-Book-WebM.ttf") format("truetype"), url("./fonts/web/SuisseIntl-Book-WebM.woff") format("woff"), url("./fonts/web/SuisseIntl-Book-WebM.woff2") format("woff2");
-  font-weight: 300;
 }
 html {
   font-size: 2.56vw;
@@ -541,7 +536,7 @@ ol {
 .header-block {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: -100vw;
   background: #010101;
   top: 0;
@@ -552,6 +547,19 @@ ol {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 11.6rem;
+  transition: transform 500ms;
+}
+.header-block.active {
+  transform: translate(100vw);
+}
+@media screen and (min-width: 760px) {
+  .header-block {
+    width: 39rem;
+    left: -39rem;
+  }
+  .header-block.active {
+    transform: translate(39rem);
+  }
 }
 .header-block .logo {
   display: flex;
@@ -562,8 +570,7 @@ ol {
   border-bottom: 0.16rem solid rgba(111,146,232,0.2);
   position: relative;
 }
-.header-block .logo::after {
-  content: url("./images/plus.svg");
+.header-block .logo .logo_x {
   position: absolute;
   right: 0;
   top: 0;
@@ -635,7 +642,7 @@ ol {
   .header-block .logo svg {
     height: 2.2rem;
   }
-  .header-block .logo::after {
+  .header-block .logo .logo_x {
     display: none;
   }
   .header-block nav {
@@ -644,22 +651,32 @@ ol {
     font-size: 0.8rem;
     text-transform: uppercase;
     color: #d6dcff;
+    font-weight: 450;
   }
   .header-block .links {
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding-top: 0;
   }
   .header-block .links .btn-label {
-    height: 4.2rem;
+    height: 2.8rem;
+    width: 11rem;
     color: #32364c;
     gap: 0.6rem;
-    padding: 0.7rem 0.65rem;
+    border-radius: 0.6rem;
     background-color: #fff;
     letter-spacing: -0.008;
+    font-size: 0.8rem;
+    font-weight: 450;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
   }
   .header-block .links .btn-label svg {
     order: 1;
+    width: 1.4rem;
+    height: 1.4rem;
   }
   .header-block .links .btn-label:nth-child(2) {
     display: none;
@@ -911,6 +928,17 @@ ol {
 .scenarios .primary-caption {
   padding: 0 2rem 2.5rem;
 }
+@media screen and (min-width: 760px) {
+  .scenarios .primary-caption {
+    width: 58.7rem;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .scenarios .primary-caption {
+    width: 74.1rem;
+  }
+}
 .scenarios .cnt-b {
   display: flex;
   align-items: center;
@@ -927,6 +955,16 @@ ol {
   .scenarios .cnt-b {
     padding: 3rem 2rem 4rem;
   }
+}
+.scenarios .sq_line {
+  opacity: 0.2;
+}
+.scenarios .figures_simple {
+  opacity: 0.2;
+  margin-top: 3rem;
+}
+.scenarios .figures_simple .line2 {
+  height: 3rem;
 }
 .sq_line {
   background-color: rgba(111,146,232,0.2);
@@ -1086,6 +1124,11 @@ ol {
   width: 6rem;
   background-color: #d6dcff;
 }
+@media screen and (min-width: 1440px) {
+  .mi {
+    display: none;
+  }
+}
 .ss {
   box-sizing: border-box;
   padding: 0 2.4rem 2rem;
@@ -1095,16 +1138,31 @@ ol {
   height: 16rem;
   position: relative;
 }
+.ss>.btn-block {
+  display: none;
+}
 @media screen and (min-width: 1440px) {
   .ss {
     overflow: hidden;
+    padding-bottom: 3rem;
+    transform: translate(0, -3rem);
   }
-  .ss>:last-child.btn-block {
+  .ss>.btn-block {
     display: flex;
     position: absolute;
     top: 0;
     bottom: auto;
     right: 2rem;
+  }
+  .ss>.btn-block .btn-label {
+    background-color: transparent;
+    border: 0.16rem solid rgba(111,146,232,0.2);
+    color: #fff;
+    line-height: 2.2rem;
+  }
+  .ss>.ss__line {
+    position: absolute;
+    bottom: 0;
   }
 }
 .sc {
@@ -1149,6 +1207,14 @@ ol {
   color: #fff;
   display: grid;
   align-content: space-between;
+}
+.sc-card p {
+  font-size: 1.2rem;
+}
+.ss__line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: rgba(111,146,232,0.2);
 }
 .work {
   padding: 10rem 1rem 0;

@@ -5,6 +5,11 @@
     overflow hidden
     .primary-caption
         padding 0 2rem 2.5rem
+        @media screen and (min-width: 760px)
+            width 58.7rem
+            margin 0 auto
+        @media screen and (min-width: 1440px)
+            width 74.1rem
     .cnt-b
         display flex
         align-items center
@@ -15,6 +20,13 @@
             padding-top 2rem
         @media screen and (min-width: 1440px)
             padding 3rem 2rem 4rem
+    .sq_line
+        opacity .2
+    .figures_simple
+        opacity .2
+        margin-top 3rem
+        .line2
+            height 3rem
 .sq_line
     background-color iris20
     margin 0 2rem
@@ -134,6 +146,9 @@
     height .1rem
     width 6rem
     background-color lavender
+    @media screen and (min-width: 1440px)
+        display none
+
 .ss
     box-sizing border-box
     padding 0 2.4rem 2rem
@@ -142,16 +157,27 @@
     width 100%
     height 16rem
     position relative
-    //&>:not(:first-child)
-    //    display none
+    &>.btn-block
+        display none
     @media screen and (min-width: 1440px)
         overflow hidden
-        &>:last-child.btn-block
+        padding-bottom 3rem
+        transform translate(0, -3rem)
+        &>.btn-block
             display flex
             position absolute
             top 0
             bottom auto
             right 2rem
+            .btn-label
+                background-color transparent
+                border .16rem solid iris20
+                color white
+                line-height 2.2rem
+
+        &>.ss__line
+            position absolute
+            bottom 0
 
 .sc
     width 68rem
@@ -185,7 +211,13 @@
     border-radius 1rem
     color white
     display grid
+    p
+        font-size 1.2rem
     align-content space-between
     //@media screen and (min-width: 760px)
     //    width 100%
 
+.ss__line
+    width 100%
+    height .1rem
+    background-color iris20
