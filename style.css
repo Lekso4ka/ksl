@@ -1577,8 +1577,8 @@ ol {
     font-size: 5.8rem;
   }
   .effect__item:nth-child(1)::after {
-    height: calc(100% - 2rem);
-    top: 0;
+    height: calc(var(--size, 0) - 4rem);
+    top: 2rem;
   }
   .effect__item:nth-child(1) h3 {
     width: auto;
@@ -1603,12 +1603,16 @@ ol {
   .effect__item:nth-child(3) {
     grid-column-start: 4;
   }
+  .effect__item:nth-child(3)::after {
+    height: calc(100% - 4rem);
+    top: 2rem;
+  }
   .effect__item:nth-child(4) {
     grid-column-start: 2;
   }
   .effect__item:nth-child(4)::before {
     display: block;
-    height: calc(100% - 2rem);
+    height: calc(var(--size, 0) - 2rem);
     width: 0.1rem;
     top: 0;
     left: -1.1rem;
@@ -1622,6 +1626,7 @@ ol {
   .effect__item:nth-child(5)::before {
     display: block;
     top: 0;
+    height: calc(var(--size, 0) - 2rem);
     left: calc(-100% - 3.2rem);
   }
 }

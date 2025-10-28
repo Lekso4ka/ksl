@@ -29,3 +29,32 @@ section.effect.container
         div.effect__item
             h3 Прозрачность транспортных и складских процессов
             p затраты измерены и оценены на предмет адекватности рынку.
+script.
+    const effectItems = gsap.utils.toArray(".effect__item")
+    const pseudoBox = document.getElementById('pseudoBox');
+    const h0 = effectItems[0].offsetHeight
+    const h3 = effectItems[3].offsetHeight
+    const h4 = effectItems[4].offsetHeight
+    // Анимация CSS-переменных для псевдоэлементов
+
+    ScrollTrigger.create({
+        trigger: ".effect",
+        start: "top top",
+        scrub: true,
+        pin: true,
+        onUpdate: (self) => {
+            const n0 = 100 / effectItems[0].offsetHeight;
+            const m0 = Math.floor(self.progress * 100 / n0)
+            const n3 = 100 / effectItems[3].offsetHeight;
+            const m3 = Math.floor(self.progress * 100 / n3)
+            gsap.to(effectItems[0], {
+                '--size': `${ m0 }px`
+            });
+            gsap.to(effectItems[3], {
+                '--size': `${ m3 }px`
+            });
+            gsap.to(effectItems[4], {
+                '--size': `${ m3 }px`
+            });
+        }
+    });
