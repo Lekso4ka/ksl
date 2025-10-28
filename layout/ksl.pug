@@ -56,4 +56,57 @@ section.ksl
             button.btn-label
                 span Запросить аудит
                 include vectors/pic11
+script.
+    const textElement = document.querySelector(".big-text");
+    const originalText = textElement.textContent;
+
+    textElement.innerHTML = originalText.split('').map(letter =>
+        `<span class="seq-letter">${ letter }</span>`
+    ).join('');
+
+    const letters = gsap.utils.toArray('.seq-letter');
+    let index = 0
+
+    // Создаем timeline с скролл-триггером
+    //const tl = gsap.timeline({
+    //    scrollTrigger: {
+    //        trigger: ".ksl__article",
+    //        start: "top 20rem top",
+    //        end: "bottom bottom",
+    //        scrub: 1,
+    //        pin: true
+    //        // markers: true,
+    //    }
+    //});
+
+    // Добавляем анимации для каждой буквы с задержкой
+    //letters.forEach((letter, index) => {
+    //    tl.to(letter, {
+    //        color: "#6F92E8",
+    //        //opacity: 1,
+    //        //scale: 1.3,
+    //        //rotationY: 360,
+    //        //duration: 0.5,
+    //        ease: "power2.out"
+    //    }, index * 0.1); // задержка между буквами
+    //});
+
+    const letterAnimation = (l) => gsap.to(l, {
+        color: "#6F92E8",
+        ease: "none",
+        paused: true
+    });
+
+    ScrollTrigger.create({
+        trigger: ".ksl__article",
+        start: "top 20rem top",
+        end: index === letters.length,
+        scrub: true,
+        pin: true,
+        onUpdate: (self) => {
+            console.log("ping")
+            letterAnimation(letters[index]).progress(self.progress)
+            index++
+        }
+    });
             

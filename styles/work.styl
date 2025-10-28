@@ -23,20 +23,23 @@
             top 15rem
             left 5rem
             width 37rem
-.work__cards
-    display grid
-    gap 1rem
+.work__container
     margin-bottom 1rem
+    .work__cards
+        display grid
+        gap 1rem
     @media screen and (min-width: 760px)
-        grid-template-columns repeat(2, 1fr)
-        gap 2rem
+        .work__cards
+            grid-template-columns repeat(2, 1fr)
+            gap 2rem
         margin-bottom 4rem
     @media screen and (min-width: 1440px)
         height 100%
         overflow-x hidden
-        overflow-y auto
-        grid-column-start 2
-        grid-template-rows 7.1rem 35.8rem 7.1rem 35.8rem 7.1rem
+        overflow-y hidden
+        .work__cards
+            grid-column-start 2
+            grid-template-rows 7.1rem 35.8rem 7.1rem 35.8rem 7.1rem
 .work-item
     height 35rem
     box-sizing border-box

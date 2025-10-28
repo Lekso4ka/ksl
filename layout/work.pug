@@ -2,35 +2,36 @@ section.work
     h2.primary-caption
         |Как работает&#32;
         span.primary-caption_iris.primary-caption_white_1440 цифровое моделирование
-    div.work__cards
-        div.work-item
-            header.work-item__header
-                h4.work-item__caption 01. верификация
-                include vectors/pic1
-            div.work-item__content
-                h3 Собираем и верифицируем данные
-                p Анализируем текущую сеть, тарифы, товарные потоки, географию клиентов и поставщиков.
-        div.work-item
-            header.work-item__header
-                h4.work-item__caption 02. Модель
-                include vectors/pic2
-            div.work-item__content
-                h3 Создаем цифровую модель сети
-                p Формируем математическую модель, которая отражает реальную работу сети с учётом актуальных данных.
-        div.work-item
-            header.work-item__header
-                h4.work-item__caption 03. Оценка
-                include vectors/pic3
-            div.work-item__content
-                h3 Оцениваем сценарии и стратегии
-                p Тестируем сотни гипотез, оцениваем их влияние на затраты, сервис и сроки. Выбираем оптимальное расположение складов и распределение товаропотоков.
-        div.work-item
-            header.work-item__header
-                h4.work-item__caption 04. Обучение
-                include vectors/pic4
-            div.work-item__content
-                h3 Передаем модель и обучаем команду
-                p Цифровая модель сети готова к ответам на вопросы «Что будет, если?..». Ваши сотрудники обучены и умеют самостоятельно с ней работать.
+    .work__container
+        div.work__cards
+            div.work-item
+                header.work-item__header
+                    h4.work-item__caption 01. верификация
+                    include vectors/pic1
+                div.work-item__content
+                    h3 Собираем и верифицируем данные
+                    p Анализируем текущую сеть, тарифы, товарные потоки, географию клиентов и поставщиков.
+            div.work-item
+                header.work-item__header
+                    h4.work-item__caption 02. Модель
+                    include vectors/pic2
+                div.work-item__content
+                    h3 Создаем цифровую модель сети
+                    p Формируем математическую модель, которая отражает реальную работу сети с учётом актуальных данных.
+            div.work-item
+                header.work-item__header
+                    h4.work-item__caption 03. Оценка
+                    include vectors/pic3
+                div.work-item__content
+                    h3 Оцениваем сценарии и стратегии
+                    p Тестируем сотни гипотез, оцениваем их влияние на затраты, сервис и сроки. Выбираем оптимальное расположение складов и распределение товаропотоков.
+            div.work-item
+                header.work-item__header
+                    h4.work-item__caption 04. Обучение
+                    include vectors/pic4
+                div.work-item__content
+                    h3 Передаем модель и обучаем команду
+                    p Цифровая модель сети готова к ответам на вопросы «Что будет, если?..». Ваши сотрудники обучены и умеют самостоятельно с ней работать.
     div.work__image
         video(aria-hidden="true" playsinline autoplay muted loop)
             source(src="./images/ksl_3840_2160.mp4" type="video/mp4")
@@ -39,5 +40,43 @@ section.work
             div.label-item Цифровое моделирование
             div.label-item Оценка сценариев
             div.label-item Обучение персонала
+script.
+    const workBlock = document.querySelector(".work__cards")
+    const workBlock2 = document.querySelector(".work__container")
+
+    const scrollDistance = workBlock.scrollHeight - workBlock2.offsetHeight;
+
+    gsap.to(workBlock, {
+        y: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".work",
+            start: "top 10rem top",
+            //start: "top top",
+            end: `+=${ scrollDistance }`,
+            scrub: 1,
+            pin: true
+        }
+    });
+    //ScrollTrigger.create({
+    //    trigger: ".work",
+    //    start: "bottom 10rem bottom",
+    //    end: "bottom top",
+    //    scrub: true,
+    //    pin: true,
+    //    onUpdate: (self) => {
+    //
+    //    }
+    //});
+
+    //gsap.to(.work, {
+    //    x: 500, // Анимируем свойство x
+    //    scrollTrigger: {
+    //        trigger: ".work", // Триггер - родительский элемент
+    //        start: "top top", // Начало анимации, когда верх контейнера совпадает с центром экрана
+    //        end: "bottom bottom", // Конец анимации
+    //        scrub: true, // Плавная синхронизация с прокруткой
+    //    }
+    //});
 
 

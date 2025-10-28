@@ -953,16 +953,12 @@ ol {
   justify-content: center;
   gap: 2.7rem;
 }
-.circles::before {
+.circles .sc_line {
   width: 100%;
   content: "";
   position: absolute;
-  border: 0.2rem dashed rgba(214,220,255,0.2);
-}
-.circles::before {
-  content: "";
-  position: absolute;
-  height: 0.1rem solid #d6dcff;
+  top: 0;
+  left: 0;
 }
 .circles svg {
   width: 36rem;
@@ -1057,13 +1053,13 @@ ol {
   flex-direction: column-reverse;
   transform: translate(0, 2.5rem);
 }
-.sc__item:first-of-type {
+.sc__item.active {
   color: #6f92e8;
 }
-.sc__item:first-of-type .l {
+.sc__item.active .l {
   background-color: #6f92e8;
 }
-.sc__item:first-of-type .c {
+.sc__item.active .c {
   background-color: #6f92e8;
 }
 .sc__item .l {
@@ -1096,12 +1092,13 @@ ol {
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
+  height: 16rem;
   position: relative;
 }
-.ss>:not(:first-child) {
-  display: none;
-}
 @media screen and (min-width: 1440px) {
+  .ss {
+    overflow: hidden;
+  }
   .ss>:last-child.btn-block {
     display: flex;
     position: absolute;
@@ -1112,8 +1109,23 @@ ol {
 }
 .sc {
   width: 68rem;
-  display: flex;
   gap: 1rem;
+  transform: translate(100%);
+  transition-duration: 500ms;
+  transition-property: transform opacity;
+  display: flex;
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+}
+.sc.active {
+  transform: translate(0);
+  z-index: 1;
+  opacity: 1;
+}
+.sc.empty {
+  transform: translate(-100%);
+  opacity: 0;
 }
 @media screen and (min-width: 760px) {
   .sc {
@@ -1123,7 +1135,7 @@ ol {
 }
 @media screen and (min-width: 1440px) {
   .sc {
-    width: 50%;
+    width: 100%;
   }
 }
 .sc-card {
@@ -1137,11 +1149,6 @@ ol {
   color: #fff;
   display: grid;
   align-content: space-between;
-}
-@media screen and (min-width: 760px) {
-  .sc-card {
-    widthh: 100%;
-  }
 }
 .work {
   padding: 10rem 1rem 0;
@@ -1182,23 +1189,29 @@ ol {
     width: 37rem;
   }
 }
-.work__cards {
-  display: grid;
-  gap: 1rem;
+.work__container {
   margin-bottom: 1rem;
 }
+.work__container .work__cards {
+  display: grid;
+  gap: 1rem;
+}
 @media screen and (min-width: 760px) {
-  .work__cards {
+  .work__container {
+    margin-bottom: 4rem;
+  }
+  .work__container .work__cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-bottom: 4rem;
   }
 }
 @media screen and (min-width: 1440px) {
-  .work__cards {
+  .work__container {
     height: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
+  }
+  .work__container .work__cards {
     grid-column-start: 2;
     grid-template-rows: 7.1rem 35.8rem 7.1rem 35.8rem 7.1rem;
   }
