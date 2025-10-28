@@ -809,48 +809,24 @@ textElement.innerHTML = originalText.split('').map(letter =>
 ).join('');
 
 const letters = gsap.utils.toArray('.seq-letter');
-let index = 0
 
-// Создаем timeline с скролл-триггером
-//const tl = gsap.timeline({
-//    scrollTrigger: {
-//        trigger: ".ksl__article",
-//        start: "top 20rem top",
-//        end: "bottom bottom",
-//        scrub: 1,
-//        pin: true
-//        // markers: true,
-//    }
-//});
-
-// Добавляем анимации для каждой буквы с задержкой
-//letters.forEach((letter, index) => {
-//    tl.to(letter, {
-//        color: "#6F92E8",
-//        //opacity: 1,
-//        //scale: 1.3,
-//        //rotationY: 360,
-//        //duration: 0.5,
-//        ease: "power2.out"
-//    }, index * 0.1); // задержка между буквами
-//});
-
-const letterAnimation = (l) => gsap.to(l, {
-    color: "#6F92E8",
-    ease: "none",
-    paused: true
-});
 
 ScrollTrigger.create({
-    trigger: ".ksl__article",
-    start: "top 20rem top",
-    end: index === letters.length,
+    trigger: ".ksl",
+    start: "bottom bottom",
     scrub: true,
     pin: true,
     onUpdate: (self) => {
-        console.log("ping")
-        letterAnimation(letters[index]).progress(self.progress)
-        index++
+        let cnt = letters.length;
+        const n = 100 / cnt;
+        const m = Math.floor(self.progress * 100 / n)
+        letters.forEach((letter, i) => {
+            if (i <= m) {
+                letter.style.color = "#6F92E8"
+            } else {
+                letter.style.color = null
+            }
+        })
     }
 });
         </script><section class="partners"><h4 class="label-btn">Партнеры</h4><h2 class="primary-caption primary-caption_center">Кейсы с крупнейшими&#32;<span class="primary-caption_iris">российскими компаниями</span></h2><div class="figures"><div class="line"></div><div class="square"></div></div><div class="partners__block"><div class="partners__img"><svg width="130" height="72" viewBox="0 0 130 72" fill="none" xmlns="http://www.w3.org/2000/svg">
