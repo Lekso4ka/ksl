@@ -1552,6 +1552,14 @@ ol {
   .effect {
     padding-bottom: 2rem;
   }
+  .effect .primary-caption {
+    width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .effect .sq_line {
+    margin-bottom: 4rem;
+  }
 }
 .effect__cards {
   display: grid;
@@ -1679,8 +1687,8 @@ ol {
     font-size: 5.8rem;
   }
   .effect__item:nth-child(1)::after {
-    height: calc(var(--size, 4rem) - 4rem);
-    top: 2rem;
+    height: calc(var(--size, 2rem) - 2rem);
+    top: 0;
   }
   .effect__item:nth-child(1) h3 {
     width: auto;
@@ -1706,8 +1714,8 @@ ol {
     grid-column-start: 4;
   }
   .effect__item:nth-child(3)::after {
-    height: calc(100% - 4rem);
-    top: 2rem;
+    height: calc(100% - 2rem);
+    top: 0;
   }
   .effect__item:nth-child(4) {
     grid-column-start: 2;
