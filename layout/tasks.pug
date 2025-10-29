@@ -7,6 +7,22 @@ section.tasks
             h4 Решение
             p Оптимальное размещение складов и распределение запасов по ним снижают издержки благодаря лучшей загрузке транспорта и сокращению плеч доставки.
     .tasks__decorate_center
+        <svg width="20" height="305" viewBox="0 0 20 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="9" width="2" height="297" rx="1" fill="white"/>
+        <rect class="t_progress" x="9" width="2" height="0" rx="1" fill="#6F92E8"/>
+        <rect x="0.55" y="0.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
+        <rect x="0.55" y="0.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
+        <rect x="2" y="2" width="16" height="16" rx="8" fill="#6F92E8"/>
+        <path d="M5.7998 10.6L8.1998 13L14.1998 7" stroke="white" stroke-width="1.03529"/>
+        <foreignObject x="-40" y="55" width="100" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_0_1408_1063_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="40" x="0.5" y="95.5" width="19" height="19" rx="9.5" fill="white" fill-opacity="0.8" stroke="white"/>
+        <foreignObject x="-40" y="150" width="100" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(20px);clip-path:url(#bgblur_1_1408_1063_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="40" x="0.5" y="190.5" width="19" height="19" rx="9.5" fill="white" fill-opacity="0.8" stroke="white"/>
+        <foreignObject x="-20" y="265" width="60" height="60"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(10px);clip-path:url(#bgblur_2_1408_1063_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="20" x="0.5" y="285.5" width="19" height="19" rx="9.5" fill="white" fill-opacity="0.8" stroke="white"/>
+        <defs>
+        <clipPath id="bgblur_0_1408_1063_clip_path" transform="translate(40 -55)"><rect x="0.5" y="95.5" width="19" height="19" rx="9.5"/>
+        </clipPath><clipPath id="bgblur_1_1408_1063_clip_path" transform="translate(40 -150)"><rect x="0.5" y="190.5" width="19" height="19" rx="9.5"/>
+        </clipPath><clipPath id="bgblur_2_1408_1063_clip_path" transform="translate(20 -265)"><rect x="0.5" y="285.5" width="19" height="19" rx="9.5"/>
+        </clipPath></defs>
+        </svg>
     div.tasks__block
         h4.tasks__label
             span.label-txt Какие задачи решает моделирование?
@@ -33,218 +49,89 @@ section.tasks
                 p Бенчмарк транспортных и складских затрат с отраслью и рыночными тарифами на склады и транспорт.
     .tasks__decorate_bottom
 script.
-    //document.addEventListener("DOMContentLoaded", () => {
-    //    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, TextPlugin)
 
-        const sections = gsap.utils.toArray(".tasks-item");
-        const container = document.querySelector(".tasks");
-        //const totalHeight = container.querySelector(".tasks__block").getBoundingClientRect().height * sections.length;
-        //container.style.height = `${totalHeight}px`;
+        const tCards = gsap.utils.toArray(".tasks-item");
+        const tLine = document.querySelector(".t_progress")
+        const tCnt = document.querySelector(".tasks-cnt")
 
+        const tLineAnimation = gsap.to(tLine, {
+            height: 297,
+            duration: 1,
+            ease: "none",
+            paused: true
+        });
+        const tTl = gsap.timeline({ paused: true });
 
-        const count = document.querySelector(".tasks-cnt");
-        const wrap = gsap.utils.wrap(0, sections.length);
-        let animating;
-        let currentIndex = 0;
-
-        //function goToNextCard() {
-        //    if (currentIndex >= sections.length - 1) return;
-        //
-        //    const currentCard = sections[currentIndex];
-        //    const nextCard = sections[currentIndex + 1];
-        //
-        //    // Анимация исчезновения текущей карточки
-        //    gsap.to(currentCard, {
-        //        transform: "translate(0, 100%)",
-        //        opacity: 0,
-        //        duration: 0.8,
-        //        ease: "power2.inOut",
-        //    });
-        //
-        //    // Анимация появления следующей карточки
-        //    gsap.fromTo(nextCard,
-        //        {
-        //            transform: "translate(0, -.8rem) scale(94%)",
-        //            opacity: .3,
-        //            backgroundColor: "#6F92E8"
-        //        },
-        //        {
-        //            opacity: 1,
-        //            backgroundColor: "#fffc",
-        //            transform: "translate(0, 0) scale(100%)",
-        //            duration: 0.8,
-        //            ease: "power2.inOut",
-        //            onStart: () => {
-        //                nextCard.classList.add('active');
-        //            }
-        //        }
-        //    );
-        //
-        //    currentIndex++;
-        //}
-
-        // Функция для возврата к предыдущей карточке
-        //function goToPrevCard() {
-        //    if (currentIndex <= 0) return;
-        //
-        //    const currentCard = cards[currentIndex];
-        //    const prevCard = cards[currentIndex - 1];
-        //
-        //    // Анимация исчезновения текущей карточки
-        //    gsap.to(currentCard, {
-        //        transform: "translate(0, -.8rem) scale(94%)",
-        //        opacity: .3,
-        //        backgroundColor: "#6F92E8",
-        //        duration: 0.8,
-        //        ease: "power2.inOut"
-        //    });
-        //
-        //    // Анимация появления предыдущей карточки
-        //    gsap.fromTo(prevCard,
-        //        {
-        //            transform: "translate(0, 100%)",
-        //            opacity: 0, },
-        //        {
-        //            opacity: 1,
-        //            backgroundColor: "#fffc",
-        //            transform: "translate(0, 0) scale(100%)",
-        //            duration: 0.8,
-        //            ease: "power2.inOut"
-        //        }
-        //    );
-        //
-        //    currentIndex--;
-        //}
-
-        // Создаем триггеры для каждой карточки
-        //sections.forEach((card, index) => {
-        //    if (index === 0) return; // Пропускаем первую карточку
-        //
-        //    const trigger = gsap.timeline({
-        //        scrollTrigger: {
-        //            trigger: container,
-        //            start: `top center`,
-        //            end: `bottom center`,
-        //            scrub: 1,
-        //            onEnter: () => {
-        //                if (index > currentIndex) {
-        //                    goToNextCard();
-        //                }
-        //            },
-        //            onEnterBack: () => {
-        //                if (index <= currentIndex) {
-        //                    goToPrevCard();
-        //                }
-        //            }
-        //        }
-        //    });
-        //});
-        //
-        //// Обновление при изменении размера окна
-        //window.addEventListener('resize', function() {
-        //    const newTotalHeight = cards.length * (window.innerHeight * 0.5);
-        //    cardsSection.style.height = `${newTotalHeight}px`;
-        //    ScrollTrigger.refresh();
-        //});
-
-        function gotoSection(index) {
-            animating = true;
-            index = wrap(index);
-
-            gsap.timeline({
-                defaults: { duration: 1, ease: "expo.inOut" },
-                onComplete: () => {
-                    animating = false;
-                }
-            }).to(sections[currentIndex], {
+        tTl
+            .to(tCards[0], {
                 transform: "translate(0, 100%)",
-                opacity: 0
+                opacity: 0,
+                duration: 1
             })
+            .to(tCards[1], {
+                transform: "translate(0, 0) scale(100%)",
+                opacity: 1,
+                backgroundColor: "white",
+                duration: 1
+            }, "-=1")
+            .to(tCards[2], {
+                transform: "translate(0, -.8rem) scale(94%)",
+                opacity: .8,
+                duration: 1
+            }, "-=1")
+            .to(tCards[3], {
+                transform: "translate(0, -1.6rem) scale(88%)",
+                opacity: .6,
+                duration: 1
+            }, "-=1")
+            .to(tCards[1], {
+                transform: "translate(0, 100%)",
+                opacity: 0,
+                duration: 1
+            })
+            .to(tCards[2], {
+                transform: "translate(0, 0) scale(100%)",
+                opacity: 1,
+                backgroundColor: "white",
+                duration: 1
+            }, "-=1")
+            .to(tCards[3], {
+                transform: "translate(0, -.8rem) scale(94%)",
+                opacity: .8,
+                duration: 1
+            }, "-=1")
+            .to(tCards[2], {
+                transform: "translate(0, 100%)",
+                opacity: 0,
+                duration: 1
+            })
+            .to(tCards[3], {
+                transform: "translate(0, 0) scale(100%)",
+                opacity: 1,
+                backgroundColor: "white",
+                duration: 1
+            }, "-=1")
 
-            gsap.timeline({
-                defaults: { duration: 1, ease: "expo.inOut" },
-                onComplete: () => {
-                    animating = false;
-                    if (index === 3) {
-                        setTimeout(() => {
-                        document.querySelector(".scenarios").scrollIntoView({behavior: 'smooth'});
-                        }, 1500)
-                        //gsap.to(window, {
-                        //    duration: 1.5, // 1.5 seconds
-                        //    ease: "power2.inOut",
-                        //    scrollTo: document.querySelector(".scenarios")
-                        //});
-                    } else {
-                        currentIndex = index
-                    }
-                }
-            }).set(count, { text: `0${index + 1}` }, 1)
-            gsap.timeline({
-                defaults: { duration: 1, ease: "expo.inOut" },
-                onComplete: () => {
-                    animating = false;
-                }
-            }).to(sections[index], {
-                    transform: "translate(0, 0) scale(100%)",
-                    opacity: 1,
-                    backgroundColor: "#FFFFFFCC"
-                }, 0.5)
-            if (sections[index + 1]) {
-                gsap.timeline({
-                    defaults: { duration: 1, ease: "expo.inOut" },
-                    onComplete: () => {
-                        animating = false;
-                    }
-                }).to(sections[index + 1], {
-                   transform: "translate(0, -.8rem) scale(94%)",
-                   opacity: .3,
-               })
-            }
-            if (sections[index + 2]) {
-                gsap.timeline({
-                    defaults: { duration: 1, ease: "expo.inOut" },
-                    onComplete: () => {
-                        animating = false;
-                    }
-                }).to(sections[index + 2], {
-                    transform: "translate(0, -1.6rem) scale(88%)",
-                    opacity: .3,
-                })
-            }
-        }
-
-        const tasksObserver = Observer.create({
-            type: "wheel,touch,pointer",
-            preventDefault: true,
-            wheelSpeed: -1,
-            target: ".tasks",
-            y: -100,
+        ScrollTrigger.create({
+            trigger: ".second-section",
+            start: "top center",
+            //end: "+=3000",
+            scrub: true,
             pin: true,
-            onUp: () => {
-                console.log("down");
-                if (animating) return;
-                gotoSection(currentIndex + 1);
-                console.log(currentIndex)
-                //if (currentIndex === 3) {
-                //    setTimeout(() => {
-                //        tasksObserver.disable()
-                //    }, 1000)
-                //}
+            onUpdate: (self) => {
+                tLineAnimation.progress(self.progress);
+                const progressCnt = 100 / (tCards.length);
+                document.body.style.backgroundColor = "#000"
+                const current = Math.floor(self.progress * 100 / progressCnt)
+                if (current <= tCards.length) {
+                    tCnt.innerText = `0${ current + 1 }`
+                } else {
+                    document.body.style.backgroundColor = null
+                }
 
-            },
-            onDown: () => {
-                console.log("up");
-                if (animating) return;
-                gotoSection(currentIndex - 1);
-            },
-            tolerance: 10
+                tTl.progress(self.progress)
+            }
         });
 
-    //})
-    //ScrollTrigger.create({
-    //    trigger: container,
-    //    animation: animation,
-    //    start: "top 50%", // Отслеживаем когда верх элемента достигнет центра экрана
-    //    end: "bottom 50%", // Отслеживаем когда низ элемента покинет центр экрана
-    //    scrub: 1, // Синхронизируем анимацию с прокруткой
-    //});
+
+

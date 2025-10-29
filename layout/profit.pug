@@ -198,7 +198,6 @@ script.
         scrub: true,
         pin: true,
         onUpdate: (self) => {
-            //pLineAnimation.progress(self.progress);
             const progressCnt = 100 / (pCards.length);
             const current = Math.floor(self.progress * 100 / progressCnt)
             if (current <= pCards.length) {

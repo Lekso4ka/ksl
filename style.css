@@ -769,7 +769,7 @@ ol {
 @media screen and (min-width: 1440px) {
   .tasks__decorate_center {
     display: block;
-    background-color: #d6dcff;
+    background-color: transparent;
   }
 }
 .tasks__block {
