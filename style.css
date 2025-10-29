@@ -1742,6 +1742,12 @@ ol {
   .profit {
     padding: 12rem 2rem 3rem;
   }
+  .profit .primary-caption {
+    width: 53.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+  }
 }
 .profit h2 {
   color: #e5e5e5;
@@ -1752,11 +1758,15 @@ ol {
   opacity: 0.2;
 }
 .profit .cnt {
-  padding: 0 1rem;
+  transform: translate(0, -100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #fff;
+}
+.profit .sq_line {
+  width: 100%;
+  margin: 0 0 4rem;
 }
 .profit-cards {
   height: 69.5rem;
