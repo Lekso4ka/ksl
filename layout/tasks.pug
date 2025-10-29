@@ -1,3 +1,4 @@
+
 section.tasks
     .tasks__text
         div.text-item
@@ -115,18 +116,16 @@ script.
         ScrollTrigger.create({
             trigger: ".second-section",
             start: "top center",
-            //end: "+=3000",
+            end: "+=3000",
             scrub: true,
             pin: true,
             onUpdate: (self) => {
                 tLineAnimation.progress(self.progress);
                 const progressCnt = 100 / (tCards.length);
-                document.body.style.backgroundColor = "#000"
+                //document.body.style.backgroundColor = "#000"
                 const current = Math.floor(self.progress * 100 / progressCnt)
-                if (current <= tCards.length) {
+                if (current <= tCards.length - 1) {
                     tCnt.innerText = `0${ current + 1 }`
-                } else {
-                    document.body.style.backgroundColor = null
                 }
 
                 tTl.progress(self.progress)

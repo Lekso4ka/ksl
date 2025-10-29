@@ -146,6 +146,13 @@ ol {
 .stroke_lavender {
   stroke: #d6dcff;
 }
+.bg {
+  background-color: #000;
+  background-image: url("./images/banner.png");
+  background-position: center -8rem;
+  background-size: auto 72.1rem;
+  background-attachment: fixed;
+}
 .btn-label {
   height: 3.6rem;
   padding: 0.7rem 1.05rem;
@@ -427,6 +434,7 @@ ol {
     height: 72.1rem;
     background-size: 100%;
     background-position: center -8rem;
+    background-attachment: fixed;
   }
 }
 .banner {
