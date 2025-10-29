@@ -6,12 +6,16 @@
         display grid
         grid-template-columns 32.5rem 1fr
         gap 30rem
+        height 67.8rem
+    .faq__block
+        @media screen and (min-width: 1440px)
+            overflow hidden
+            height 100%
+            grid-row-end span 2
     .list
         display grid
         //gap 3.2rem
         counter-reset: section
-        @media screen and (min-width: 1440px)
-            grid-row-end span 2
         li
             padding 1rem 0 0 2rem
             counter-increment section

@@ -2324,16 +2324,19 @@ ol {
     display: grid;
     grid-template-columns: 32.5rem 1fr;
     gap: 30rem;
+    height: 67.8rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .faq .faq__block {
+    overflow: hidden;
+    height: 100%;
+    grid-row-end: span 2;
   }
 }
 .faq .list {
   display: grid;
   counter-reset: section;
-}
-@media screen and (min-width: 1440px) {
-  .faq .list {
-    grid-row-end: span 2;
-  }
 }
 .faq .list li {
   padding: 1rem 0 0 2rem;
