@@ -1823,7 +1823,6 @@ ol {
   padding: 1rem;
   height: 19.9rem;
   box-sizing: border-box;
-  background-image: url("./images/profit1.png");
   background-position: 200% 30%;
   background-size: 80%;
   background-repeat: no-repeat;
@@ -1851,6 +1850,21 @@ ol {
   .profit-item header {
     width: 50.3rem;
   }
+}
+.profit-item:nth-child(1) > header {
+  background-image: url("./images/profit1.png");
+}
+.profit-item:nth-child(2) > header {
+  background-image: url("./images/profit2.png");
+}
+.profit-item:nth-child(3) > header {
+  background-image: url("./images/profit3.png");
+}
+.profit-item:nth-child(4) > header {
+  background-image: url("./images/profit4.png");
+}
+.profit-item:nth-child(5) > header {
+  background-image: url("./images/profit5.png");
 }
 .profit-item .content {
   padding: 2rem 1rem 0;

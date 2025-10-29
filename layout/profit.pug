@@ -1,5 +1,7 @@
 section.profit
     h4.label-btn.label-btn_light Профит
+    //svg(viewBox="0 0 1440 1" fill="none" xmlns="http://www.w3.org/2000/svg")
+    //    line.pr_line(x1="0" x2="0" y1="0" y2="1" stroke="red")
     h2.primary-caption.primary-caption_light.primary-caption_center
         span.primary-caption_iris Результаты клиентов
         |&#32;
@@ -10,7 +12,10 @@ section.profit
         .square
     h4.cnt
         span Кейс
-        span / <span>01</span> — 05 /
+        span.label-cnt
+            | /&#32;
+            span.p-cnt 01
+            | &#32; — 07 /
     div.profit-cards
         div.profit-item
             header
@@ -35,7 +40,7 @@ section.profit
                     </svg>
                     span подробнее
         div.profit-item
-            div
+            header
                 h3 Находка
                 p сеть дискаунтеров
             div
@@ -52,7 +57,7 @@ section.profit
                     </svg>
                     span подробнее
         div.profit-item
-            div
+            header
                 h3 Галамарт
                 p федеральный ритейлер товаров для дома
             div
@@ -69,7 +74,7 @@ section.profit
                     </svg>
                     span подробнее
         div.profit-item
-            div
+            header
                 h3 Прогресс
                 p производитель продуктов питания
             div
@@ -86,7 +91,7 @@ section.profit
                     </svg>
                     span подробнее
         div.profit-item
-            div
+            header
                 h3 NDA*
                 p Крупнейший производитель строительных материалов
             div
@@ -102,3 +107,95 @@ section.profit
                     <path d="M1.5 1.75V8.25H13.0625L10.5938 5.78125L10.0625 5.25L11.125 4.1875L11.6562 4.71875L15.4062 8.46875L15.9375 9L15.4062 9.53125L11.6562 13.2812L11.125 13.8125L10.0625 12.75L10.5938 12.2188L13.0625 9.75H0.75H0V9V1.75V1H1.5V1.75Z" fill="#212223"/>
                     </svg>
                     span подробнее
+script.
+    const pCards = gsap.utils.toArray(".profit-item")
+    const pCnt = document.querySelector(".p-cnt")
+    const ptl = gsap.timeline({ paused: true });
+    ptl
+        .to(pCards[0], {
+            transform: "translate(0, 100%)",
+            opacity: 0,
+            duration: 1
+        })
+        .to(pCards[1], {
+            transform: "translate(0, 0) scale(100%)",
+            opacity: 1,
+            duration: 1
+        }, "-=1")
+        .to(pCards[2], {
+            transform: "translate(0, -.8rem) scale(94%)",
+            opacity: .8,
+            duration: 1
+        }, "-=1")
+        .to(pCards[3], {
+            transform: "translate(0, -1.6rem) scale(88%)",
+            opacity: .6,
+            duration: 1
+        }, "-=1")
+        .to(pCards[4], {
+            transform: "translate(0, -2.4rem) scale(82%)",
+            opacity: .4,
+            duration: 1
+        }, "-=1")
+        .to(pCards[1], {
+            transform: "translate(0, 100%)",
+            opacity: 0,
+            duration: 1
+        })
+        .to(pCards[2], {
+            transform: "translate(0, 0) scale(100%)",
+            opacity: 1,
+            duration: 1
+        }, "-=1")
+        .to(pCards[3], {
+            transform: "translate(0, -.8rem) scale(94%)",
+            opacity: .8,
+            duration: 1
+        }, "-=1")
+        .to(pCards[4], {
+            transform: "translate(0, -1.6rem) scale(88%)",
+            opacity: .6,
+            duration: 1
+        }, "-=1")
+        .to(pCards[2], {
+            transform: "translate(0, 100%)",
+            opacity: 0,
+            duration: 1
+        })
+        .to(pCards[3], {
+            transform: "translate(0, 0) scale(100%)",
+            opacity: 1,
+            duration: 1
+        }, "-=1")
+        .to(pCards[4], {
+            transform: "translate(0, -.8rem) scale(94%)",
+            opacity: .8,
+            duration: 1
+        }, "-=1")
+        .to(pCards[3], {
+            transform: "translate(0, 100%)",
+            opacity: 0,
+            duration: 1
+        })
+        .to(pCards[4], {
+            transform: "translate(0, 0) scale(100%)",
+            opacity: 1,
+            duration: 1
+        }, "-=1")
+
+    ScrollTrigger.create({
+        trigger: ".profit",
+        start: "top top",
+        end: "+=3000",
+        scrub: true,
+        pin: true,
+        onUpdate: (self) => {
+            //pLineAnimation.progress(self.progress);
+            const progressCnt = 100 / (pCards.length);
+            const current = Math.floor(self.progress * 100 / progressCnt)
+            if (current <= pCards.length) {
+                pCnt.innerText = `0${ current + 1 }`
+            }
+            ptl.progress(self.progress)
+        }
+    });
