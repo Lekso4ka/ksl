@@ -8,7 +8,7 @@ section.tasks
             h4 Решение
             p Оптимальное размещение складов и распределение запасов по ним снижают издержки благодаря лучшей загрузке транспорта и сокращению плеч доставки.
     .tasks__decorate_center
-        <svg width="20" height="305" viewBox="0 0 20 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 20 306" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="9" width="2" height="297" rx="1" fill="white"/>
         <rect class="t_progress" x="9" width="2" height="0" rx="1" fill="#6F92E8"/>
         <rect x="0.55" y="0.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
@@ -23,7 +23,26 @@ section.tasks
         </clipPath><clipPath id="bgblur_1_1408_1063_clip_path" transform="translate(40 -150)"><rect x="0.5" y="190.5" width="19" height="19" rx="9.5"/>
         </clipPath><clipPath id="bgblur_2_1408_1063_clip_path" transform="translate(20 -265)"><rect x="0.5" y="285.5" width="19" height="19" rx="9.5"/>
         </clipPath></defs>
+        <g class="group" style="opacity: 0">
+        <rect x="0.55" y="95.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
+        <rect x="0.55" y="95.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
+        <rect x="2" y="97" width="16" height="16" rx="8" fill="#6F92E8"/>
+        <path d="M5.7998 105.6L8.1998 108L14.1998 102" stroke="white" stroke-width="1.03529"/>
+        </g>
+        <g class="group" style="opacity: 0">
+        <rect x="0.55" y="190.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
+        <rect x="0.55" y="190.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
+        <rect x="2" y="192" width="16" height="16" rx="8" fill="#6F92E8"/>
+        <path d="M5.7998 200.6L8.1998 203L14.1998 197" stroke="white" stroke-width="1.03529"/>
+        </g>
+        <g class="group" style="opacity: 0">
+        <rect x="0.55" y="285.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
+        <rect x="0.55" y="285.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
+        <rect x="2" y="287" width="16" height="16" rx="8" fill="#6F92E8"/>
+        <path d="M5.7998 295.6L8.1998 298L14.1998 292" stroke="white" stroke-width="1.03529"/>
+        </g>
         </svg>
+
     div.tasks__block
         h4.tasks__label
             span.label-txt Какие задачи решает моделирование?
@@ -50,25 +69,23 @@ section.tasks
                 p Бенчмарк транспортных и складских затрат с отраслью и рыночными тарифами на склады и транспорт.
     .tasks__decorate_bottom
 script.
-
-        const tCards = gsap.utils.toArray(".tasks-item");
-        const tLine = document.querySelector(".t_progress")
-        const tCnt = document.querySelector(".tasks-cnt")
-
-        const tLineAnimation = gsap.to(tLine, {
-            height: 297,
-            duration: 1,
-            ease: "none",
-            paused: true
-        });
-        const tTl = gsap.timeline({ paused: true });
-
+    const tCards = gsap.utils.toArray(".tasks-item");
+    const tLine = document.querySelector(".t_progress")
+    const tCnt = document.querySelector(".tasks-cnt")
+    const tCheck = gsap.utils.toArray(".group")
+    const tTl = gsap.timeline({ paused: true });
+    let trgDt, trgMob
+    const setTaskAnimationDt = () => {
         tTl
             .to(tCards[0], {
                 transform: "translate(0, 100%)",
                 opacity: 0,
                 duration: 1
             })
+            .to(tCheck[0], {
+                opacity: 1,
+                duration: .1
+            }, "-=.1")
             .to(tCards[1], {
                 transform: "translate(0, 0) scale(100%)",
                 opacity: 1,
@@ -90,6 +107,10 @@ script.
                 opacity: 0,
                 duration: 1
             })
+            .to(tCheck[1], {
+                opacity: 1,
+                duration: .1
+            }, "-=.1")
             .to(tCards[2], {
                 transform: "translate(0, 0) scale(100%)",
                 opacity: 1,
@@ -106,31 +127,126 @@ script.
                 opacity: 0,
                 duration: 1
             })
+            .to(tCheck[2], {
+                opacity: 1,
+                duration: .1
+            }, "-=.1")
             .to(tCards[3], {
                 transform: "translate(0, 0) scale(100%)",
                 opacity: 1,
                 backgroundColor: "white",
                 duration: 1
             }, "-=1")
+            .to(tLine, {
+                height: 297,
+                duration: 3,
+                ease: "none"
+            }, "-=3")
 
-        ScrollTrigger.create({
+        trgDt = ScrollTrigger.create({
             trigger: ".second-section",
-            start: "top center",
+            start: `top center`,
             end: "+=3000",
             scrub: true,
             pin: true,
             onUpdate: (self) => {
-                tLineAnimation.progress(self.progress);
                 const progressCnt = 100 / (tCards.length);
-                //document.body.style.backgroundColor = "#000"
                 const current = Math.floor(self.progress * 100 / progressCnt)
                 if (current <= tCards.length - 1) {
                     tCnt.innerText = `0${ current + 1 }`
                 }
-
                 tTl.progress(self.progress)
             }
         });
+    }
+
+    const setTaskAnimationMob = () => {
+
+        const count = document.querySelector(".tasks-cnt");
+        const wrap = gsap.utils.wrap(0, tCards.length);
+        let animating;
+        let currentIndex = 0;
+
+        function gotoSection(index) {
+            animating = true;
+            index = wrap(index);
+            const tl = gsap.timeline({
+                defaults: {
+                    duration: 1,
+                    ease: "expo.inOut"
+                },
+                onComplete: () => {
+                    animating = false;
+                    if (index !== 3) {
+                        currentIndex = index
+                    }
+                }
+            })
+
+            tl
+                .to(tCards[currentIndex], {
+                    transform: "translate(0, 100%)",
+                    opacity: 0,
+                    duration: 1
+                })
+                .to(tCards[index], {
+                    transform: "translate(0, 0) scale(100%)",
+                    opacity: 1,
+                    backgroundColor: "white",
+                    duration: 1
+                }, "-=1")
+                .set(count, {
+                    text: `0${ index + 1 }`
+                }, 1)
+            if (tCards[index + 1]) {
+                tl
+                    .to(tCards[index + 1], {
+                        transform: "translate(0, -.8rem) scale(94%)",
+                        opacity: .8,
+                        duration: 1
+                    }, "-=1")
+            }
+            if (tCards[index + 2]) {
+                tl
+                    .to(tCards[index + 2], {
+                        transform: "translate(0, -1.6rem) scale(88%)",
+                        opacity: .6,
+                        duration: 1
+                    }, "-=1")
+            }
+        }
+
+        trgMob = Observer.create({
+            type: "touch,pointer",
+            preventDefault: true,
+            wheelSpeed: -1,
+            target: ".tasks",
+            y: -100,
+            pin: true,
+            onDrag: () => {
+                if (animating) return;
+                gotoSection(currentIndex + 1);
+            },
+            onDragEnd: () => {
+                if (animating) return;
+                gotoSection(currentIndex - 1);
+            },
+            tolerance: 10
+        });
+    }
 
 
-
+    if (window.innerWidth >= 1400) {
+        setTaskAnimationDt()
+    } else {
+        setTaskAnimationMob()
+    }
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1400) {
+            setTaskAnimationDt()
+            trgMob.disable()
+        } else {
+            setTaskAnimationMob()
+            trgDt.disable()
+        }
+    })

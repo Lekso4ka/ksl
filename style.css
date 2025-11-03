@@ -150,7 +150,7 @@ ol {
   background-color: #000;
   background-image: url("./images/banner.png");
   background-position: center -8rem;
-  background-size: auto 72.1rem;
+  background-size: 100%;
   background-attachment: fixed;
 }
 .btn-label {
@@ -778,6 +778,10 @@ ol {
   .tasks__decorate_center {
     display: block;
     background-color: transparent;
+  }
+  .tasks__decorate_center svg {
+    width: 2rem;
+    height: 30.6rem;
   }
 }
 .tasks__block {
