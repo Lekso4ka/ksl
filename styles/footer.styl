@@ -1,14 +1,110 @@
 footer
     background-color #131313
     color ltGray
-    padding 6.4rem 2rem 3rem
+    padding 6rem 2rem 3rem
+    display grid
+    gap 5rem
+    @media screen and (min-width: 760px)
+        padding-top 4rem
+        gap 4rem
+    @media screen and (min-width: 1440px)
+        padding-top 6rem
+        gap 6rem
     .logo
         display flex
+        height 4rem
         align-items center
-        gap 1rem
+        gap 1.4rem
         font-size 1.4rem
-        //margin-bottom 5rem
+        line-height 1.6rem
+        margin-bottom 5rem
+        @media screen and (min-width: 760px)
+            margin-bottom 6rem
         svg
             height 3rem
         .fill_iris
             fill white
+.footer__menu
+    display none
+.footer__block
+    display grid
+    gap 2rem
+    &:not(:last-child)
+        padding-bottom 4rem
+        margin-bottom 4rem
+        border-bottom .13rem solid
+    h4
+        color lavender40
+    p
+        font-size 1.6rem
+        line-height 1.9rem
+        width 22rem
+        &.fz14
+            display flex
+            font-size 1.4rem
+            align-items center
+            gap .8rem
+            @media screen and (min-width: 760px)
+                font-size 1.6rem
+            svg
+                width 1.4rem
+        &.fz14_16
+            display flex
+            font-size 1.4rem
+            align-items center
+            gap .6rem
+            svg
+                width 1.6rem
+.footer__bottom
+    display grid
+    color lavender40
+    .fb
+        display flex
+        align-items center
+        justify-content space-between
+        padding-top 2rem
+        border-top .13rem solid
+        @media screen and (min-width: 760px)
+            padding-top 3rem
+    ul
+        grid-row-start 1
+        display flex
+        align-items center
+        justify-content space-between
+        font-size 1.4rem
+        padding-bottom 3rem
+        svg
+            width 1.4rem
+        li
+            display flex
+            align-items center
+            gap .4rem
+            cursor pointer
+    .fb_1
+        display none
+    .fb_2
+        font-size 1.4rem
+        text-transform uppercase
+    .fb_3
+        font-size 1.4rem
+    @media screen and (min-width: 1440px)
+        display flex
+        justify-content space-between
+        align-items center
+        border-top .13rem solid
+        padding-top 3rem
+        .fb
+            border-top none
+            padding-top 0
+            gap 25rem
+        .fb_1
+            display block
+            font-size 1.6rem
+        .fb_2
+            display none
+        .fb_3
+            font-size 1.6rem
+        ul
+            padding-bottom 0
+            font-size 1.6rem
+            gap 3.6rem

@@ -2489,17 +2489,154 @@ ol {
 footer {
   background-color: #131313;
   color: #e5e5e5;
-  padding: 6.4rem 2rem 3rem;
+  padding: 6rem 2rem 3rem;
+  display: grid;
+  gap: 5rem;
+}
+@media screen and (min-width: 760px) {
+  footer {
+    padding-top: 4rem;
+    gap: 4rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  footer {
+    padding-top: 6rem;
+    gap: 6rem;
+  }
 }
 footer .logo {
   display: flex;
+  height: 4rem;
   align-items: center;
-  gap: 1rem;
+  gap: 1.4rem;
   font-size: 1.4rem;
+  line-height: 1.6rem;
+  margin-bottom: 5rem;
+}
+@media screen and (min-width: 760px) {
+  footer .logo {
+    margin-bottom: 6rem;
+  }
 }
 footer .logo svg {
   height: 3rem;
 }
 footer .logo .fill_iris {
   fill: #fff;
+}
+.footer__menu {
+  display: none;
+}
+.footer__block {
+  display: grid;
+  gap: 2rem;
+}
+.footer__block:not(:last-child) {
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+  border-bottom: 0.13rem solid;
+}
+.footer__block h4 {
+  color: rgba(214,220,255,0.4);
+}
+.footer__block p {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  width: 22rem;
+}
+.footer__block p.fz14 {
+  display: flex;
+  font-size: 1.4rem;
+  align-items: center;
+  gap: 0.8rem;
+}
+@media screen and (min-width: 760px) {
+  .footer__block p.fz14 {
+    font-size: 1.6rem;
+  }
+}
+.footer__block p.fz14 svg {
+  width: 1.4rem;
+}
+.footer__block p.fz14_16 {
+  display: flex;
+  font-size: 1.4rem;
+  align-items: center;
+  gap: 0.6rem;
+}
+.footer__block p.fz14_16 svg {
+  width: 1.6rem;
+}
+.footer__bottom {
+  display: grid;
+  color: rgba(214,220,255,0.4);
+}
+.footer__bottom .fb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 0.13rem solid;
+}
+@media screen and (min-width: 760px) {
+  .footer__bottom .fb {
+    padding-top: 3rem;
+  }
+}
+.footer__bottom ul {
+  grid-row-start: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  padding-bottom: 3rem;
+}
+.footer__bottom ul svg {
+  width: 1.4rem;
+}
+.footer__bottom ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.footer__bottom .fb_1 {
+  display: none;
+}
+.footer__bottom .fb_2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.footer__bottom .fb_3 {
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 1440px) {
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.13rem solid;
+    padding-top: 3rem;
+  }
+  .footer__bottom .fb {
+    border-top: none;
+    padding-top: 0;
+    gap: 25rem;
+  }
+  .footer__bottom .fb_1 {
+    display: block;
+    font-size: 1.6rem;
+  }
+  .footer__bottom .fb_2 {
+    display: none;
+  }
+  .footer__bottom .fb_3 {
+    font-size: 1.6rem;
+  }
+  .footer__bottom ul {
+    padding-bottom: 0;
+    font-size: 1.6rem;
+    gap: 3.6rem;
+  }
 }
