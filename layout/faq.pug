@@ -59,21 +59,29 @@ script.
 
     let faqScrollDistance = faqList2.scrollHeight - faqBlock.offsetHeight;
     const faqList = document.querySelectorAll(".list .q")
+    const faqA = document.querySelectorAll(".list .a")
     faqList.forEach(item => {
         item.addEventListener("click", () => {
             item.parentElement.classList.toggle("active")
             faqScrollDistance = faqList2.scrollHeight - faqBlock.offsetHeight;
         })
     })
-
-    gsap.to(faqList2, {
-        y: -faqScrollDistance,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".faq",
-            start: "bottom bottom",
-            end: `+=${ faqScrollDistance }`,
-            scrub: 1,
-            pin: true
-        }
-    });
+    faqA.forEach(item => {
+        item.addEventListener("click", () => {
+            item.parentElement.classList.toggle("active")
+            faqScrollDistance = faqList2.scrollHeight - faqBlock.offsetHeight;
+        })
+    })
+    if (window.innerWidth >= 1440) {
+        gsap.to(faqList2, {
+            y: -faqScrollDistance,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".faq",
+                start: "bottom bottom",
+                end: `+=${ faqScrollDistance }`,
+                scrub: 1,
+                pin: true
+            }
+        });
+    }

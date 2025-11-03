@@ -45,18 +45,18 @@ script.
     const workBlock2 = document.querySelector(".work__container")
 
     const scrollDistance = workBlock.scrollHeight - workBlock2.offsetHeight;
-
-    gsap.to(workBlock, {
-        y: -scrollDistance,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".work",
-            start: "top 10rem top",
-            //start: "top top",
-            end: `+=${ scrollDistance }`,
-            scrub: 1,
-            pin: true
-        }
-    });
+    if (window.innerWidth >= 1440) {
+        gsap.to(workBlock, {
+            y: -scrollDistance,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".work",
+                start: "10rem top",
+                end: `+=${ scrollDistance }`,
+                scrub: 1,
+                pin: true
+            }
+        });
+    }
 
 

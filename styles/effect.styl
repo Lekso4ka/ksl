@@ -99,7 +99,8 @@
                     font-size 5.8rem
         &:nth-child(1)
             &::after
-                height calc(var(--size, 2rem) - 2rem)
+                //height calc(var(--size, 2rem) - 2rem)
+                height calc(100% - 2rem)
                 top 0
             h3
                 width auto
@@ -126,7 +127,8 @@
             grid-column-start 2
             &::before
                 display block
-                height calc(var(--size, 2rem) - 2rem)
+                //height calc(var(--size, 2rem) - 2rem)
+                height calc(100% - 2rem)
                 width .1rem
                 top 0
                 left -1.1rem
@@ -137,5 +139,6 @@
             &::before
                 display block
                 top 0
-                height calc(var(--size, 2rem) - 2rem)
+                //height calc(var(--size, 2rem) - 2rem)
+                height calc(100% - 2rem)
                 left calc(-100% - 3.2rem)

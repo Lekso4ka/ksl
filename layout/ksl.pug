@@ -68,8 +68,8 @@ script.
 
 
     ScrollTrigger.create({
-        trigger: ".ksl",
-        start: "bottom bottom",
+        trigger: ".ksl__article",
+        start: "-40 top",
         scrub: true,
         pin: true,
         onUpdate: (self) => {
@@ -78,7 +78,7 @@ script.
             const m = Math.floor(self.progress * 100 / n)
             letters.forEach((letter, i) => {
                 if (i <= m) {
-                    letter.style.color = "#6F92E8"
+                    letter.style.color = "#32364C"
                 } else {
                     letter.style.color = null
                 }
