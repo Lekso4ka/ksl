@@ -1088,7 +1088,8 @@ ol {
   text-transform: uppercase;
   font-size: 1rem;
   position: relative;
-  transform: translate(0, -2.5rem);
+  transform: translate(0, -2.5rem) scale(0.9);
+  transition-duration: 500ms;
 }
 .sc__item :last-child {
   width: 12rem;
@@ -1101,16 +1102,22 @@ ol {
 }
 .sc__item:nth-child(2n - 1) {
   flex-direction: column-reverse;
-  transform: translate(0, 2.5rem);
+  transform: translate(0, 2.5rem) scale(0.9);
 }
 .sc__item.active {
   color: #6f92e8;
+  transform: translate(0, -2.5rem) scale(1);
+}
+.sc__item.active:nth-child(2n - 1) {
+  transform: translate(0, 2.5rem) scale(1);
 }
 .sc__item.active .l {
   background-color: #6f92e8;
+  transition-duration: 500ms;
 }
 .sc__item.active .c {
   background-color: #6f92e8;
+  transition-duration: 500ms;
 }
 .sc__item .l {
   height: 6rem;
@@ -1126,8 +1133,24 @@ ol {
   border: 0.4rem solid #d6dcff;
 }
 @media screen and (max-width: 1439px) {
-  .sc__item:not(:first-of-type) {
-    display: none;
+  .sc__item {
+    opacity: 0;
+    position: absolute;
+    transform: translate(0, -2.2rem) scale(0.9);
+  }
+  .sc__item:nth-child(2n - 1) {
+    transform: translate(0, 2.2rem) scale(0.9);
+  }
+  .sc__item.empty {
+    opacity: 0;
+    transition-delay: 0;
+  }
+  .sc__item.active {
+    opacity: 1;
+    transform: translate(0, -2.2rem) scale(1);
+  }
+  .sc__item.active:nth-child(2n - 1) {
+    transform: translate(0, 2.2rem) scale(1);
   }
 }
 .mi {
@@ -1149,15 +1172,19 @@ ol {
   width: 100%;
   height: 16rem;
   position: relative;
+  padding-bottom: 3rem;
+  transform: translate(0, -3rem);
 }
 .ss>.btn-block {
   display: none;
 }
+.ss>.ss__line {
+  position: absolute;
+  bottom: 0;
+}
 @media screen and (min-width: 1440px) {
   .ss {
     overflow: hidden;
-    padding-bottom: 3rem;
-    transform: translate(0, -3rem);
   }
   .ss>.btn-block {
     display: flex;
@@ -1172,16 +1199,13 @@ ol {
     color: #fff;
     line-height: 2.2rem;
   }
-  .ss>.ss__line {
-    position: absolute;
-    bottom: 0;
-  }
 }
 .sc {
-  width: 68rem;
+  width: 100.7rem;
   gap: 1rem;
-  transform: translate(100%);
-  transition-duration: 500ms;
+  transform: translate(0, 100%);
+  transition-duration: 1000ms;
+  transition-delay: 300ms;
   transition-property: transform opacity;
   display: flex;
   position: absolute;
@@ -1194,13 +1218,14 @@ ol {
   opacity: 1;
 }
 .sc.empty {
-  transform: translate(-100%);
+  transform: translate(0, 100%);
+  transition-delay: 0;
   opacity: 0;
 }
 @media screen and (min-width: 760px) {
   .sc {
     gap: 2rem;
-    width: 100%;
+    width: 103rem;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1222,6 +1247,16 @@ ol {
 }
 .sc-card p {
   font-size: 1.2rem;
+}
+@media screen and (min-width: 760px) {
+  .sc-card {
+    width: 33rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sc-card {
+    width: 100%;
+  }
 }
 .ss__line {
   width: 100%;
