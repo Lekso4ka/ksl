@@ -1272,7 +1272,7 @@ ol {
   background-color: #f1f1f1;
 }
 .work {
-  padding: 4rem 1rem 0;
+  padding: 10rem 1rem 0;
 }
 @media screen and (min-width: 760px) {
   .work {
@@ -1975,6 +1975,7 @@ ol {
   }
   .profit-item .content .widgets svg {
     height: 100%;
+    width: auto;
   }
 }
 .profit-item .content ul {
