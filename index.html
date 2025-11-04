@@ -189,9 +189,12 @@ const setTaskAnimationMob = () => {
 
         tl
             .to(tCards[currentIndex], {
-                transform: "translate(0, 100%)",
-                opacity: 0,
+                transform: "translate(calc(-100% - 40rem), 0)",
                 duration: 1
+            })
+            .to(tCards[currentIndex], {
+                opacity: 0,
+                duration: -.5
             })
             .to(tCards[index], {
                 transform: "translate(0, 0) scale(100%)",
@@ -734,7 +737,7 @@ const h4 = effectItems[4].offsetHeight
 <path d="M129.966 71.608C129.966 72.202 130.332 72.574 130.866 72.574C131.394 72.574 131.772 72.19 131.772 71.608C131.772 71.02 131.4 70.624 130.872 70.624C130.338 70.624 129.966 71.02 129.966 71.608ZM130.92 69.07C130.29 69.07 129.924 69.706 129.906 70.66C130.104 70.348 130.458 70.102 131.004 70.102C131.808 70.102 132.426 70.696 132.426 71.584C132.426 72.424 131.808 73.078 130.872 73.078C129.768 73.078 129.264 72.274 129.264 70.966C129.264 69.718 129.714 68.572 130.98 68.572C131.856 68.572 132.27 69.13 132.348 69.7H131.694C131.628 69.292 131.334 69.07 130.92 69.07ZM133.951 72.112L134.551 69.772H135.199L135.799 72.112L136.351 69.772H137.029L136.129 73H135.547L134.869 70.504L134.209 73H133.621L132.727 69.772H133.405L133.951 72.112Z" fill="#6F92E8"/>
 <path d="M18.052 21H16.144L12.304 13.8V21H10.96V12.3H12.868L16.708 19.488V12.3H18.052V21ZM19.9717 12.3H22.7677C24.7837 12.3 26.4157 12.696 26.4157 14.976C26.4157 17.148 24.8677 17.628 22.7677 17.628H21.3397V21H19.9717V12.3ZM22.8157 13.428H21.3397V16.476H22.8517C24.0517 16.476 24.9997 16.332 24.9997 14.988C24.9997 13.572 24.0037 13.428 22.8157 13.428ZM30.7452 17.184L29.6772 16.968C28.4412 16.716 27.2652 16.02 27.2652 14.556C27.2652 12.912 28.9692 12.144 30.4452 12.144C32.0532 12.144 33.4092 12.876 33.7572 14.628H32.4372C32.1492 13.608 31.2132 13.284 30.3852 13.284C29.7492 13.284 28.6572 13.584 28.6572 14.496C28.6572 15.216 29.2212 15.588 29.9772 15.744L31.0092 15.96C32.4012 16.248 33.9252 16.764 33.9252 18.528C33.9252 20.256 32.2572 21.156 30.5772 21.156C28.5732 21.156 27.1932 20.04 27.0012 18.216H28.3452C28.5972 19.416 29.3892 20.016 30.6252 20.016C31.7652 20.016 32.5452 19.488 32.5452 18.636C32.5452 17.736 31.6692 17.376 30.7452 17.184Z" fill="#6F92E8"/></svg></div><h4>что сделали</h4><ul><li>Перераспределили товарные потоки и запасы между складами</li><li>Повысили клиентский сервис, сделали сеть более гибкой</li><li>Оптимизировали локации и мощности складов</li></ul><div class="bottom"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.5 1.75V8.25H13.0625L10.5938 5.78125L10.0625 5.25L11.125 4.1875L11.6562 4.71875L15.4062 8.46875L15.9375 9L15.4062 9.53125L11.6562 13.2812L11.125 13.8125L10.0625 12.75L10.5938 12.2188L13.0625 9.75H0.75H0V9V1.75V1H1.5V1.75Z" fill="#212223"/>
-</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>Находка</h3><p>сеть дискаунтеров</p></header><div class="content"><h4>результат</h4><p>Пересчитали схему складов и сэкономили 280 млн руб. в год</p><div class="widgets"><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>Находка</h3><p>сеть дискаунтеров</p></header><div class="content"><h4>результат</h4><p>Пересчитали схему складов и сэкономили 280 млн руб. в год</p><div class="widgets"><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1001_2679)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <path d="M21.6187 20.1836H144.619" stroke="#AFA6A6" stroke-width="0.0876126" stroke-dasharray="0.5 0.5"/>
@@ -907,7 +910,7 @@ const h4 = effectItems[4].offsetHeight
 <circle cx="49.5" cy="26.5" r="1" fill="white" stroke="#6F92E8"/>
 <circle cx="101.5" cy="57.5" r="1" fill="white" stroke="#6F92E8"/>
 <circle cx="1.5" cy="1.5" r="1" transform="matrix(-1 0 0 1 51 44)" fill="white" stroke="#6F92E8"/>
-</svg><svg width="157" height="86" viewBox="0 0 157 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><svg viewBox="0 0 157 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="157" height="86" rx="10" fill="url(#pattern0_1001_2680)"/>
 <rect width="157" height="86" rx="10" fill="white"/>
 <path d="M115.312 20H114.052V13.28H112.072V12.428C113.308 12.392 113.98 12.236 114.412 11.3H115.312V20ZM118.556 20H117.056V18.5H118.556V20ZM122.631 19.148C123.639 19.148 124.467 18.428 124.467 17.168C124.467 15.8 123.519 15.188 122.607 15.188C121.755 15.188 121.167 15.644 120.975 16.124L119.763 16.052L120.339 11.3H125.427V12.44H121.359L121.071 14.768C121.515 14.372 122.151 14.168 122.907 14.168C124.419 14.168 125.775 15.2 125.775 17.156C125.775 19.124 124.287 20.156 122.619 20.156C120.615 20.156 119.619 18.848 119.487 17.408H120.735C120.879 18.464 121.443 19.148 122.631 19.148Z" fill="#6F92E8"/>
@@ -938,7 +941,7 @@ const h4 = effectItems[4].offsetHeight
 </defs>
 </svg></div><h4>что сделали</h4><ul><li>Перераспределили потоки между складами</li><li>Сократили пробеги транспорта на 22%. Снизили количество пустых рейсов</li><li>Рост сети ускорился в 1,5 раза без инвестиций в новые склады</li></ul><div class="bottom"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.5 1.75V8.25H13.0625L10.5938 5.78125L10.0625 5.25L11.125 4.1875L11.6562 4.71875L15.4062 8.46875L15.9375 9L15.4062 9.53125L11.6562 13.2812L11.125 13.8125L10.0625 12.75L10.5938 12.2188L13.0625 9.75H0.75H0V9V1.75V1H1.5V1.75Z" fill="#212223"/>
-</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>Галамарт</h3><p>федеральный ритейлер товаров для дома</p></header><div class="content"><h4>результат</h4><p>Отказались от РЦ за 8 млрд в пользу более эффективной схемы</p><div class="widgets"><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>Галамарт</h3><p>федеральный ритейлер товаров для дома</p></header><div class="content"><h4>результат</h4><p>Отказались от РЦ за 8 млрд в пользу более эффективной схемы</p><div class="widgets"><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1019_1457)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <path d="M12 26.5L12 74.5" stroke="#D6DCFF" stroke-width="0.4" stroke-dasharray="1.2 1.2"/>
@@ -1000,7 +1003,7 @@ const h4 = effectItems[4].offsetHeight
 <stop offset="1" stop-color="#6F92E8"/>
 </linearGradient>
 </defs>
-</svg><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1019_1443)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <path d="M11 22L11 64" stroke="#6F92E8" stroke-opacity="0.2" stroke-width="0.4" stroke-dasharray="0.8 0.8"/>
@@ -1044,7 +1047,7 @@ const h4 = effectItems[4].offsetHeight
 </defs>
 </svg></div><h4>что сделали</h4><ul><li>Вместо одного центрального РЦ открыли 5 РЦ в регионах</li><li>Сократили плечи доставки на 35%, ускорив поставки в ключевые города</li><li>Ускорили масштабирование сети, сократив издержки на складскую логистику на 18%</li></ul><div class="bottom"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.5 1.75V8.25H13.0625L10.5938 5.78125L10.0625 5.25L11.125 4.1875L11.6562 4.71875L15.4062 8.46875L15.9375 9L15.4062 9.53125L11.6562 13.2812L11.125 13.8125L10.0625 12.75L10.5938 12.2188L13.0625 9.75H0.75H0V9V1.75V1H1.5V1.75Z" fill="#212223"/>
-</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>Прогресс</h3><p>производитель продуктов питания</p></header><div class="content"><h4>результат</h4><p>Вместо проекта на 1,2 млрд запустили 9 эффективных складов в регионах</p><div class="widgets"><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>Прогресс</h3><p>производитель продуктов питания</p></header><div class="content"><h4>результат</h4><p>Вместо проекта на 1,2 млрд запустили 9 эффективных складов в регионах</p><div class="widgets"><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1024_1504)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <path d="M45 13L148 13" stroke="#6F92E8" stroke-opacity="0.2" stroke-width="0.6" stroke-dasharray="1.2 1.2"/>
@@ -1093,7 +1096,7 @@ const h4 = effectItems[4].offsetHeight
 <circle cx="3.5" cy="3.5" r="1.5" fill="#6F92E8"/>
 </g>
 </pattern></defs>
-</svg><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1012_576)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <path d="M83.5 77.0444H73L73 35.8254L84.6805 39.5799L116.802 42.5L125.562 19.139L148 27V67L83.5 77.0444Z" fill="url(#paint0_linear_1012_576)"/>
@@ -1146,7 +1149,7 @@ const h4 = effectItems[4].offsetHeight
 </defs>
 </svg></div><h4>что сделали</h4><ul><li>Снизили ежегодные операционные затраты</li><li>Сократили долю упущенных продаж, разместив запасы ближе к потребителям</li><li>Вышли в регионы за 3,5 месяца и обеспечили рост на 7 лет без строительства — за счёт сети арендуемых и 3PL-складов</li></ul><div class="bottom"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.5 1.75V8.25H13.0625L10.5938 5.78125L10.0625 5.25L11.125 4.1875L11.6562 4.71875L15.4062 8.46875L15.9375 9L15.4062 9.53125L11.6562 13.2812L11.125 13.8125L10.0625 12.75L10.5938 12.2188L13.0625 9.75H0.75H0V9V1.75V1H1.5V1.75Z" fill="#212223"/>
-</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>NDA*</h3><p>Крупнейший производитель строительных материалов</p></header><div class="content"><h4>результат</h4><p>Сэкономили 42% логистических затрат и отказались от избыточного склада</p><div class="widgets"><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><span>подробнее</span></div></div></div><div class="profit-item"><header><h3>NDA*</h3><p>Крупнейший производитель строительных материалов</p></header><div class="content"><h4>результат</h4><p>Сэкономили 42% логистических затрат и отказались от избыточного склада</p><div class="widgets"><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1024_2115)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <rect x="41.1699" y="47.9362" width="4.46809" height="2.23404" fill="#6F92E8" fill-opacity="0.2"/>
@@ -1458,7 +1461,7 @@ const h4 = effectItems[4].offsetHeight
 <pattern id="pattern0_1024_2115" patternContentUnits="objectBoundingBox" width="1" height="1">
 </pattern>
 </defs>
-</svg><svg width="158" height="86" viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg><svg viewBox="0 0 158 86" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="158" height="86" rx="10" fill="url(#pattern0_1024_1528)"/>
 <rect width="158" height="86" rx="10" fill="white"/>
 <path d="M99 23C99 23 106.143 21 112.333 20.5C114.679 20.3106 119 20 119 20V76H99V23Z" fill="url(#paint0_linear_1024_1528)"/>

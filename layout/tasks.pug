@@ -185,9 +185,12 @@ script.
 
             tl
                 .to(tCards[currentIndex], {
-                    transform: "translate(0, 100%)",
-                    opacity: 0,
+                    transform: "translate(calc(-100% - 40rem), 0)",
                     duration: 1
+                })
+                .to(tCards[currentIndex], {
+                    opacity: 0,
+                    duration: -.5
                 })
                 .to(tCards[index], {
                     transform: "translate(0, 0) scale(100%)",

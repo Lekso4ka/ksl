@@ -829,7 +829,7 @@ ol {
 .tasks-item {
   background-color: rgba(255,255,255,0.8);
   border-radius: 1.6rem;
-  padding: 4.9rem 2rem 2rem;
+  padding: 2rem 2rem 2rem;
   height: 18rem;
   box-sizing: border-box;
   position: absolute;
@@ -846,6 +846,7 @@ ol {
 }
 .tasks-item h3 {
   color: #6f92e8;
+  width: 20rem;
 }
 .tasks-item p {
   line-height: 1.6rem;
