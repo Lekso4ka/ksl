@@ -21,31 +21,36 @@
             counter-increment section
             position relative
             border-top .1rem solid ltGray
+            cursor pointer
+            user-select none
+            max-height 7rem
+            transition max-height 300ms
+            &.active
+                transition max-height 300ms
+                max-height 20rem
+                &::after
+                    transform rotate(45deg)
             .q
                 font-size 1.6rem
                 width 27.2rem
-                height 7rem
                 @media screen and (min-width: 760px)
                     width 50rem
             .a
                 font-size 1.4rem
-                padding 1.6rem 0 3rem
+                padding 1.6rem 0 0
+                margin-bottom 2rem
+                transition-property max-height
+                transition-duration 300ms
                 color inkDark60
-                display none
+                max-height 0
+                overflow hidden
             &:last-child
                 border-bottom .1rem solid ltGray
-            &.active
-                .q
-                    height auto
-                .a
-                    display block
-                &::after
-                    transform rotate(45deg)
+
             &::before
                 content counter(section, decimal) "."
                 position absolute
                 left 0
-                font-family Tipography, monospace
                 font-size 1.2rem
                 top 1rem
             &::after
@@ -54,6 +59,15 @@
                 right 0
                 top 1rem
                 filter invert(1)
+                transition transform 300ms
+            @media screen and (min-width: 760px)
+                padding-left 4rem
+            @media screen and (min-width: 1440px)
+                padding-left 0
+                margin-left 4rem
+                &::before
+                    left -4rem
+
 .faq__text
     padding 3rem 0 6rem
     display grid

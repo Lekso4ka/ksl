@@ -167,6 +167,7 @@ ol {
   font-size: 1rem;
   letter-spacing: -0.01rem;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .btn-label span {
   display: flex;
@@ -175,6 +176,13 @@ ol {
 }
 .btn-label svg {
   height: 2.2rem;
+}
+.btn-label:hover {
+  background-color: #131313;
+  color: #fff;
+}
+.btn-label:hover path {
+  fill: #fff;
 }
 @media screen and (min-width: 760px) {
   .btn-label {
@@ -601,6 +609,14 @@ ol {
   font-size: 2.8rem;
   color: #c6c6c6;
 }
+.header-block nav a:hover {
+  color: #fff;
+}
+@media screen and (min-width: 1440px) {
+  .header-block nav a:hover {
+    color: #6f92e8;
+  }
+}
 .header-block .links {
   border-top: 0.16rem solid rgba(111,146,232,0.2);
   padding-top: 2.3rem;
@@ -689,6 +705,10 @@ ol {
     order: 1;
     width: 1.4rem;
     height: 1.4rem;
+  }
+  .header-block .links .btn-label:hover {
+    background-color: #131313;
+    color: #fff;
   }
   .header-block .links .btn-label:nth-child(2) {
     display: none;
@@ -1203,6 +1223,9 @@ ol {
     border: 0.16rem solid rgba(111,146,232,0.2);
     color: #fff;
     line-height: 2.2rem;
+  }
+  .ss>.btn-block .btn-label:hover {
+    background-color: rgba(111,146,232,0.2);
   }
 }
 .sc {
@@ -2026,6 +2049,13 @@ ol {
     color: #32364c;
   }
 }
+@media screen and (min-width: 1440px) {
+  .ksl .primary-caption {
+    width: 63.3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .ksl .figures {
   padding: 1rem 0;
   margin-bottom: 1.3rem;
@@ -2382,7 +2412,8 @@ ol {
 }
 .partners__list li {
   cursor: pointer;
-  transition: color 500ms;
+  transition-property: color, filter;
+  transition-duration: 500ms;
 }
 .partners__list li.active {
   color: #6f92e8;
@@ -2421,11 +2452,21 @@ ol {
   counter-increment: section;
   position: relative;
   border-top: 0.1rem solid #e5e5e5;
+  cursor: pointer;
+  user-select: none;
+  max-height: 7rem;
+  transition: max-height 300ms;
+}
+.faq .list li.active {
+  transition: max-height 300ms;
+  max-height: 20rem;
+}
+.faq .list li.active::after {
+  transform: rotate(45deg);
 }
 .faq .list li .q {
   font-size: 1.6rem;
   width: 27.2rem;
-  height: 7rem;
 }
 @media screen and (min-width: 760px) {
   .faq .list li .q {
@@ -2434,27 +2475,21 @@ ol {
 }
 .faq .list li .a {
   font-size: 1.4rem;
-  padding: 1.6rem 0 3rem;
+  padding: 1.6rem 0 0;
+  margin-bottom: 2rem;
+  transition-property: max-height;
+  transition-duration: 300ms;
   color: rgba(50,54,76,0.6);
-  display: none;
+  max-height: 0;
+  overflow: hidden;
 }
 .faq .list li:last-child {
   border-bottom: 0.1rem solid #e5e5e5;
-}
-.faq .list li.active .q {
-  height: auto;
-}
-.faq .list li.active .a {
-  display: block;
-}
-.faq .list li.active::after {
-  transform: rotate(45deg);
 }
 .faq .list li::before {
   content: counter(section, decimal) ".";
   position: absolute;
   left: 0;
-  font-family: Tipography, monospace;
   font-size: 1.2rem;
   top: 1rem;
 }
@@ -2464,6 +2499,21 @@ ol {
   right: 0;
   top: 1rem;
   filter: invert(1);
+  transition: transform 300ms;
+}
+@media screen and (min-width: 760px) {
+  .faq .list li {
+    padding-left: 4rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .faq .list li {
+    padding-left: 0;
+    margin-left: 4rem;
+  }
+  .faq .list li::before {
+    left: -4rem;
+  }
 }
 .faq__text {
   padding: 3rem 0 6rem;
@@ -2499,6 +2549,9 @@ footer {
   display: grid;
   gap: 5rem;
 }
+footer a:hover {
+  color: #6f92e8;
+}
 @media screen and (min-width: 760px) {
   footer {
     padding-top: 4rem;
@@ -2533,6 +2586,40 @@ footer .logo .fill_iris {
 }
 .footer__menu {
   display: none;
+  gap: 2rem;
+  align-content: flex-start;
+}
+.footer__menu h4 {
+  color: rgba(214,220,255,0.4);
+}
+.footer__menu nav {
+  display: grid;
+  gap: 1.2rem;
+  align-self: flex-start;
+  font-size: 1.6rem;
+}
+@media screen and (min-width: 1440px) {
+  .footer__top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .footer__top .footer__menu {
+    display: grid;
+    grid-row-end: span 2;
+  }
+  .footer__top .footer__block {
+    align-content: stretch;
+    align-items: flex-start;
+  }
+  .footer__top .footer__block:not(:last-child) {
+    border-bottom: none;
+  }
+  .footer__top .footer__block:last-child {
+    grid-column-start: 3;
+  }
+  .footer__top .footer__block :last-child {
+    align-self: flex-end;
+  }
 }
 .footer__block {
   display: grid;

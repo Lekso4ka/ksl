@@ -4,6 +4,8 @@ footer
     padding 6rem 2rem 3rem
     display grid
     gap 5rem
+    a:hover
+        color iris
     @media screen and (min-width: 760px)
         padding-top 4rem
         gap 4rem
@@ -24,8 +26,36 @@ footer
             height 3rem
         .fill_iris
             fill white
+
 .footer__menu
     display none
+    gap 2rem
+    align-content flex-start
+    h4
+        color lavender40
+    nav
+        display grid
+        gap 1.2rem
+        align-self flex-start
+        font-size 1.6rem
+.footer__top
+    @media screen and (min-width: 1440px)
+        display grid
+        grid-template-columns repeat(4, 1fr)
+        .footer__menu
+            display grid
+            grid-row-end span 2
+        .footer__block
+            align-content stretch
+            align-items flex-start
+            &:not(:last-child)
+                border-bottom none
+            &:last-child
+                grid-column-start 3
+
+            :last-child
+                align-self flex-end
+
 .footer__block
     display grid
     gap 2rem

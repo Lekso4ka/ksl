@@ -28,11 +28,13 @@ section.ksl
             p № 1 в проектировании логистики в России
         .ksl-card
             h3
-                |29
+                strong.ksl_a 0
                 span &#32;лет
             p экспертизы на рынке консалтинга логистических услуг
         .ksl-card
-            h3 280 +
+            h3
+                strong.ksl_b 0
+                |&#32;+
             p завершенных проектов, по оптимизации логистики
         .ksl-card
             span
@@ -65,6 +67,14 @@ script.
     ).join('');
 
     const letters = gsap.utils.toArray('.seq-letter');
+    for (let i = 0; i < 7; i++) {
+        letters[i].style.color = "#32364C"
+    }
+
+    const kslA = document.querySelector(".ksl_a")
+    const kslB = document.querySelector(".ksl_b")
+    const kslBlock = document.querySelector(".ksl")
+
 
 
     ScrollTrigger.create({
@@ -79,10 +89,41 @@ script.
             letters.forEach((letter, i) => {
                 if (i <= m) {
                     letter.style.color = "#32364C"
-                } else {
+                } else if (i >= 8) {
                     letter.style.color = null
                 }
             })
         }
     });
-            
+
+
+    const setN = (el, n, l = 30) => {
+        let char = +el.innerText
+        if (char < n) {
+            setTimeout(() => {
+                if (n.toString().length > 2 && n - char >= 10) {
+                    el.innerText = char + 10;
+                } else {
+                    el.innerText = char + 1;
+                }
+                setN(el, n)
+            }, l)
+        }
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Если элемент виден на экране
+            if (entry.isIntersecting) {
+                setN(kslA, 29)
+                setN(kslB, 280, 1)
+                 observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        // Настройки:
+        root: null, // отслеживаем относительно viewport
+        rootMargin: '0px', // отступы
+        //threshold: .5 // сработает когда 10% элемента видно
+    });
+
+    observer.observe(kslBlock)

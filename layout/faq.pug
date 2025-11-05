@@ -62,6 +62,15 @@ script.
     const faqA = document.querySelectorAll(".list .a")
     faqList.forEach(item => {
         item.addEventListener("click", () => {
+            const a = item.nextElementSibling;
+            console.log(a.style.maxHeight)
+            if (a.style.maxHeight) {
+                a.style.maxHeight = null
+                //a.style.paddingBottom =
+            } else {
+                a.style.maxHeight = a.scrollHeight + "px";
+            }
+
             item.parentElement.classList.toggle("active")
             faqScrollDistance = faqList2.scrollHeight - faqBlock.offsetHeight;
         })

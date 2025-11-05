@@ -42,9 +42,19 @@ script.
             setPartner(i)
             item.classList.add("active")
             pList.forEach(el => {
-                if (el !== item && el.classList.contains("active")) {
-                    el.classList.remove("active")
+                if (el !== item) {
+                    if (el.classList.contains("active")) {
+                        el.classList.remove("active")
+                    }
+                    el.style.filter = "blur(1px)"
+                } else {
+                    el.style.filter = "blur(0)"
                 }
+            })
+        })
+        item.addEventListener("mouseout", () => {
+            pList.forEach(el => {
+                    el.style.filter = "blur(0)"
             })
         })
         item.addEventListener("click", () => {
