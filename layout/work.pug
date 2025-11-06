@@ -44,6 +44,7 @@ script.
     const workBlock = document.querySelector(".work__cards")
     const workBlock2 = document.querySelector(".work__container")
 
+
     const scrollDistance = workBlock.scrollHeight - workBlock2.offsetHeight;
     if (window.innerWidth >= 1440) {
         gsap.to(workBlock, {
@@ -60,3 +61,28 @@ script.
     }
 
 
+    function isElementBelowViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top > window.innerHeight;
+    }
+
+
+    function watchElementBelowViewport(element, callback) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (isElementBelowViewport(entry.target)) {
+                    document.querySelector(".first-section").style.setProperty("--pos","fixed")
+                }
+                if (entry.isIntersecting) {
+                    document.querySelector(".first-section").style.setProperty("--pos","absolute")
+                }
+            });
+        }, {
+            threshold: 0
+        });
+
+        observer.observe(element);
+        return observer;
+    }
+
+    watchElementBelowViewport(workBlock2);

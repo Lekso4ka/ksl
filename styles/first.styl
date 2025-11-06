@@ -1,0 +1,25 @@
+.first-section
+    position relative
+    &::before
+        background-color #001342
+        position var(--pos, fixed)
+        z-index -1
+        content ""
+        height 100%
+        width 100%
+        background-image url("./images/banner.png")
+        background-position center -6rem
+        background-repeat no-repeat
+        background-size 300%
+        background-attachment fixed
+        @media screen and (min-width: 760px)
+            background-size 160%
+        @media screen and (min-width: 1440px)
+            background-size 100%
+            background-position center -8rem
+.pre-work
+    position var(--posi, absolute)
+    height 16rem
+    bottom -12rem
+    background-color lGray
+    width 100%

@@ -133,6 +133,30 @@ script.
     const line = document.querySelector(".sc_progress")
     const scCnt = document.querySelector(".sc-cnt")
 
+    function isElementInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top > window.innerHeight && rect.bottom <= window.innerHeight;
+    }
+
+
+    function watchElementInViewport(element, callback) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (isElementInViewport(entry.target)) {
+                    document.querySelector(".pre-work").style.setProperty("--posi", "fixed")
+                }
+            });
+        }, {
+            threshold: 0
+        });
+
+        observer.observe(element);
+        return observer;
+    }
+
+    watchElementInViewport(document.querySelector(".scenarios"));
+
+
     const lineAnimation = gsap.to(line, {
         attr: { x2: 1440 },
         duration: 1,
@@ -161,6 +185,11 @@ script.
                     scText[current - 1].previousElementSibling?.classList.remove("empty")
                     scData[current - 1].previousElementSibling?.classList.remove("active");
                 }, 1000)
+            }
+            if (self.progress === 0 || self.progress === 1) {
+                document.querySelector(".pre-work").style.setProperty("--posi", "absolute")
+            } else {
+                document.querySelector(".pre-work").style.setProperty("--posi", "fixed")
             }
             if (current <= 7) {
                 scCnt.innerText = `0${current}`

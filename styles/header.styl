@@ -26,7 +26,7 @@
     left -100vw
     background #010101
     top 0
-    z-index 1
+    z-index 2
     padding 2rem 2rem 4rem
     box-sizing border-box
     color white
@@ -100,10 +100,13 @@
         position static
         height 7.6rem
         background-color transparent
-        display flex
-        gap 0
-        justify-content space-between
+        display grid
+        grid-template-columns 1fr 4fr 1fr
+        align-content stretch
         align-items center
+        &>*
+            grid-row-end span 2
+        gap 0
         margin 0 2rem
         padding 0
         border-bottom .16rem solid iris20
@@ -124,9 +127,11 @@
             text-transform uppercase
             color #D6DCFF
             font-weight 450
+            justify-content  center
         .links
             display flex
             align-items center
+            justify-content flex-end
             gap 1rem
             padding-top 0
             .btn-label

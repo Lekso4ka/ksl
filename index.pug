@@ -10,11 +10,9 @@ html(lang="ru")
         script(src="assets/ScrollSmoother.min.js")
         script(src="assets/TextPlugin.min.js")
     body
-        .bg
-            include ./layout/banner
-            script.
-                gsap.registerPlugin(ScrollTrigger, ScrollSmoother, TextPlugin)
-            include ./layout/second
+        script.
+            gsap.registerPlugin(ScrollTrigger, ScrollSmoother, TextPlugin)
+        include ./layout/first
         include ./layout/work
         include ./layout/methodic
         include ./layout/effect

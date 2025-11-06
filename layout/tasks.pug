@@ -46,25 +46,25 @@ section.tasks
                 span.tasks-cnt 01
                 |&#32; — 04 /
         div.tasks__cards
-            div.tasks-item
+            div.tasks-item(data-order="1")
                 include vectors/pic7
                 h3 Оценка соответствия логистической сети целям компании
                 p Где теряются деньги и в каких точках сеть работает неэффективно по сравнению с оптимальной.
-            div.tasks-item
+            div.tasks-item(data-order="2")
                 include vectors/pic8
                 h3 Быстрая адаптация к росту и изменениям стратегии
                 p Как перестроить логистику под рост бизнеса, региональную экспансию, изменение объемов или выход в новые каналы продаж (маркетплейсы и др.)
-            div.tasks-item
+            div.tasks-item(data-order="3")
                 include vectors/pic9
                 h3 Оценка эффекта от оптимизации сети
                 p Достоверный расчет экономии при переходе от текущих схем поставок к распределенной складской сети.
-            div.tasks-item
+            div.tasks-item(data-order="4")
                 include vectors/pic10
                 h3 Сравнение затрат на логистику с рынком
                 p Бенчмарк транспортных и складских затрат с отраслью и рыночными тарифами на склады и транспорт.
     .tasks__decorate_bottom
 script.
-    const tCards = gsap.utils.toArray(".tasks-item");
+    let tCards = document.querySelectorAll(".tasks-item");
     const tLine = document.querySelector(".t_progress")
     const tCnt = document.querySelector(".tasks-cnt")
     const tCheck = gsap.utils.toArray(".group")
@@ -89,12 +89,12 @@ script.
             }, "-=1")
             .to(tCards[2], {
                 transform: "translate(0, -.8rem) scale(94%)",
-                opacity: .8,
+                opacity: .3,
                 duration: 1
             }, "-=1")
             .to(tCards[3], {
                 transform: "translate(0, -1.6rem) scale(88%)",
-                opacity: .6,
+                opacity: .2,
                 duration: 1
             }, "-=1")
             .to(tCards[1], {
@@ -114,7 +114,7 @@ script.
             }, "-=1")
             .to(tCards[3], {
                 transform: "translate(0, -.8rem) scale(94%)",
-                opacity: .8,
+                opacity: .3,
                 duration: 1
             }, "-=1")
             .to(tCards[2], {
@@ -162,56 +162,145 @@ script.
         let animating;
         let currentIndex = 0;
 
-        function gotoSection(index) {
+        function goFv() {
             animating = true;
-            index = wrap(index);
             const tl = gsap.timeline({
                 defaults: {
-                    duration: 1,
+                    duration: 1.5,
                     ease: "expo.inOut"
                 },
                 onComplete: () => {
                     animating = false;
-                    if (index !== 3) {
-                        currentIndex = index
-                    }
+                    tCards[0].parentElement.append(tCards[0])
+                    tCards = document.querySelectorAll(".tasks-item");
+                    tCards.forEach(c => {
+                        c.style = null
+                    })
                 }
             })
 
             tl
-                .to(tCards[currentIndex], {
+                .to(tCards[0], {
                     transform: "translate(calc(-100% - 40rem), 0)",
                     duration: 1
                 })
-                .to(tCards[currentIndex], {
+                .to(tCards[0], {
                     opacity: 0,
                     duration: -.5
                 })
-                .to(tCards[index], {
+                .to(tCards[1], {
                     transform: "translate(0, 0) scale(100%)",
                     opacity: 1,
                     backgroundColor: "white",
                     duration: 1
                 }, "-=1")
                 .set(count, {
-                    text: `0${ index + 1 }`
+                    text: `0${ tCards[1].dataset.order }`
                 }, 1)
-            if (tCards[index + 1]) {
-                tl
-                    .to(tCards[index + 1], {
-                        transform: "translate(0, -.8rem) scale(94%)",
-                        opacity: .8,
-                        duration: 1
-                    }, "-=1")
-            }
-            if (tCards[index + 2]) {
-                tl
-                    .to(tCards[index + 2], {
-                        transform: "translate(0, -1.6rem) scale(88%)",
-                        opacity: .6,
-                        duration: 1
-                    }, "-=1")
-            }
+                .to(tCards[2], {
+                    transform: "translate(0, -.8rem) scale(94%)",
+                    opacity: .3,
+                    duration: 1
+                }, "-=1")
+                .to(tCards[3], {
+                    transform: "translate(0, -1.6rem) scale(88%)",
+                    opacity: .2,
+                    duration: 1
+                }, "-=1")
+                .to(tCards[0], {
+                    duration: .1,
+                    zIndex: 0,
+                    opacity: .1,
+                    backgroundColor: "#6F92E8"
+                })
+                .to(tCards[0], {
+                    transform: "translate(0, -2.4rem) scale(82%)",
+                    duration: .4,
+                    zIndex: 0
+                })
+
+        }
+
+        function goBv() {
+            animating = true;
+            const tl = gsap.timeline({
+                defaults: {
+                    duration: 1.2,
+                    ease: "expo.inOut"
+                },
+                onComplete: () => {
+                    animating = false;
+                    tCards[3].parentElement.insertBefore(tCards[3],tCards[0])
+                    tCards = document.querySelectorAll(".tasks-item");
+                    tCards.forEach(c => {
+                        c.style = null
+                    })
+                }
+            })
+
+            tl
+                //.to(tCards[currentIndex], {
+                //    transform: "translate(calc(-100% - 40rem), 0)",
+                //    duration: 1
+                //})
+                //.to(tCards[currentIndex], {
+                //    opacity: 0,
+                //    duration: -.5
+                //})
+                //.to(tCards[index], {
+                //    transform: "translate(0, 0) scale(100%)",
+                //    opacity: 1,
+                //    backgroundColor: "white",
+                //    duration: 1
+                //}, "-=1")
+                //.set(count, {
+                //    text: `0${ tCards[index].dataset.order }`
+                //}, 1)
+                //.to(tCards[index + 1], {
+                //    transform: "translate(0, -.8rem) scale(94%)",
+                //    opacity: .3,
+                //    duration: 1
+                //}, "-=1")
+                //.to(tCards[index + 2], {
+                //    transform: "translate(0, -1.6rem) scale(88%)",
+                //    opacity: .2,
+                //    duration: 1
+                //}, "-=1")
+
+                .to(tCards[3], {
+                    opacity: 0,
+                    duration: .1,
+                    zIndex: 0
+                })
+                .to(tCards[3], {
+                    duration: .1,
+                    zIndex: 4,
+                    transform: "translate(calc(-100% - 40rem), 0) scale(100%)",
+                    backgroundColor: "white"
+                })
+                .to(tCards[3], {
+                    transform: "translate(0, 0) scale(100%)",
+                    opacity: 1,
+                    duration: 1
+                })
+                .to(tCards[0], {
+                    transform: "translate(0, -.8rem) scale(94%)",
+                    backgroundColor: "#6F92E8",
+                    opacity: .3,
+                    duration: 1
+                }, "-=1")
+                .to(tCards[1], {
+                    transform: "translate(0, -1.6rem) scale(88%)",
+                    opacity: .2,
+                    duration: 1
+                }, "-=1")
+                .to(tCards[2], {
+                    transform: "translate(0, -2.4rem) scale(82%)",
+                    opacity: .1,
+                    duration: 1
+                }, "-=1")
+
+
         }
 
         trgMob = Observer.create({
@@ -221,13 +310,15 @@ script.
             target: ".tasks",
             y: -100,
             pin: true,
-            onDrag: () => {
+            onDrag: (self) => {
+                const dragX = self.deltaX;
                 if (animating) return;
-                gotoSection(currentIndex + 1);
-            },
-            onDragEnd: () => {
-                if (animating) return;
-                gotoSection(currentIndex - 1);
+                if (dragX < 0) {
+                    goFv(1)
+                }
+                else {
+                    goBv(3);
+                }
             },
             tolerance: 10
         });
@@ -239,12 +330,3 @@ script.
     } else {
         setTaskAnimationMob()
     }
-    window.addEventListener("resize", () => {
-        if (window.innerWidth >= 1400) {
-            setTaskAnimationDt()
-            trgMob.disable()
-        } else {
-            setTaskAnimationMob()
-            trgDt.disable()
-        }
-    })
