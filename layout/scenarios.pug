@@ -8,7 +8,7 @@ section#directions.scenarios
     .sq_line
     h4.cnt-b
         span Направление
-        span.label-cnt
+        span.cnt
             | /&#32;
             span.sc-cnt 00
             | &#32; — 07 /
@@ -20,6 +20,13 @@ section#directions.scenarios
                 include vectors/circle1
                 include vectors/circle2
                 include vectors/circle1
+                svg.sc_line_tb(width="759" height="1" viewBox="0 0 759 1" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    <line x1="-0.000488281" y1="0.5" x2="759" y2="0.5" stroke="#D6DCFF" stroke-opacity="0.2" stroke-dasharray="5 5"/>
+
+                svg.sc_line_mob(viewBox="0 0 388 2" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    <path d="M0 0.559082L194 0.559065" stroke="#6F92E8" stroke-width="1.11818" stroke-dasharray="3.35 3.35"/>
+                    <path d="M194 0.559082L388 0.559099" stroke="#6F92E8" stroke-width="1.11818" stroke-dasharray="3.35 3.35"/>
+
                 svg.sc_line(viewBox="0 0 1440 1" fill="none" xmlns="http://www.w3.org/2000/svg")
                     line(x1="0" x2="1440" y1="0" y2="1" stroke="#6F92E833" stroke-width="2"
                     stroke-dasharray="4 4")
@@ -60,11 +67,10 @@ section#directions.scenarios
                     span.l
                     span.c
                     span Адекватность логистических затрат
-    //.mi
+    .sc__decorate_bottom
     .figures_simple
         .line
         .line2
-
     div.ss
         div.sc
             div.sc-card
@@ -125,25 +131,172 @@ section#directions.scenarios
                 <rect width="22" height="22" rx="6" fill="#D6DCFF"/>
                 <path d="M5 15.0518L8.38176 11.8311L10.5611 13.7528L16.9167 7M16.9167 7H13.3739M16.9167 7V10.5428" stroke="#212223" stroke-width="1.4"/>
                 </svg>
-
+        // TODO: вынести из блока
         div.ss__line
 script.
-    const scData = gsap.utils.toArray(".sc__item")
-    const scText = gsap.utils.toArray(".sc")
+    const scData = document.querySelectorAll(".sc__item")
+    const scText = document.querySelectorAll(".sc")
     const line = document.querySelector(".sc_progress")
     const scCnt = document.querySelector(".sc-cnt")
+    const scLine = document.querySelector(".sc__decorate_bottom")
+    let scId
 
-    function isElementInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return rect.top > window.innerHeight && rect.bottom <= window.innerHeight;
+    const scDtAnimation = () => {
+        function isElementInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top > window.innerHeight && rect.bottom <= window.innerHeight;
+        }
+
+        function watchElementInViewport(element, callback) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (isElementInViewport(entry.target)) {
+                        document.querySelector(".pre-work").style.setProperty("--posi", "fixed")
+                    }
+                });
+            }, {
+                threshold: 0
+            });
+
+            observer.observe(element);
+            return observer;
+        }
+
+        watchElementInViewport(document.querySelector(".scenarios"));
+
+        const lineAnimation = gsap.to(line, {
+            attr: { x2: 1440 },
+            duration: 1,
+            ease: "none",
+            paused: true
+        });
+
+        ScrollTrigger.create({
+            trigger: ".second-section",
+            start: "bottom bottom",
+            end: 10000,
+            scrub: true,
+            pin: true,
+            onUpdate: (self) => {
+                lineAnimation.progress(self.progress);
+                const progressCnt = 100 / (scData.length + 1);
+                const current = Math.floor(self.progress * 100 / progressCnt)
+                if (current >= 1 && current < scData.length + 1) {
+                    scData[current - 1].classList.add("active")
+                    scText[current - 1].classList.add("active")
+                    scData[current - 1].previousElementSibling?.classList.add("empty");
+                    scText[current - 1].previousElementSibling?.classList.add("empty");
+                    scText[current - 1].previousElementSibling?.classList.remove("active");
+                    scData[current - 1].previousElementSibling?.classList.remove("active");
+                    setTimeout(() => {
+                        scText[current - 1].previousElementSibling?.classList.remove("empty")
+                        scData[current - 1].previousElementSibling?.classList.remove("active");
+                    }, 1000)
+                }
+                if (self.progress === 0 || self.progress === 1) {
+                    document.querySelector(".pre-work").style.setProperty("--posi", "absolute")
+                } else {
+                    document.querySelector(".pre-work").style.setProperty("--posi", "fixed")
+                }
+                if (current <= 7) {
+                    scCnt.innerText = `0${ current }`
+                }
+                scData.forEach((card, i) => {
+                    if (i > current - 1 && card.classList.contains("active")) {
+                        card.classList.remove("active")
+                        scText[i].classList.remove("active")
+                    }
+                })
+            }
+        });
     }
 
+    let scAnimating
+    let n = 0
+    const goScFv = (n) => {
+        scAnimating = true
+        clearTimeout(scId)
+        scLine.classList.remove("active")
+        scCnt.innerText = `0${n + 1}`
+        const prevData = scData[n - 1] ? scData[n - 1] : scData[scData.length - 1]
+        const prevText = scText[n - 1] ? scText[n - 1] : scText[scText.length - 1]
+        scData[n].classList.add("active")
+        scText[n].classList.add("active")
+        prevData.classList.add("empty");
+        prevText.classList.add("empty");
+        prevText.classList.remove("active");
+        prevData.classList.remove("active");
+        setTimeout(() => {
+            scAnimating = false
+            prevText.classList.remove("empty")
+            prevData.classList.remove("active");
+            scLine.classList.add("active")
+            requestAnimationFrame(animateSc)
+        }, 1000)
+    }
+    const goScBv = (n) => {
+        scAnimating = true
+        clearTimeout(scId)
+        scLine.classList.remove("active")
+        scCnt.innerText = `0${n + 1}`
+        const nextData = scData[n + 1] ? scData[n + 1] : scData[0]
+        const nextText = scText[n + 1] ? scText[n + 1] : scText[0]
+        scData[n].classList.add("active")
+        scText[n].classList.add("active")
+        nextData.classList.add("empty");
+        nextText.classList.add("empty");
+        nextData.classList.remove("active");
+        nextText.classList.remove("active");
+        setTimeout(() => {
+            scAnimating = false
+            nextText.classList.remove("empty")
+            nextData.classList.remove("active");
+            scLine.classList.add("active")
+            requestAnimationFrame(animateSc)
+        }, 1000)
+    }
+    const scMobAnimation = () => {
+        Observer.create({
+            type: "touch,pointer",
+            preventDefault: true,
+            wheelSpeed: -1,
+            trigger: ".second-section",
+            start: "bottom bottom",
+            pin: true,
+            onDrag: (self) => {
+                if (scAnimating) return;
+                const dragX = self.deltaX;
+                if (dragX < 0) {
+                    n = n >= scData.length - 1 ? 0 : n + 1
+                    goScFv(n)
+                } else {
+                    n = n <= 0 ? scData.length - 1 : n - 1
+                    goScBv(n);
+                }
+            },
+            tolerance: 10
+        });
+    }
 
-    function watchElementInViewport(element, callback) {
+    function animateSc() {
+        if (!scAnimating && scLine.classList.contains("active")) {
+            scId = setTimeout(() => {
+                n = n >= scData.length - 1 ? 0 : n + 1
+                goScFv(n)
+            }, 5000)
+        } else {
+            clearTimeout(toId);
+        }
+    }
+
+    function watchSc(element) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (isElementInViewport(entry.target)) {
-                    document.querySelector(".pre-work").style.setProperty("--posi", "fixed")
+                scData[n].classList.add("active")
+                scText[n].classList.add("active")
+                if (entry.isIntersecting) {
+                    scLine.classList.add("active")
+                    requestAnimationFrame(animateSc)
                 }
             });
         }, {
@@ -153,52 +306,9 @@ script.
         observer.observe(element);
         return observer;
     }
-
-    watchElementInViewport(document.querySelector(".scenarios"));
-
-
-    const lineAnimation = gsap.to(line, {
-        attr: { x2: 1440 },
-        duration: 1,
-        ease: "none",
-        paused: true
-    });
-
-    ScrollTrigger.create({
-        trigger: ".second-section",
-        start: "bottom bottom",
-        end: 10000,
-        scrub: true,
-        pin: true,
-        onUpdate: (self) => {
-            lineAnimation.progress(self.progress);
-            const progressCnt = 100 / (scData.length + 1);
-            const current = Math.floor(self.progress * 100 / progressCnt)
-            if (current >= 1 && current < scData.length + 1) {
-                scData[current - 1].classList.add("active")
-                scText[current - 1].classList.add("active")
-                scData[current - 1].previousElementSibling?.classList.add("empty");
-                scText[current - 1].previousElementSibling?.classList.add("empty");
-                scText[current - 1].previousElementSibling?.classList.remove("active");
-                scData[current - 1].previousElementSibling?.classList.remove("active");
-                setTimeout(() => {
-                    scText[current - 1].previousElementSibling?.classList.remove("empty")
-                    scData[current - 1].previousElementSibling?.classList.remove("active");
-                }, 1000)
-            }
-            if (self.progress === 0 || self.progress === 1) {
-                document.querySelector(".pre-work").style.setProperty("--posi", "absolute")
-            } else {
-                document.querySelector(".pre-work").style.setProperty("--posi", "fixed")
-            }
-            if (current <= 7) {
-                scCnt.innerText = `0${current}`
-            }
-            scData.forEach((card, i) => {
-                if (i > current - 1 && card.classList.contains("active")) {
-                    card.classList.remove("active")
-                    scText[i].classList.remove("active")
-                }
-            })
-        }
-    });
+    if (window.innerWidth >= 1400) {
+        scDtAnimation()
+    } else {
+        scMobAnimation()
+        watchSc(scLine)
+    }

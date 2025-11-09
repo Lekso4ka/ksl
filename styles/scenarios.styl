@@ -20,18 +20,44 @@
             padding-top 2rem
         @media screen and (min-width: 1440px)
             padding 3rem 2rem 4rem
-    .sq_line
-        opacity .2
     .figures_simple
         opacity .2
-        margin-top 3rem
+        margin 3rem 2rem
         .line2
             height 3rem
+.sc__decorate_bottom
+    width 6rem
+    height .2rem
+    margin 1.1rem auto 0
+    background-color ltGray
+    border-radius .1rem
+    position relative
+    top 1rem
+    &::before
+        content ""
+        position absolute
+        top 0
+        left 0
+        width 0
+        height 100%
+        background-color inkDark
+    &.active::before
+        width 100%
+        transition width 5s linear
+    @media screen and (min-width: 1440px)
+        display none
+.sc_line_tb
+    width 100%
+    @media screen and (max-width: 759px)
+        display none
+    @media screen and (min-width: 1440px)
+        display none
 .sq_line
-    background-color iris20
     margin 0 2rem
     width calc(100% - 4rem)
+    display none
     @media screen and (min-width: 1440px)
+        display block
         background-color iris
 .circles-block
     width 100%
@@ -66,6 +92,13 @@
             left calc(50% + 33rem)
         &:nth-child(5)
             left calc(50% + 58.5rem)
+    .sc_line_mob
+        width 100%
+        left 0
+    .sc_line_tb
+        width 100%
+        left 0
+        display none
     @media screen and (min-width: 760px)
         height 56.9rem
         svg
@@ -80,6 +113,10 @@
                 left calc(50% + 51.95rem)
             &:nth-child(5)
                 left calc(50% + 92.15rem)
+        .sc_line_mob
+            display none
+        .sc_line_tb
+            display block
     @media screen and (min-width: 1440px)
         height 50rem
         svg
@@ -95,6 +132,8 @@
                 left calc(50% + 10.2rem)
             &:nth-child(5)
                 left calc(50% + 45.5rem)
+        .sc_line_tb
+            display none
 .sc__item
     width 15rem
     overflow hidden
@@ -157,17 +196,10 @@
             transform translate(0, -2.2rem) scale(1)
             &:nth-child(2n - 1)
                 transform translate(0, 2.2rem) scale(1)
-.mi
-    margin 1rem auto 2rem
-    height .1rem
-    width 6rem
-    background-color lavender
-    @media screen and (min-width: 1440px)
-        display none
 
 .ss
     box-sizing border-box
-    padding 0 2.4rem 2rem
+    padding 0 2rem 2rem
     overflow-x scroll
     overflow-y hidden
     width 100%
@@ -180,14 +212,18 @@
     &>.ss__line
         position absolute
         bottom 0
+    @media screen and (min-width: 760px)
+        padding 0 4rem 2rem
     @media screen and (min-width: 1440px)
         overflow hidden
+        padding 0 2rem 2rem
         &>.btn-block
             display flex
             position absolute
             top 0
             bottom auto
             right 2rem
+            z-index 1
             .btn-label
                 background-color transparent
                 border .16rem solid iris20
@@ -199,8 +235,9 @@
 
 
 .sc
-    width 100.7rem
+    width max-content
     gap 1rem
+    padding-right 2rem
     transform translate(0, 100%)
     transition-duration 1000ms
     transition-delay 0ms
@@ -219,9 +256,12 @@
         opacity 0
     @media screen and (min-width: 760px)
         gap 2rem
-        width 103rem
+        padding-right 4rem
     @media screen and (min-width: 1440px)
-        width 100%
+        width calc(100% - 4rem)
+        display grid
+        padding-right 0
+        grid-template-columns repeat(4, 1fr)
 
 .sc-card
     width 33.5rem
@@ -237,11 +277,11 @@
         font-size 1.2rem
     align-content space-between
     @media screen and (min-width: 760px)
-        width 33rem
+        width calc(50vw - 5rem)
     @media screen and (min-width: 1440px)
-        width 35.5rem
+        width 100%
 
 .ss__line
-    width 100%
     height .1rem
     background-color iris20
+    width calc(100vw - 4rem)

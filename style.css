@@ -1107,23 +1107,61 @@ ol {
     padding: 3rem 2rem 4rem;
   }
 }
-.scenarios .sq_line {
-  opacity: 0.2;
-}
 .scenarios .figures_simple {
   opacity: 0.2;
-  margin-top: 3rem;
+  margin: 3rem 2rem;
 }
 .scenarios .figures_simple .line2 {
   height: 3rem;
 }
+.sc__decorate_bottom {
+  width: 6rem;
+  height: 0.2rem;
+  margin: 1.1rem auto 0;
+  background-color: #e5e5e5;
+  border-radius: 0.1rem;
+  position: relative;
+  top: 1rem;
+}
+.sc__decorate_bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #32364c;
+}
+.sc__decorate_bottom.active::before {
+  width: 100%;
+  transition: width 5s linear;
+}
+@media screen and (min-width: 1440px) {
+  .sc__decorate_bottom {
+    display: none;
+  }
+}
+.sc_line_tb {
+  width: 100%;
+}
+@media screen and (max-width: 759px) {
+  .sc_line_tb {
+    display: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .sc_line_tb {
+    display: none;
+  }
+}
 .sq_line {
-  background-color: rgba(111,146,232,0.2);
   margin: 0 2rem;
   width: calc(100% - 4rem);
+  display: none;
 }
 @media screen and (min-width: 1440px) {
   .sq_line {
+    display: block;
     background-color: #6f92e8;
   }
 }
@@ -1168,6 +1206,15 @@ ol {
 .circles svg:nth-child(5) {
   left: calc(50% + 58.5rem);
 }
+.circles .sc_line_mob {
+  width: 100%;
+  left: 0;
+}
+.circles .sc_line_tb {
+  width: 100%;
+  left: 0;
+  display: none;
+}
 @media screen and (min-width: 760px) {
   .circles {
     height: 56.9rem;
@@ -1188,6 +1235,12 @@ ol {
   }
   .circles svg:nth-child(5) {
     left: calc(50% + 92.15rem);
+  }
+  .circles .sc_line_mob {
+    display: none;
+  }
+  .circles .sc_line_tb {
+    display: block;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -1212,6 +1265,9 @@ ol {
   }
   .circles svg:nth-child(5) {
     left: calc(50% + 45.5rem);
+  }
+  .circles .sc_line_tb {
+    display: none;
   }
 }
 .sc__item {
@@ -1292,20 +1348,9 @@ ol {
     transform: translate(0, 2.2rem) scale(1);
   }
 }
-.mi {
-  margin: 1rem auto 2rem;
-  height: 0.1rem;
-  width: 6rem;
-  background-color: #d6dcff;
-}
-@media screen and (min-width: 1440px) {
-  .mi {
-    display: none;
-  }
-}
 .ss {
   box-sizing: border-box;
-  padding: 0 2.4rem 2rem;
+  padding: 0 2rem 2rem;
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
@@ -1321,9 +1366,15 @@ ol {
   position: absolute;
   bottom: 0;
 }
+@media screen and (min-width: 760px) {
+  .ss {
+    padding: 0 4rem 2rem;
+  }
+}
 @media screen and (min-width: 1440px) {
   .ss {
     overflow: hidden;
+    padding: 0 2rem 2rem;
   }
   .ss>.btn-block {
     display: flex;
@@ -1331,6 +1382,7 @@ ol {
     top: 0;
     bottom: auto;
     right: 2rem;
+    z-index: 1;
   }
   .ss>.btn-block .btn-label {
     background-color: transparent;
@@ -1343,8 +1395,9 @@ ol {
   }
 }
 .sc {
-  width: 100.7rem;
+  width: max-content;
   gap: 1rem;
+  padding-right: 2rem;
   transform: translate(0, 100%);
   transition-duration: 1000ms;
   transition-delay: 0ms;
@@ -1367,12 +1420,15 @@ ol {
 @media screen and (min-width: 760px) {
   .sc {
     gap: 2rem;
-    width: 103rem;
+    padding-right: 4rem;
   }
 }
 @media screen and (min-width: 1440px) {
   .sc {
-    width: 100%;
+    width: calc(100% - 4rem);
+    display: grid;
+    padding-right: 0;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .sc-card {
@@ -1392,18 +1448,18 @@ ol {
 }
 @media screen and (min-width: 760px) {
   .sc-card {
-    width: 33rem;
+    width: calc(50vw - 5rem);
   }
 }
 @media screen and (min-width: 1440px) {
   .sc-card {
-    width: 35.5rem;
+    width: 100%;
   }
 }
 .ss__line {
-  width: 100%;
   height: 0.1rem;
   background-color: rgba(111,146,232,0.2);
+  width: calc(100vw - 4rem);
 }
 .work {
   padding: 10rem 1rem 0;

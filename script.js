@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     window.addEventListener("resize", () => {
-        location.reload()
+        //location.reload()
         if (window.innerWidth >= 1440) {
             if (headerBlock.classList.contains("active")) {
                 headerBlock.classList.remove("active")
