@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+//document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin)
     
     const headerBlock = document.querySelector(".header-block");
@@ -60,4 +60,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
     
-});
+//});
