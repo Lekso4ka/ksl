@@ -266,10 +266,10 @@ script.
             onDrag: (self) => {
                 if (scAnimating) return;
                 const dragX = self.deltaX;
-                if (dragX < 0) {
+                if (dragX < -100) {
                     n = n >= scData.length - 1 ? 0 : n + 1
                     goScFv(n)
-                } else {
+                } else if (dragX > 100) {
                     n = n <= 0 ? scData.length - 1 : n - 1
                     goScBv(n);
                 }
