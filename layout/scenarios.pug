@@ -256,6 +256,8 @@ script.
         }, 1000)
     }
     const scMobAnimation = () => {
+        let isVerticalScroll = false;
+        let startY = 0;
         Observer.create({
             type: "touch",
             preventDefault: true,
@@ -263,9 +265,18 @@ script.
             trigger: ".second-section",
             start: "bottom bottom",
             //pin: true,
+            onPress: function (self) {
+                startY = self.y;
+                isVerticalScroll = false;
+            },
             onDrag: (self) => {
-                console.log(self.deltaX)
+                const deltaY = Math.abs(self.y - startY);
+                const deltaX = Math.abs(self.x);
                 if (scAnimating) return;
+                if (deltaY > deltaX && deltaY > 10) {
+                    isVerticalScroll = true;
+                    return;
+                }
                 const dragX = self.deltaX;
                 if (dragX < -10) {
                     n = n >= scData.length - 1 ? 0 : n + 1
@@ -275,7 +286,13 @@ script.
                     goScBv(n);
                 }
             },
-            tolerance: 10
+            onRelease: function () {
+                isVerticalScroll = false;
+            },
+            tolerance: 10,
+            allowClicks: true,
+            lockAxis: false,
+            minimumMovement: 10
         });
     }
 
