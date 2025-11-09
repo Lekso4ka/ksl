@@ -264,12 +264,36 @@ ol {
     display: none;
   }
 }
+.second-section {
+  background-image: url("./images/banner2.jpg");
+  background-size: auto 100%;
+  background-position: center bottom;
+  height: 109.6rem;
+  position: relative;
+  z-index: 1;
+}
+@media screen and (min-width: 760px) {
+  .second-section {
+    height: 133.3rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .second-section {
+    height: 125.9rem;
+    border-radius: 0 0 3rem 3rem;
+  }
+}
 .pre-work {
   position: var(--posi, absolute);
   height: 16rem;
   bottom: -12rem;
   background-color: #f1f1f1;
   width: 100%;
+}
+@media screen and (max-width: 1439px) {
+  .pre-work {
+    display: none;
+  }
 }
 .label-btn {
   display: flex;
@@ -479,6 +503,14 @@ ol {
 }
 .btn:hover .stroke_white {
   stroke: #fff;
+}
+.cnt {
+  word-spacing: 0.4rem;
+}
+@media screen and (min-width: 760px) {
+  .cnt {
+    word-spacing: 0.2rem;
+  }
 }
 .main-banner {
   height: 99.1rem;
@@ -816,25 +848,6 @@ ol {
     stroke: #fff;
   }
 }
-.second-section {
-  background-image: url("./images/banner2.jpg");
-  background-size: auto 100%;
-  background-position: center bottom;
-  height: 109.6rem;
-  position: relative;
-  z-index: 1;
-}
-@media screen and (min-width: 760px) {
-  .second-section {
-    height: 133.3rem;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .second-section {
-    height: 125.9rem;
-    border-radius: 0 0 3rem 3rem;
-  }
-}
 .tasks {
   margin: 0 1rem;
   background-color: rgba(255,255,255,0.8);
@@ -929,15 +942,9 @@ ol {
 .tasks__label .label-txt {
   flex: 0.6;
 }
-.tasks__label .label-cnt {
-  word-spacing: 0.4rem;
-}
 @media screen and (min-width: 760px) {
   .tasks__label {
     padding: 0;
-  }
-  .tasks__label .label-cnt {
-    word-spacing: 0.2rem;
   }
 }
 .tasks__cards {
@@ -954,7 +961,7 @@ ol {
   align-content: space-between;
   transform-origin: center top;
 }
-.tasks-item svg {
+.tasks-item img {
   width: 3.2rem;
   height: 3.2rem;
   position: absolute;
@@ -996,7 +1003,7 @@ ol {
 @media screen and (min-width: 760px) {
   .tasks-item {
     height: 19rem;
-    padding: 3rem;
+    padding: 3.4rem 3rem 3rem;
   }
   .tasks-item p {
     line-height: 1;
@@ -1004,11 +1011,11 @@ ol {
   .tasks-item h3 {
     width: 48.4rem;
   }
-  .tasks-item svg {
-    height: 3.2rem;
+  .tasks-item img {
+    height: 3.8rem;
     width: auto;
     top: 3rem;
-    righht: 3rem;
+    right: 2.4rem;
   }
   .tasks-item:nth-child(2) {
     transform: translate(0, -1rem) scale(94%);
@@ -1031,10 +1038,6 @@ ol {
   .tasks-item p {
     line-height: 1.6rem;
   }
-  .tasks-item svg {
-    width: 3.8rem;
-    height: 3.8rem;
-  }
 }
 .tasks__decorate_bottom {
   width: 6rem;
@@ -1042,6 +1045,20 @@ ol {
   margin: 1.1rem auto 0;
   background-color: #e5e5e5;
   border-radius: 0.1rem;
+  position: relative;
+}
+.tasks__decorate_bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #32364c;
+}
+.tasks__decorate_bottom.active::before {
+  width: 100%;
+  transition: width 5s linear;
 }
 @media screen and (min-width: 760px) {
   .tasks__decorate_bottom {

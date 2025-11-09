@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerClose = document.querySelector(".logo__x");
     const anchorLinks = document.querySelectorAll("a[href^=\"#\"]");
     
+    gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+            y: 0,
+        },
+        ease: "power2.inOut"
+    });
+    
     burgerBtn.addEventListener("click", (e) => {
         e.preventDefault()
         e.stopPropagation()
@@ -44,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     window.addEventListener("resize", () => {
-        //location.reload()
+        location.reload()
         if (window.innerWidth >= 1440) {
             if (headerBlock.classList.contains("active")) {
                 headerBlock.classList.remove("active")

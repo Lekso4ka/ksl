@@ -7,58 +7,29 @@ section#technology.tasks
             h4 Решение
             p Оптимальное размещение складов и распределение запасов по ним снижают издержки благодаря лучшей загрузке транспорта и сокращению плеч доставки.
     .tasks__decorate_center
-        <svg viewBox="0 0 20 306" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="9" width="2" height="297" rx="1" fill="white"/>
-        <rect class="t_progress" x="9" width="2" height="0" rx="1" fill="#6F92E8"/>
-        <rect x="0.55" y="0.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <rect x="0.55" y="0.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
-        <rect x="2" y="2" width="16" height="16" rx="8" fill="#6F92E8"/>
-        <path d="M5.7998 10.6L8.1998 13L14.1998 7" stroke="white" stroke-width="1.03529"/>
-        <rect x="0.55" y="95.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <rect x="0.55" y="190.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <rect x="0.55" y="285.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <g class="group" style="opacity: 0">
-        <rect x="0.55" y="95.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <rect x="0.55" y="95.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
-        <rect x="2" y="97" width="16" height="16" rx="8" fill="#6F92E8"/>
-        <path d="M5.7998 105.6L8.1998 108L14.1998 102" stroke="white" stroke-width="1.03529"/>
-        </g>
-        <g class="group" style="opacity: 0">
-        <rect x="0.55" y="190.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <rect x="0.55" y="190.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
-        <rect x="2" y="192" width="16" height="16" rx="8" fill="#6F92E8"/>
-        <path d="M5.7998 200.6L8.1998 203L14.1998 197" stroke="white" stroke-width="1.03529"/>
-        </g>
-        <g class="group" style="opacity: 0">
-        <rect x="0.55" y="285.55" width="18.9" height="18.9" rx="9.45" fill="white"/>
-        <rect x="0.55" y="285.55" width="18.9" height="18.9" rx="9.45" stroke="#6F92E8" stroke-width="1.1"/>
-        <rect x="2" y="287" width="16" height="16" rx="8" fill="#6F92E8"/>
-        <path d="M5.7998 295.6L8.1998 298L14.1998 292" stroke="white" stroke-width="1.03529"/>
-        </g>
-        </svg>
-
+        include vectors/task_line
     div.tasks__block
         h4.tasks__label
             span.label-txt Какие задачи решает моделирование?
-            span.label-cnt
+            span.cnt
                 |/&#32;
                 span.tasks-cnt 01
                 |&#32; — 04 /
         div.tasks__cards
             div.tasks-item(data-order="1")
-                include vectors/pic7
+                img(src="images/tasks_1.svg" alt="")
                 h3 Оценка соответствия логистической сети целям компании
                 p Где теряются деньги и в каких точках сеть работает неэффективно по сравнению с оптимальной.
             div.tasks-item(data-order="2")
-                include vectors/pic8
+                img(src="images/tasks_2.svg" alt="")
                 h3 Быстрая адаптация к росту и изменениям стратегии
                 p Как перестроить логистику под рост бизнеса, региональную экспансию, изменение объемов или выход в новые каналы продаж (маркетплейсы и др.)
             div.tasks-item(data-order="3")
-                include vectors/pic9
+                img(src="images/tasks_3.svg" alt="")
                 h3 Оценка эффекта от оптимизации сети
                 p Достоверный расчет экономии при переходе от текущих схем поставок к распределенной складской сети.
             div.tasks-item(data-order="4")
-                include vectors/pic10
+                img(src="images/tasks_4.svg" alt="")
                 h3 Сравнение затрат на логистику с рынком
                 p Бенчмарк транспортных и складских затрат с отраслью и рыночными тарифами на склады и транспорт.
     .tasks__decorate_bottom
@@ -66,9 +37,12 @@ script.
     let tCards = document.querySelectorAll(".tasks-item");
     const tLine = document.querySelector(".t_progress")
     const tCnt = document.querySelector(".tasks-cnt")
+    const tdLine = document.querySelector(".tasks__decorate_bottom")
     const tCheck = gsap.utils.toArray(".group")
     const tTl = gsap.timeline({ paused: true });
-    let trgDt, trgMob
+    let trgDt, trgMob, animating;
+    let toId = null;
+    const tCount = document.querySelector(".tasks-cnt");
     const setTaskAnimationDt = () => {
         tTl
             .to(tCards[0], {
@@ -154,153 +128,129 @@ script.
         });
     }
 
+    function goFv() {
+        animating = true;
+        clearTimeout(toId);
+        tdLine.classList.remove("active")
+        const tl = gsap.timeline({
+            defaults: {
+                duration: 1.5,
+                ease: "expo.inOut"
+            },
+            onComplete: () => {
+                animating = false;
+                tCards[0].parentElement.append(tCards[0])
+                tCards = document.querySelectorAll(".tasks-item");
+                tCards.forEach(c => {
+                    c.style = null
+                })
+                tdLine.classList.add("active")
+                requestAnimationFrame(animateT)
+            }
+        })
+
+        tl
+            .to(tCards[0], {
+                transform: "translate(calc(-100% - 40rem), 0)",
+                duration: 1
+            })
+            .to(tCards[0], {
+                opacity: 0,
+                duration: -.5
+            })
+            .to(tCards[1], {
+                transform: "translate(0, 0) scale(100%)",
+                opacity: 1,
+                backgroundColor: "white",
+                duration: 1
+            }, "-=1")
+            .set(tCount, {
+                text: `0${ tCards[1].dataset.order }`
+            }, 1)
+            .to(tCards[2], {
+                transform: "translate(0, -.8rem) scale(94%)",
+                opacity: .3,
+                duration: 1
+            }, "-=1")
+            .to(tCards[3], {
+                transform: "translate(0, -1.6rem) scale(88%)",
+                opacity: .2,
+                duration: 1
+            }, "-=1")
+            .to(tCards[0], {
+                duration: .1,
+                zIndex: 0,
+                opacity: .1,
+                backgroundColor: "#6F92E8"
+            })
+            .to(tCards[0], {
+                transform: "translate(0, -2.4rem) scale(82%)",
+                duration: .4,
+                zIndex: 0
+            })
+
+    }
+
+    function goBv() {
+        animating = true;
+        clearTimeout(toId)
+        tdLine.classList.remove("active")
+        const tl = gsap.timeline({
+            defaults: {
+                duration: 1.2,
+                ease: "expo.inOut"
+            },
+            onComplete: () => {
+                animating = false;
+                tCards[3].parentElement.insertBefore(tCards[3], tCards[0])
+                tCards = document.querySelectorAll(".tasks-item");
+                tCards.forEach(c => {
+                    c.style = null
+                })
+                tdLine.classList.add("active")
+                requestAnimationFrame(animateT)
+            }
+        })
+
+        tl
+            .to(tCards[3], {
+                opacity: 0,
+                duration: .1,
+                zIndex: 0
+            })
+            .to(tCards[3], {
+                duration: .1,
+                zIndex: 4,
+                transform: "translate(calc(-100% - 40rem), 0) scale(100%)",
+                backgroundColor: "white"
+            })
+            .to(tCards[3], {
+                transform: "translate(0, 0) scale(100%)",
+                opacity: 1,
+                duration: 1
+            })
+            .set(tCount, {
+                text: `0${ tCards[3].dataset.order }`
+            }, "-=1")
+            .to(tCards[0], {
+                transform: "translate(0, -.8rem) scale(94%)",
+                backgroundColor: "#6F92E8",
+                opacity: .3,
+                duration: 1
+            }, "-=1")
+            .to(tCards[1], {
+                transform: "translate(0, -1.6rem) scale(88%)",
+                opacity: .2,
+                duration: 1
+            }, "-=1")
+            .to(tCards[2], {
+                transform: "translate(0, -2.4rem) scale(82%)",
+                opacity: .1,
+                duration: 1
+            }, "-=1")
+
+    }
     const setTaskAnimationMob = () => {
-
-        const count = document.querySelector(".tasks-cnt");
-        const wrap = gsap.utils.wrap(0, tCards.length);
-        let animating;
-        let currentIndex = 0;
-
-        function goFv() {
-            animating = true;
-            const tl = gsap.timeline({
-                defaults: {
-                    duration: 1.5,
-                    ease: "expo.inOut"
-                },
-                onComplete: () => {
-                    animating = false;
-                    tCards[0].parentElement.append(tCards[0])
-                    tCards = document.querySelectorAll(".tasks-item");
-                    tCards.forEach(c => {
-                        c.style = null
-                    })
-                }
-            })
-
-            tl
-                .to(tCards[0], {
-                    transform: "translate(calc(-100% - 40rem), 0)",
-                    duration: 1
-                })
-                .to(tCards[0], {
-                    opacity: 0,
-                    duration: -.5
-                })
-                .to(tCards[1], {
-                    transform: "translate(0, 0) scale(100%)",
-                    opacity: 1,
-                    backgroundColor: "white",
-                    duration: 1
-                }, "-=1")
-                .set(count, {
-                    text: `0${ tCards[1].dataset.order }`
-                }, 1)
-                .to(tCards[2], {
-                    transform: "translate(0, -.8rem) scale(94%)",
-                    opacity: .3,
-                    duration: 1
-                }, "-=1")
-                .to(tCards[3], {
-                    transform: "translate(0, -1.6rem) scale(88%)",
-                    opacity: .2,
-                    duration: 1
-                }, "-=1")
-                .to(tCards[0], {
-                    duration: .1,
-                    zIndex: 0,
-                    opacity: .1,
-                    backgroundColor: "#6F92E8"
-                })
-                .to(tCards[0], {
-                    transform: "translate(0, -2.4rem) scale(82%)",
-                    duration: .4,
-                    zIndex: 0
-                })
-
-        }
-
-        function goBv() {
-            animating = true;
-            const tl = gsap.timeline({
-                defaults: {
-                    duration: 1.2,
-                    ease: "expo.inOut"
-                },
-                onComplete: () => {
-                    animating = false;
-                    tCards[3].parentElement.insertBefore(tCards[3],tCards[0])
-                    tCards = document.querySelectorAll(".tasks-item");
-                    tCards.forEach(c => {
-                        c.style = null
-                    })
-                }
-            })
-
-            tl
-                //.to(tCards[currentIndex], {
-                //    transform: "translate(calc(-100% - 40rem), 0)",
-                //    duration: 1
-                //})
-                //.to(tCards[currentIndex], {
-                //    opacity: 0,
-                //    duration: -.5
-                //})
-                //.to(tCards[index], {
-                //    transform: "translate(0, 0) scale(100%)",
-                //    opacity: 1,
-                //    backgroundColor: "white",
-                //    duration: 1
-                //}, "-=1")
-                //.set(count, {
-                //    text: `0${ tCards[index].dataset.order }`
-                //}, 1)
-                //.to(tCards[index + 1], {
-                //    transform: "translate(0, -.8rem) scale(94%)",
-                //    opacity: .3,
-                //    duration: 1
-                //}, "-=1")
-                //.to(tCards[index + 2], {
-                //    transform: "translate(0, -1.6rem) scale(88%)",
-                //    opacity: .2,
-                //    duration: 1
-                //}, "-=1")
-
-                .to(tCards[3], {
-                    opacity: 0,
-                    duration: .1,
-                    zIndex: 0
-                })
-                .to(tCards[3], {
-                    duration: .1,
-                    zIndex: 4,
-                    transform: "translate(calc(-100% - 40rem), 0) scale(100%)",
-                    backgroundColor: "white"
-                })
-                .to(tCards[3], {
-                    transform: "translate(0, 0) scale(100%)",
-                    opacity: 1,
-                    duration: 1
-                })
-                .to(tCards[0], {
-                    transform: "translate(0, -.8rem) scale(94%)",
-                    backgroundColor: "#6F92E8",
-                    opacity: .3,
-                    duration: 1
-                }, "-=1")
-                .to(tCards[1], {
-                    transform: "translate(0, -1.6rem) scale(88%)",
-                    opacity: .2,
-                    duration: 1
-                }, "-=1")
-                .to(tCards[2], {
-                    transform: "translate(0, -2.4rem) scale(82%)",
-                    opacity: .1,
-                    duration: 1
-                }, "-=1")
-
-
-        }
 
         trgMob = Observer.create({
             type: "touch,pointer",
@@ -319,13 +269,43 @@ script.
                     goBv(3);
                 }
             },
+
             tolerance: 10
         });
     }
+    
+
+    function animateT () {
+        if (!animating && tdLine.classList.contains("active")) {
+            toId = setTimeout(() => {
+                goFv()
+            }, 5000)
+        } else {
+            clearTimeout(toId);
+        }
+    }
+
+    function watchTasks(element) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tdLine.classList.add("active")
+                    requestAnimationFrame(animateT)
+                }
+            });
+        }, {
+            threshold: 0
+        });
+
+        observer.observe(element);
+        return observer;
+    }
+
 
 
     if (window.innerWidth >= 1400) {
         setTaskAnimationDt()
     } else {
         setTaskAnimationMob()
+        watchTasks(tdLine);
     }
