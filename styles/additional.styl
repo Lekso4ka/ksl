@@ -1,24 +1,21 @@
 .first-section
     position relative
     &::before
-        background-color #001342
+        content ""
         position var(--pos, fixed)
         z-index -1
-        content ""
         height 100%
         width 100%
         top 0
         left 0
+        background-color #001342
         background-image url("./images/banner.png")
-        background-position center -6rem
+        background-position center -8rem
         background-repeat no-repeat
-        background-size 300%
+        background-size 100%
         background-attachment fixed
-        @media screen and (min-width: 760px)
-            background-size 160%
-        @media screen and (min-width: 1440px)
-            background-size 100%
-            background-position center -8rem
+        @media screen and (max-width: 1439px)
+            display none
 .pre-work
     position var(--posi, absolute)
     height 16rem

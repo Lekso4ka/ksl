@@ -1,30 +1,33 @@
-.header-block_mob
+.header-mob
     height 6.5rem
     display flex
     justify-content space-between
     align-items center
     margin 0 2rem
+    padding-right .4rem
     border-bottom .16rem solid iris20
-    .fill_iris
-        fill white
-    svg:first-of-type
-        height 2.4rem
-    svg:last-of-type
-        height 1.7rem
-    @media screen and (min-width: 760px)
-        svg:first-of-type
-            height 2.7rem
-        svg:last-of-type
-            height 1.7rem
     @media screen and (min-width: 1440px)
         display none
+.header-mob__logo
+    height 2.4rem
+    @media screen and (min-width: 760px)
+        height 2.7rem
+    svg
+        height 100%
+.header-mob__btn
+    display flex
+    justify-content center
+    align-items center
+    height 1.7rem
+    svg
+        height 100%
 
 .header-block
     width 100vw
     height 100vh
     position fixed
     left -100vw
-    background #010101
+    background dark
     top 0
     z-index 2
     padding 2rem 2rem 4rem
@@ -32,7 +35,6 @@
     color white
     display grid
     grid-template-rows auto 1fr auto
-    gap 11.6rem
     transition transform 500ms
     &.active
         transform translate(100vw)
@@ -41,122 +43,144 @@
         left -39rem
         &.active
             transform translate(39rem)
-    .logo
-        display flex
-        align-items center
-        gap 1.7rem
-        font-size 1.4rem
-        padding-bottom 2.4rem
-        border-bottom .16rem solid iris20
-        position relative
-        .logo_x
-            position absolute
-            right 0
-            top 0
-            transform rotate(45deg)
-            svg
-                width 3rem
-                height 3rem
-        svg
-            height 3rem
-        .fill_iris
-            fill white
-    nav
-        align-content flex-end
-        display grid
-        gap 2.4rem
-        font-size 2.8rem
-        color #C6C6C6
-        a:hover
-            color white
-            @media screen and (min-width: 1440px)
-                color iris
-    .links
-        border-top .16rem solid iris20
-        padding-top 2.3rem
-        display grid
-        grid-template-columns repeat(2, auto)
-        justify-content space-between
-        position relative
-        &::before
-            content ""
-            position absolute
-            width .1rem
-            background-color iris20
-            left calc(50% - .05rem)
-            height 5rem
-        .btn-label
-            height 4.2rem
-            background transparent
-            color white
-            gap 1rem
-            font-size 1.2rem
-            padding 1rem 0
-            svg
-                order -1
-            &:last-child
-                display none
     @media screen and (min-width: 1440px)
         position static
         height 7.6rem
         background-color transparent
         display grid
         grid-template-columns 1fr 4fr 1fr
-        align-content stretch
-        align-items center
-        &>*
-            grid-row-end span 2
-        gap 0
         margin 0 2rem
         padding 0
         border-bottom .16rem solid iris20
         width calc(100vw - 4rem)
-        .logo
-            font-size 1rem
-            gap 1.4rem
-            border-bottom none
-            padding 0
-            svg
-                height 2.2rem
-            .logo_x
-                display none
-        nav
-            display flex
-            gap 8rem
+        grid-template-rows auto
+.header__first
+    display flex
+    align-items center
+    justify-content space-between
+    padding-bottom 2.4rem
+    border-bottom .16rem solid iris20
+    @media screen and (min-width: 1440px)
+        border-bottom none
+        padding 0
+.header__logo
+    height 3rem
+    gap 1.7rem
+    svg
+        height 100%
+    @media screen and (min-width: 1440px)
+        height 2.2rem
+        gap 1.4rem
+.header__logo-txt
+    font-size 1.4rem
+    @media screen and (min-width: 1440px)
+        font-size 1rem
+.logo__x
+    svg
+        height 4rem
+        width 4rem
+    @media screen and (min-width: 1440px)
+        display none
+.header__menu
+    align-content flex-end
+    display grid
+    gap 2.4rem
+    font-size 2.8rem
+    line-height 1
+    color light
+    padding-bottom 11.6rem
+    a
+        justify-content flex-start
+    a:hover
+        color white
+    @media screen and (min-width: 1440px)
+        display flex
+        gap 6rem
+        font-size .8rem
+        letter-spacing -0.008rem
+        text-transform uppercase
+        color lavender
+        font-weight 450
+        padding 0
+        justify-content center
+        a:hover
+            color iris
+.header__links
+    border-top .16rem solid iris20
+    padding-top 2.3rem
+    display grid
+    grid-template-columns repeat(2, auto)
+    justify-content space-between
+    position relative
+    &::before
+        content ""
+        position absolute
+        width .1rem
+        background-color iris20
+        left calc(50% - .05rem)
+        height 5rem
+    .btn
+        height 4.2rem
+        background transparent
+        color white
+        gap 1rem
+        font-size 1.2rem
+        width max-content
+        padding-right 1rem
+        svg
+            order -1
+        &:last-child
+            display none
+    @media screen and (min-width: 1440px)
+        display flex
+        align-items center
+        justify-content flex-end
+        gap 1rem
+        padding-top 0
+        .btn
+            height 2.8rem
+            background-color white
+            color inkDark
+            gap .5rem
+            border-radius .6rem
+            letter-spacing -.008
             font-size .8rem
-            text-transform uppercase
-            color #D6DCFF
             font-weight 450
-            justify-content  center
-        .links
-            display flex
-            align-items center
-            justify-content flex-end
-            gap 1rem
-            padding-top 0
-            .btn-label
-                height 2.8rem
-                width 11rem
-                color inkDark
-                gap .6rem
-                border-radius .6rem
-                background-color white
-                letter-spacing -.008
-                font-size .8rem
-                font-weight 450
-                display flex
-                justify-content center
-                cursor pointer
+            width 11rem
+            padding 0 .65rem
+            justify-content space-between
+            svg
+                order 1
+            &:nth-child(1)
                 svg
-                    order 1
+                    width 1.6rem
+                .stroke_white
+                    stroke inkDark
+            &:nth-child(2)
+                display none
+            &:nth-child(3)
+                display flex
+                svg
                     width 1.4rem
-                    height 1.4rem
-                &:hover
-                    background-color #131313
-                    color white
-                &:nth-child(2)
-                    display none
-                &:last-child
-                    display flex
-                &:first-child svg>path
-                    stroke  inkDark
+            &:hover
+                background-color dBlack
+                color white
+                .stroke_white
+                    stroke white
+
+
+
+//        .btn-label
+//            width 11rem
+
+//            display flex
+//            justify-content center
+//            cursor pointer
+//            svg
+//                order 1
+//                width 1.4rem
+//                height 1.4rem
+//            &:hover
+//                background-color #131313
+//                color white
+
