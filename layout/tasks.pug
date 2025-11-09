@@ -262,10 +262,10 @@ script.
             onDrag: (self) => {
                 const dragX = self.deltaX;
                 if (animating) return;
-                if (dragX < -50) {
+                if (dragX < -10) {
                     goFv(1)
                 }
-                else if (dragX > 50) {
+                else if (dragX > 10) {
                     goBv(3);
                 }
             },

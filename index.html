@@ -226,10 +226,10 @@ const setTaskAnimationMob = () => {
         onDrag: (self) => {
             const dragX = self.deltaX;
             if (animating) return;
-            if (dragX < -50) {
+            if (dragX < -10) {
                 goFv(1)
             }
-            else if (dragX > 50) {
+            else if (dragX > 10) {
                 goBv(3);
             }
         },
@@ -406,12 +406,13 @@ const scMobAnimation = () => {
         start: "bottom bottom",
         //pin: true,
         onDrag: (self) => {
+            console.log(self.deltaX)
             if (scAnimating) return;
             const dragX = self.deltaX;
-            if (dragX < -50) {
+            if (dragX < -10) {
                 n = n >= scData.length - 1 ? 0 : n + 1
                 goScFv(n)
-            } else if (dragX > 50) {
+            } else if (dragX > 10) {
                 n = n <= 0 ? scData.length - 1 : n - 1
                 goScBv(n);
             }
