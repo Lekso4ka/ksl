@@ -258,14 +258,14 @@ script.
             wheelSpeed: -1,
             target: ".tasks",
             y: -100,
-            pin: true,
+            //pin: true,
             onDrag: (self) => {
                 const dragX = self.deltaX;
                 if (animating) return;
-                if (dragX < 0) {
+                if (dragX < -50) {
                     goFv(1)
                 }
-                else {
+                else if (dragX > 50) {
                     goBv(3);
                 }
             },

@@ -262,14 +262,14 @@ script.
             wheelSpeed: -1,
             trigger: ".second-section",
             start: "bottom bottom",
-            pin: true,
+            //pin: true,
             onDrag: (self) => {
                 if (scAnimating) return;
                 const dragX = self.deltaX;
-                if (dragX < -100) {
+                if (dragX < -50) {
                     n = n >= scData.length - 1 ? 0 : n + 1
                     goScFv(n)
-                } else if (dragX > 100) {
+                } else if (dragX > 50) {
                     n = n <= 0 ? scData.length - 1 : n - 1
                     goScBv(n);
                 }
