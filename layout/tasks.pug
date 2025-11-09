@@ -255,7 +255,7 @@ script.
         let isVerticalScroll = false;
         let startY = 0;
         trgMob = Observer.create({
-            type: "touch",
+            type: "touch,pointer",
             preventDefault: true,
             wheelSpeed: isTouchDevice ? 1 : -1
             target: ".tasks__cards",
