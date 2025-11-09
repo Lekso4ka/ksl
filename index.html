@@ -217,7 +217,7 @@ function goBv() {
 const setTaskAnimationMob = () => {
 
     trgMob = Observer.create({
-        type: "touch,pointer",
+        type: "pointer",
         preventDefault: true,
         wheelSpeed: -1,
         target: ".tasks",
@@ -399,7 +399,7 @@ const goScBv = (n) => {
 }
 const scMobAnimation = () => {
     Observer.create({
-        type: "touch,pointer",
+        type: "pointer",
         preventDefault: true,
         wheelSpeed: -1,
         trigger: ".second-section",
