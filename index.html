@@ -215,12 +215,13 @@ function goBv() {
 
 }
 const setTaskAnimationMob = () => {
+    const isTouchDevice = 'ontouchstart' in window;
     let isVerticalScroll = false;
     let startY = 0;
     trgMob = Observer.create({
         type: "touch",
         preventDefault: true,
-        //wheelSpeed: -1,
+        wheelSpeed: isTouchDevice ? 1 : -1
         target: ".tasks__cards",
         y: -100,
         //onPress: function (self) {
@@ -232,7 +233,9 @@ const setTaskAnimationMob = () => {
             const deltaX = Math.abs(self.x);
             if (scAnimating) return;
             if (deltaY > deltaX && deltaY > 10) {
-                //isVerticalScroll = true;
+                gsap.to(self.target, {
+                    y: self.deltaY
+                });
                 return;
             }
             const dragX = self.deltaX;
@@ -251,7 +254,7 @@ const setTaskAnimationMob = () => {
         allowClicks: true,
         lockAxis: false,
         minimumMovement: 10,
-        allowEventBubbling: true
+        //allowEventBubbling: true
     });
 }
 
