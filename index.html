@@ -220,19 +220,19 @@ const setTaskAnimationMob = () => {
     trgMob = Observer.create({
         type: "touch",
         preventDefault: true,
-        wheelSpeed: -1,
-        target: ".tasks",
+        //wheelSpeed: -1,
+        target: ".tasks__cards",
         y: -100,
-        onPress: function (self) {
-            startY = self.y;
-            isVerticalScroll = false;
-        },
+        //onPress: function (self) {
+        //    startY = self.y;
+        //    isVerticalScroll = false;
+        //},
         onDrag: (self) => {
             const deltaY = Math.abs(self.y - startY);
             const deltaX = Math.abs(self.x);
             if (scAnimating) return;
             if (deltaY > deltaX && deltaY > 10) {
-                isVerticalScroll = true;
+                //isVerticalScroll = true;
                 return;
             }
             const dragX = self.deltaX;
@@ -244,13 +244,14 @@ const setTaskAnimationMob = () => {
                 goBv(3);
             }
         },
-        onRelease: function () {
-            isVerticalScroll = false;
-        },
+        //onRelease: function () {
+        //    isVerticalScroll = false;
+        //},
         tolerance: 10,
         allowClicks: true,
         lockAxis: false,
-        minimumMovement: 10
+        minimumMovement: 10,
+        allowEventBubbling: true
     });
 }
 
