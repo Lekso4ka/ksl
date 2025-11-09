@@ -49,8 +49,20 @@
     align-items center
     justify-content flex-start
     gap 1rem
+    .btn
+        height 3.6rem
+        wifth 14.6rem
+        gap .6rem
+        &:last-child .stroke_white
+            stroke inkDark
+        &:hover
+            .stroke_white
+                stroke white
     @media screen and (min-width: 760px)
         gap 2rem
         justify-content center
-    @media screen and (min-width: 1140px)
+        .btn
+            height 4rem
+            width 16.5rem
+    @media screen and (min-width: 1440px)
         display none

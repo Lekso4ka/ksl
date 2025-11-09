@@ -467,6 +467,7 @@ ol {
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: -0.01rem;
+  background-color: #fff;
 }
 .btn svg {
   height: 2.2rem;
@@ -474,6 +475,10 @@ ol {
 }
 .btn:hover {
   background-color: #131313;
+  color: #fff;
+}
+.btn:hover .stroke_white {
+  stroke: #fff;
 }
 .main-banner {
   height: 99.1rem;
@@ -558,13 +563,28 @@ ol {
   justify-content: flex-start;
   gap: 1rem;
 }
+.banner__buttons .btn {
+  height: 3.6rem;
+  wifth: 14.6rem;
+  gap: 0.6rem;
+}
+.banner__buttons .btn:last-child .stroke_white {
+  stroke: #32364c;
+}
+.banner__buttons .btn:hover .stroke_white {
+  stroke: #fff;
+}
 @media screen and (min-width: 760px) {
   .banner__buttons {
     gap: 2rem;
     justify-content: center;
   }
+  .banner__buttons .btn {
+    height: 4rem;
+    width: 16.5rem;
+  }
 }
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1440px) {
   .banner__buttons {
     display: none;
   }
