@@ -223,7 +223,7 @@ const setTaskAnimationMob = () => {
         type: "touch,pointer",
         preventDefault: true,
         wheelSpeed: isTouchDevice ? 1 : -1,
-        trigger: ".tasks",
+        trigger: ".tasks__cards",
         y: "bottom bottom",
         onPress: function (self) {
             startY = self.y;
@@ -340,8 +340,8 @@ const scDtAnimation = () => {
     });
 
     ScrollTrigger.create({
-        trigger: ".second-section",
-        start: "bottom bottom",
+        trigger: ".circles",
+        start: "center center",
         end: 10000,
         scrub: true,
         pin: true,
