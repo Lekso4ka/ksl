@@ -274,9 +274,9 @@ script.
                 const deltaY = Math.abs(self.y - startY);
                 const deltaX = Math.abs(self.x - startX);
                 if (deltaY > deltaX && deltaY > 10) {
-                    gsap.to(self.target, {
-                        y: `+=${ self.deltaY * 7 }`
-                    });
+                    //gsap.to(self.target, {
+                    //    y: `+=${ self.deltaY * 7 }`
+                    //});
                     return;
                 }
                 if (scAnimating) return;

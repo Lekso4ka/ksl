@@ -2326,6 +2326,9 @@ ol {
   display: grid;
   gap: 2rem;
 }
+.ksl-card .fill_white {
+  fill: #6f92e8;
+}
 @media screen and (min-width: 760px) {
   .ksl-card {
     grid-template-rows: 7.7rem auto;
@@ -2336,7 +2339,7 @@ ol {
     grid-template-rows: 7.8rem auto;
   }
   .ksl-card>:first-child {
-    align-self: center;
+    align-self: flex-start;
   }
   .ksl-card:nth-child(2) {
     grid-column-start: 3;

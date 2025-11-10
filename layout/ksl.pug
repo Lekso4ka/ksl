@@ -39,25 +39,26 @@ section.ksl
         .ksl-card
             span
             p Среди заказчиков — X5 Group, «Магнит», Danone, НЛМК, «Лукойл», «СТД Петрович» и другие лидеры отрасли.
-    .figures_simple
-        .line
-        .line2
+    .ksl-block
+        .figures_simple
+            .line
+            .line2
 
-    .ksl__article
-        .quote
-            include vectors/quote
-        .big-text HORIZON позволяет оценить эффективность всей сети и каждого склада в отдельности — и точно понять, какие действия сэкономят миллионы.
-        .person
-            div.person__img
-                img(src="./images/photo.png" alt="")
-            .person__content
-                h3 Василий Демин
-                p Исполнительный директор КСЛ, доктор технических наук
-        .article-txt
-            p Если у вас возник похожий вопрос — начните с диагностики  вашей сети. Это безопасно, быстро и поможет создать стратегическое преимущество.
-            button.btn-label
-                span Запросить аудит
-                include vectors/pic11
+        .ksl__article
+            .quote
+                include vectors/quote
+            .big-text HORIZON позволяет оценить эффективность всей сети и каждого склада в отдельности — и точно понять, какие действия сэкономят миллионы.
+            .person
+                div.person__img
+                    img(src="./images/photo.png" alt="")
+                .person__content
+                    h3 Василий Демин
+                    p Исполнительный директор КСЛ, доктор технических наук
+            .article-txt
+                p Если у вас возник похожий вопрос — начните с диагностики  вашей сети. Это безопасно, быстро и поможет создать стратегическое преимущество.
+                button.btn-label
+                    span Запросить аудит
+                    include vectors/pic11
 script.
     const textElement = document.querySelector(".big-text");
     const originalText = textElement.textContent;
@@ -78,10 +79,12 @@ script.
 
 
     ScrollTrigger.create({
-        trigger: ".ksl__article",
+        trigger: ".ksl-block",
         start: "-40 top",
         scrub: true,
         pin: true,
+        end: "+=1000",
+
         onUpdate: (self) => {
             let cnt = letters.length;
             const n = 100 / cnt;

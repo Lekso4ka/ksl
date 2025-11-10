@@ -91,12 +91,15 @@
 .ksl-card
     display grid
     gap 2rem
+    .fill_white
+        fill iris
     @media screen and (min-width: 760px)
         grid-template-rows 7.7rem auto
     @media screen and (min-width: 1440px)
         grid-template-rows 7.8rem auto
         &>:first-child
-            align-self center
+            align-self flex-start
+
         &:nth-child(2)
             grid-column-start 3
     svg
