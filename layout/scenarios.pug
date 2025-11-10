@@ -258,6 +258,7 @@ script.
     const scMobAnimation = () => {
         let isVerticalScroll = false;
         let startY = 0;
+        let startX = 0;
         Observer.create({
             type: "touch",
             preventDefault: true,
@@ -267,16 +268,18 @@ script.
             //pin: true,
             onPress: function (self) {
                 startY = self.y;
-                isVerticalScroll = false;
+                startX = self.x;
             },
             onDrag: (self) => {
                 const deltaY = Math.abs(self.y - startY);
-                const deltaX = Math.abs(self.x);
-                if (scAnimating) return;
+                const deltaX = Math.abs(self.x - startX);
                 if (deltaY > deltaX && deltaY > 10) {
-                    isVerticalScroll = true;
+                    gsap.to(self.target, {
+                        y: `+=${ self.deltaY * 30 }`
+                    });
                     return;
                 }
+                if (scAnimating) return;
                 const dragX = self.deltaX;
                 if (dragX < -10) {
                     n = n >= scData.length - 1 ? 0 : n + 1
@@ -291,8 +294,7 @@ script.
             },
             tolerance: 10,
             allowClicks: true,
-            lockAxis: false,
-            minimumMovement: 10
+            lockAxis: false
         });
     }
 
