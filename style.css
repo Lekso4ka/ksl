@@ -2499,10 +2499,13 @@ ol {
     width: 22rem;
   }
 }
+.article-txt {
+  display: grid;
+  gap: 3rem;
+}
 @media screen and (min-width: 760px) {
   .article-txt {
     display: grid;
-    gap: 3rem;
     align-content: flex-start;
   }
   .article-txt p {
@@ -2514,6 +2517,9 @@ ol {
     align-content: flex-end;
     gap: 4.3rem;
     width: 42.2rem;
+  }
+  .article-txt p {
+    font-size: 1.4rem;
   }
 }
 .partners {
@@ -2600,14 +2606,17 @@ ol {
   .faq {
     padding-bottom: 12rem;
     display: grid;
-    grid-template-columns: 32.5rem 1fr;
-    gap: 30rem;
+    grid-template-columns: calc(50% - 4rem) calc(50% + 4rem);
     height: 67.8rem;
+  }
+  .faq .primary-caption {
+    width: 33rem;
   }
 }
 @media screen and (min-width: 1440px) {
   .faq .faq__block {
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: visible;
     height: 100%;
     grid-row-end: span 2;
   }
@@ -2678,10 +2687,16 @@ ol {
 @media screen and (min-width: 1440px) {
   .faq .list li {
     padding-left: 0;
+    padding-right: 2rem;
     margin-left: 4rem;
+    box-sizing: border-box;
+    width: calc(100% - 4rem);
   }
   .faq .list li::before {
     left: -4rem;
+  }
+  .faq .list li::after {
+    right: 2rem;
   }
 }
 .faq__text {
@@ -2701,6 +2716,12 @@ ol {
 .faq__text p {
   width: 28rem;
 }
+.faq__text .fill_white {
+  fill: #32364c;
+}
+.faq__text .btn:hover .fill_white {
+  fill: #fff;
+}
 @media screen and (min-width: 760px) {
   .faq__text {
     padding-bottom: 12rem;
@@ -2709,6 +2730,7 @@ ol {
 @media screen and (min-width: 1440px) {
   .faq__text {
     padding-bottom: 0;
+    align-self: flex-end;
   }
 }
 footer {

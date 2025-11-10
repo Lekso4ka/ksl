@@ -4,12 +4,14 @@
     @media screen and (min-width: 1440px)
         padding-bottom 12rem
         display grid
-        grid-template-columns 32.5rem 1fr
-        gap 30rem
+        grid-template-columns calc(50% - 4rem) calc(50% + 4rem)
         height 67.8rem
+        .primary-caption
+            width 33rem
     .faq__block
         @media screen and (min-width: 1440px)
-            overflow hidden
+            overflow-y hidden
+            overflow-x visible
             height 100%
             grid-row-end span 2
     .list
@@ -64,9 +66,14 @@
                 padding-left 4rem
             @media screen and (min-width: 1440px)
                 padding-left 0
+                padding-right 2rem
                 margin-left 4rem
+                box-sizing border-box
+                width calc(100% - 4rem)
                 &::before
                     left -4rem
+                &::after
+                    right 2rem
 
 .faq__text
     padding 3rem 0 6rem
@@ -82,8 +89,14 @@
         border .1rem solid white
     p
         width 28rem
+    .fill_white
+        fill inkDark
+    .btn:hover .fill_white
+        fill white
+
     @media screen and (min-width: 760px)
         padding-bottom 12rem
     @media screen and (min-width: 1440px)
         padding-bottom 0
+        align-self flex-end
         //object-view-box: inset(20%);
