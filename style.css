@@ -1161,7 +1161,7 @@ ol {
 }
 @media screen and (min-width: 1440px) {
   .sq_line {
-    display: block;
+    display: flex;
     background-color: #6f92e8;
   }
 }
