@@ -225,22 +225,22 @@ const setTaskAnimationMob = () => {
         wheelSpeed: -1, //isTouchDevice ? 1 : -1,
         trigger: ".tasks",
         y: "bottom bottom",
-        //onPress: function (self) {
-        //    startY = self.y;
-        //    startX = self.x;
-        //    isVerticalScroll = false;
-        //},
+        onPress: function (self) {
+            startY = self.y;
+            startX = self.x;
+            isVerticalScroll = false;
+        },
         onDrag: (self) => {
-            //const deltaY = Math.abs(self.y - startY);
-            //const deltaX = Math.abs(self.x - startX);
-            //console.log(deltaY, deltaX)
+            const deltaY = Math.abs(self.y - startY);
+            const deltaX = Math.abs(self.x - startX);
+            console.log(deltaY, deltaX)
             if (scAnimating) return;
-            //if (deltaY > deltaX && deltaY > 10) {
-            //    gsap.to(self.target, {
-            //        y: `+=${self.deltaY}`
-            //    });
-            //    return;
-            //}
+            if (deltaY > deltaX && deltaY > 10) {
+                gsap.to(self.target, {
+                    y: `+=${self.deltaY}`
+                });
+                return;
+            }
             const dragX = self.deltaX;
             if (animating) return;
             if (dragX < -10) {
@@ -250,17 +250,17 @@ const setTaskAnimationMob = () => {
                 goBv(3);
             }
         },
-        onWheel: (self) => {
-            console.log("ping")
-            gsap.to(self.target, {
-                y: `+=${ self.deltaY }`
-            });
-        },
+        //onWheel: (self) => {
+        //    console.log("ping")
+        //    gsap.to(self.target, {
+        //        y: `+=${ self.deltaY }`
+        //    });
+        //},
         //onRelease: function () {
         //    isVerticalScroll = false;
         //},
         tolerance: 10,
-        //allowClicks: true,
+        allowClicks: true,
         lockAxis: false,
         //minimumMovement: 10,
         //allowEventBubbling: true
