@@ -251,15 +251,14 @@ script.
 
     }
     const setTaskAnimationMob = () => {
-        const isTouchDevice = 'ontouchstart' in window;
-        let isVerticalScroll = false;
+        //const isTouchDevice = 'ontouchstart' in window;
         let startY = 0;
         let startX = 0;
         trgMob = Observer.create({
             type: "touch,pointer",
             preventDefault: true,
-            wheelSpeed: isTouchDevice ? 1 : -1,
-            trigger: ".tasks__cards",
+            wheelSpeed: -1, // isTouchDevice ? 1 : -1,
+            target: ".tasks__cards",
             y: "bottom bottom",
             onPress: function (self) {
                 startY = self.y;
@@ -270,7 +269,7 @@ script.
                 const deltaX = Math.abs(self.x - startX);
                 if (deltaY > deltaX && deltaY > 10) {
                     gsap.to(self.target, {
-                        y: `+=${self.deltaY * 10}`
+                        y: `+=${self.deltaY * 7}`
                     });
                     return;
                 }
@@ -293,8 +292,8 @@ script.
             //    isVerticalScroll = false;
             //},
             tolerance: 10,
-            allowClicks: true,
-            lockAxis: false,
+            //allowClicks: true,
+            //lockAxis: false,
             //minimumMovement: 10,
             //allowEventBubbling: true
         });

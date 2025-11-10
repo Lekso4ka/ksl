@@ -263,7 +263,7 @@ script.
             type: "touch",
             preventDefault: true,
             wheelSpeed: -1,
-            trigger: ".second-section",
+            target: ".second-section",
             start: "bottom bottom",
             //pin: true,
             onPress: function (self) {
@@ -275,7 +275,7 @@ script.
                 const deltaX = Math.abs(self.x - startX);
                 if (deltaY > deltaX && deltaY > 10) {
                     gsap.to(self.target, {
-                        y: `+=${ self.deltaY * 10 }`
+                        y: `+=${ self.deltaY * 7 }`
                     });
                     return;
                 }
@@ -289,12 +289,9 @@ script.
                     goScBv(n);
                 }
             },
-            onRelease: function () {
-                isVerticalScroll = false;
-            },
             tolerance: 10,
-            allowClicks: true,
-            lockAxis: false
+            //allowClicks: true,
+            //lockAxis: false
         });
     }
 
