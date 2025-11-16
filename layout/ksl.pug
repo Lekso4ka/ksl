@@ -10,15 +10,15 @@ section.ksl
         .square
     .ksl__cards
         .ksl-item
-            include vectors/image4
+            img(src="./images/ksl_1.svg" alt="")
             h3 LogAudit
             p автоматизированный расчет и бенчмарк 12 KPI логистики с отраслевыми ориентирами
         .ksl-item
-            include vectors/image5
+            img(src="./images/ksl_2.svg" alt="")
             h3 LogicStore
             p верификация, моделирование и анализ товарных потоков.
         .ksl-item
-            include vectors/image6
+            img(src="./images/ksl_3.svg" alt="")
             h3 Цифровой склад
             p оценки сценариев логистики на основе имитационного мод
 
@@ -52,7 +52,7 @@ section.ksl
                 div.person__img
                     img(src="./images/photo.png" alt="")
                 .person__content
-                    h3 Василий Демин
+                    h3 Василий Дёмин
                     p Исполнительный директор КСЛ, доктор технических наук
             .article-txt
                 p Если у вас возник похожий вопрос — начните с диагностики  вашей сети. Это безопасно, быстро и поможет создать стратегическое преимущество.
@@ -74,7 +74,7 @@ script.
 
     const kslA = document.querySelector(".ksl_a")
     const kslB = document.querySelector(".ksl_b")
-    const kslBlock = document.querySelector(".ksl")
+    const kslBlock = document.querySelector(".ksl__text")
 
 
 
@@ -83,7 +83,7 @@ script.
         start: "-40 top",
         scrub: true,
         pin: true,
-        end: "+=1000",
+        end: "+=500",
 
         onUpdate: (self) => {
             let cnt = letters.length;
@@ -117,6 +117,7 @@ script.
         entries.forEach(entry => {
             // Если элемент виден на экране
             if (entry.isIntersecting) {
+                console.log("ping")
                 setN(kslA, 29)
                 setN(kslB, 280, 1)
                  observer.unobserve(entry.target);
@@ -126,7 +127,7 @@ script.
         // Настройки:
         root: null, // отслеживаем относительно viewport
         rootMargin: '0px', // отступы
-        //threshold: .5 // сработает когда 10% элемента видно
+        threshold: .8 // сработает когда 10% элемента видно
     });
 
     observer.observe(kslBlock)

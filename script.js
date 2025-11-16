@@ -37,13 +37,16 @@
             e.preventDefault();
             const targetId = link.getAttribute("href").substring(1);
             const targetElement = document.getElementById(targetId);
-            const selfOffsetBlocks = ["#directions"]
+            const selfOffsetBlocks = {
+                "directions": 40,
+                "specialists": -120
+            }
             if (targetElement) {
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: {
                         y: targetElement,
-                        offsetY: selfOffsetBlocks.includes(targetId) ? 40 : 0
+                        offsetY: selfOffsetBlocks[targetId] || 0
                     },
                     ease: "power2.inOut"
                 });
