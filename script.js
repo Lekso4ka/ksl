@@ -19,17 +19,16 @@
     window.addEventListener("scroll", function(e) {
         const currentScrollY = window.scrollY;
 
-        if (window.scrollY > hHeight * 2) {
+        if (window.scrollY > window.innerHeight) {
             header.classList.add("sticky")
-            header.nextElementSibling.style.margin = hHeight + "px";
+            header.nextElementSibling.style.marginTop = hHeight + "px";
             setTimeout(() => {
                 header.style.transition = "transform 500ms"
             }, 0)
-
         } else {
             header.classList.remove("sticky")
             header.style.transition = null
-            header.nextElementSibling.style.margin = null
+            header.nextElementSibling.style.marginTop = null
         }
         if (currentScrollY > wScrollY && header.classList.contains("active")) {
             header.classList.remove("active")
