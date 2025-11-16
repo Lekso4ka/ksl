@@ -2372,6 +2372,9 @@ header.sticky.active {
 .ksl-card h3 span {
   font-size: 2.4rem;
 }
+.ksl-card h3 strong {
+  font-weight: 300;
+}
 @media screen and (min-width: 760px) {
   .ksl-card h3 {
     font-size: 7rem;
