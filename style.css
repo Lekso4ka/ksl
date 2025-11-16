@@ -625,8 +625,7 @@ header.sticky {
   position: fixed;
   top: 0;
   z-index: 3;
-  background-color: rgba(255,255,255,0.502);
-  color: #32364c;
+  background-color: rgba(50,54,76,0.6);
   backdrop-filter: blur(10px);
   transform: translate(0, -100%);
   width: 100%;
@@ -634,9 +633,6 @@ header.sticky {
 @media screen and (min-width: 1440px) {
   header.sticky .header-block {
     border-bottom: 0;
-  }
-  header.sticky .header__menu {
-    color: #32364c;
   }
 }
 header.sticky.active {
