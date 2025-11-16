@@ -807,6 +807,11 @@ header.sticky.active {
   left: calc(50% - 0.05rem);
   height: 5rem;
 }
+@media screen and (min-width: 1440px) {
+  .header__links::before {
+    display: none;
+  }
+}
 .header__links .btn {
   height: 4.2rem;
   background: transparent;
