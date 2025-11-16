@@ -1,4 +1,4 @@
-section#technology.tasks
+section.tasks
     .tasks__text
         div.text-item
             h4 задача
@@ -268,9 +268,6 @@ script.
                 const deltaY = Math.abs(self.y - startY);
                 const deltaX = Math.abs(self.x - startX);
                 if (deltaY > deltaX && deltaY > 10) {
-                    //gsap.to(self.target, {
-                    //    y: `+=${self.deltaY * 7}`
-                    //});
                     return;
                 }
                 const dragX = self.deltaX;
@@ -282,20 +279,7 @@ script.
                     goBv(3);
                 }
             },
-            //onWheel: (self) => {
-            //    console.log("ping")
-            //    gsap.to(self.target, {
-            //        y: `+=${ self.deltaY }`
-            //    });
-            //},
-            //onRelease: function () {
-            //    isVerticalScroll = false;
-            //},
-            tolerance: 10,
-            //allowClicks: true,
-            //lockAxis: false,
-            //minimumMovement: 10,
-            //allowEventBubbling: true
+            tolerance: 10
         });
     }
     
@@ -304,7 +288,7 @@ script.
         if (!animating && tdLine.classList.contains("active")) {
             toId = setTimeout(() => {
                 goFv()
-            }, 5000)
+            }, 3000)
         } else {
             clearTimeout(toId);
         }

@@ -43,7 +43,7 @@
         background-color inkDark
     &.active::before
         width 100%
-        transition width 5s linear
+        transition width 3s linear
     @media screen and (min-width: 1440px)
         display none
 .sc_line_tb
@@ -134,22 +134,30 @@
                 left calc(50% + 45.5rem)
         .sc_line_tb
             display none
+.sc__block
+    width 100%
+    height 20rem
+    display flex
+    justify-content center
+    align-items center
+    z-index 2
+    gap 2.7rem
 .sc__item
     width 15rem
     overflow hidden
     display flex
     flex-direction column
-    //gap 13rem
     gap 1rem
     justify-content center
     align-items center
     color lavender20
-    z-index 2
+    z-index 3
     text-transform uppercase
     font-size 1rem
     position relative
     transform translate(0, -2.5rem) scale(.9)
     transition-duration 500ms
+    transform-origin center calc(100% - 6rem)
     :last-child
         width 12rem
         display block
@@ -158,6 +166,7 @@
     :first-child
         font-size 1.2rem
     &:nth-child(2n - 1)
+        transform-origin center 6rem
         flex-direction column-reverse
         transform translate(0, 2.5rem) scale(.9)
     &.active
@@ -185,17 +194,10 @@
     @media screen and (max-width: 1439px)
         opacity 0
         position absolute
-        transform translate(0, -2.2rem) scale(.9)
-        &:nth-child(2n - 1)
-            transform translate(0, 2.2rem) scale(.9)
         &.empty
             opacity 0
-            transition-delay 0
         &.active
             opacity 1
-            transform translate(0, -2.2rem) scale(1)
-            &:nth-child(2n - 1)
-                transform translate(0, 2.2rem) scale(1)
 
 .ss
     box-sizing border-box
@@ -224,7 +226,7 @@
             bottom auto
             right 2rem
             z-index 1
-            .btn-label
+            .btn
                 background-color transparent
                 border .16rem solid iris20
                 color white
@@ -240,7 +242,6 @@
     padding-right 2rem
     transform translate(0, 100%)
     transition-duration 1000ms
-    transition-delay 0ms
     transition-property transform opacity
     display flex
     position absolute
@@ -252,7 +253,6 @@
         opacity 1
     &.empty
         transform translate(0, 100%)
-        transition-delay 0
         opacity 0
     @media screen and (min-width: 760px)
         gap 2rem
