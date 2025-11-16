@@ -69,7 +69,7 @@
             const targetElement = document.getElementById(targetId);
             const selfOffsetBlocks = {
                 "directions": width < 760 ? remToPixels(-14) : width < 1440 ? remToPixels(-16) : remToPixels(-22) - 3000,
-                "specialists": width < 760 ? remToPixels(-8) : remToPixels(-12),
+                //"specialists": width < 760 ? remToPixels(-8) : remToPixels(-12),
                 "technology": width < 760 ? remToPixels(-8) : remToPixels(-7),
                 "results": width < 760 ? remToPixels(-22) : width < 1440 ? remToPixels(-6) : remToPixels(-10),
             }
