@@ -236,67 +236,6 @@ script.
             requestAnimationFrame(animateSc)
         }, 1000)
     }
-    const goScBv = (n) => {
-        scAnimating = true
-        clearTimeout(scId)
-        scLine.classList.remove("active")
-        scCnt.innerText = `0${n + 1}`
-        const nextData = scData[n + 1] ? scData[n + 1] : scData[0]
-        const nextText = scText[n + 1] ? scText[n + 1] : scText[0]
-        scData[n].classList.add("active")
-        scText[n].classList.add("active")
-        scText[n].parentElement.scrollTo({
-            left: 0,
-            behavior: 'smooth'
-        })
-        nextData.classList.add("empty");
-        nextText.classList.add("empty");
-        nextData.classList.remove("active");
-        nextText.classList.remove("active");
-        setTimeout(() => {
-            scAnimating = false
-            nextText.classList.remove("empty")
-            nextData.classList.remove("active");
-            scLine.classList.add("active")
-            requestAnimationFrame(animateSc)
-        }, 1000)
-    }
-    const scMobAnimation = () => {
-        let startY = 0;
-        let startX = 0;
-        Observer.create({
-            type: "touch",
-            preventDefault: true,
-            wheelSpeed: -1,
-            target: ".sc__block",
-            start: "center center",
-            onPress: function (self) {
-                startY = self.y;
-                startX = self.x;
-            },
-            onDrag: (self) => {
-                const deltaY = Math.abs(self.y - startY);
-                const deltaX = Math.abs(self.x - startX);
-                if (deltaY > deltaX && deltaY > 10) {
-                    //gsap.to(self.target, {
-                    //    y: `+=${ self.deltaY * 7 }`
-                    //});
-                    return;
-                }
-                console.log(deltaX, deltaY)
-                if (scAnimating) return;
-                const dragX = self.deltaX;
-                if (dragX < -10) {
-                    n = n >= scData.length - 1 ? 0 : n + 1
-                    goScFv(n)
-                } else if (dragX > 10) {
-                    n = n <= 0 ? scData.length - 1 : n - 1
-                    goScBv(n);
-                }
-            },
-            tolerance: 10
-        });
-    }
 
     function animateSc() {
         if (!scAnimating && scLine.classList.contains("active")) {
@@ -329,6 +268,5 @@ script.
     if (window.innerWidth >= 1400) {
         scDtAnimation()
     } else {
-        scMobAnimation()
         watchSc(scLine)
     }

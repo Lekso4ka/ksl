@@ -191,99 +191,6 @@ script.
 
     }
 
-    function goBv() {
-        animating = true;
-        clearTimeout(toId)
-        tdLine.classList.remove("active")
-        const tl = gsap.timeline({
-            defaults: {
-                duration: 1.2,
-                ease: "expo.inOut"
-            },
-            onComplete: () => {
-                animating = false;
-                tCards[3].parentElement.insertBefore(tCards[3], tCards[0])
-                tCards = document.querySelectorAll(".tasks-item");
-                tCards.forEach(c => {
-                    c.style = null
-                })
-                tdLine.classList.add("active")
-                requestAnimationFrame(animateT)
-            }
-        })
-
-        tl
-            .to(tCards[3], {
-                opacity: 0,
-                duration: .1,
-                zIndex: 0
-            })
-            .to(tCards[3], {
-                duration: .1,
-                zIndex: 4,
-                transform: "translate(calc(-100% - 40rem), 0) scale(100%)",
-                backgroundColor: "white"
-            })
-            .to(tCards[3], {
-                transform: "translate(0, 0) scale(100%)",
-                opacity: 1,
-                duration: 1
-            })
-            .set(tCount, {
-                text: `0${ tCards[3].dataset.order }`
-            }, "-=1")
-            .to(tCards[0], {
-                transform: "translate(0, -.8rem) scale(94%)",
-                backgroundColor: "#6F92E8",
-                opacity: .3,
-                duration: 1
-            }, "-=1")
-            .to(tCards[1], {
-                transform: "translate(0, -1.6rem) scale(88%)",
-                opacity: .2,
-                duration: 1
-            }, "-=1")
-            .to(tCards[2], {
-                transform: "translate(0, -2.4rem) scale(82%)",
-                opacity: .1,
-                duration: 1
-            }, "-=1")
-
-    }
-    const setTaskAnimationMob = () => {
-        //const isTouchDevice = 'ontouchstart' in window;
-        let startY = 0;
-        let startX = 0;
-        trgMob = Observer.create({
-            type: "touch,pointer",
-            preventDefault: true,
-            wheelSpeed: -1, // isTouchDevice ? 1 : -1,
-            target: ".tasks__cards",
-            y: "bottom bottom",
-            onPress: function (self) {
-                startY = self.y;
-                startX = self.x;
-            },
-            onDrag: (self) => {
-                const deltaY = Math.abs(self.y - startY);
-                const deltaX = Math.abs(self.x - startX);
-                if (deltaY > deltaX && deltaY > 10) {
-                    return;
-                }
-                const dragX = self.deltaX;
-                if (animating) return;
-                if (dragX < -10) {
-                    goFv(1)
-                }
-                else if (dragX > 10) {
-                    goBv(3);
-                }
-            },
-            tolerance: 10
-        });
-    }
-    
-
     function animateT () {
         if (!animating && tdLine.classList.contains("active")) {
             toId = setTimeout(() => {
@@ -315,6 +222,5 @@ script.
     if (window.innerWidth >= 1400) {
         setTaskAnimationDt()
     } else {
-        setTaskAnimationMob()
         watchTasks(tdLine);
     }
