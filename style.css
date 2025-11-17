@@ -2224,7 +2224,7 @@ header.sticky.active {
 @media screen and (min-width: 1440px) {
   .profit-item .content ul {
     grid-template-columns: 1fr 1fr;
-    gap: 4rem 3rem;
+    gap: 3rem 2rem;
   }
 }
 .profit-item .content li {
