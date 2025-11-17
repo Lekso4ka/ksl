@@ -2253,6 +2253,10 @@ header.sticky.active {
   justify-content: center;
   gap: 0.2rem;
 }
+.profit-item .bottom span {
+  transition-property: opacity, transform;
+  transition-duration: 300ms;
+}
 .profit-item .bottom svg {
   width: 1.2rem;
   height: 1.2rem;
@@ -2271,6 +2275,10 @@ header.sticky.active {
     gap: 1rem;
     color: #32364c;
     font-size: 1.2;
+  }
+  .profit-item .bottom:hover span {
+    transform: translate(1rem, 0);
+    opacity: 0.5;
   }
   .profit-item .bottom svg {
     width: 1.6rem;

@@ -195,6 +195,9 @@
         align-items center
         justify-content center
         gap .2rem
+        span
+            transition-property opacity, transform
+            transition-duration 300ms
         svg
             width 1.2rem
             height 1.2rem
@@ -210,6 +213,10 @@
             gap 1rem
             color inkDark
             font-size 1.2
+            &:hover
+                span
+                    transform translate(1rem, 0)
+                    opacity .5
             svg
                 width 1.6rem
                 height 1.6rem
