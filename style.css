@@ -2060,7 +2060,7 @@ header.sticky.active {
 .profit-item {
   position: absolute;
   bottom: 0;
-  height: 66.4rem;
+  height: 63rem;
   background-color: #f1f1f1;
   border-radius: 2rem;
   padding: 1rem 1rem 2rem;
@@ -2103,53 +2103,71 @@ header.sticky.active {
 }
 .profit-item header {
   display: grid;
-  grid-template-columns: 60%;
+  grid-template-columns: 18rem 1fr;
   align-content: space-between;
-  padding: 1rem;
   height: 19.9rem;
   box-sizing: border-box;
-  background-position: 200% 30%;
-  background-size: 80%;
   background-repeat: no-repeat;
   background-color: #fff;
   border-radius: 1.6rem;
+  overflow: hidden;
 }
 .profit-item header h3 {
+  padding: 1rem 0 0 1rem;
   font-size: 1.8rem;
   text-transform: uppercase;
 }
 .profit-item header p {
   font-size: 1.2rem;
   color: rgba(50,54,76,0.6);
+  padding: 0 0 1rem 1rem;
+  align-self: flex-end;
+}
+.profit-item header .profit_h_img {
+  grid-row-end: span 2;
+  object-fit: contain;
+  overflow: hidden;
+}
+.profit-item header .profit_h_img img {
+  width: 118%;
 }
 @media screen and (min-width: 760px) {
   .profit-item header {
+    grid-template-columns: 15.1rem 1fr;
     height: 100%;
-    padding: 2rem;
+    font-size: 1.6rem;
+  }
+  .profit-item header h3 {
+    padding: 2rem 0 0 2rem;
+  }
+  .profit-item header .profit_h_img {
+    grid-column-start: 2;
+    grid-row-end: 2;
+  }
+  .profit-item header .profit_h_img img {
+    width: 165%;
   }
   .profit-item header p {
+    grid-column-end: span 2;
     width: 19.9rem;
+    padding: 0 0 2rem 2rem;
   }
 }
 @media screen and (min-width: 1440px) {
   .profit-item header {
     width: 50.3rem;
+    grid-template-columns: 1fr 31.8rem;
+    grid-template-rows: 1fr auto;
   }
-}
-.profit-item:nth-child(1) > header {
-  background-image: url("./images/profit1.png");
-}
-.profit-item:nth-child(2) > header {
-  background-image: url("./images/profit2.png");
-}
-.profit-item:nth-child(3) > header {
-  background-image: url("./images/profit3.png");
-}
-.profit-item:nth-child(4) > header {
-  background-image: url("./images/profit4.png");
-}
-.profit-item:nth-child(5) > header {
-  background-image: url("./images/profit5.png");
+  .profit-item header h3 {
+    padding: 3rem 0 0 3rem;
+  }
+  .profit-item header .profit_h_img img {
+    width: 100%;
+  }
+  .profit-item header p {
+    padding: 0 0 3rem 3rem;
+  }
 }
 .profit-item .content {
   padding: 2rem 1rem 0;
@@ -2168,24 +2186,32 @@ header.sticky.active {
   font-size: 1.8rem;
   margin-bottom: 2rem;
 }
+@media screen and (min-width: 1440px) {
+  .profit-item .content p {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 3.3rem;
+  }
+}
 .profit-item .content .widgets {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
-.profit-item .content .widgets svg {
+.profit-item .content .widgets img {
   width: 100%;
 }
 @media screen and (min-width: 1440px) {
   .profit-item .content .widgets {
+    margin-bottom: 3.3rem;
     height: 8.6rem;
     width: auto;
     justify-content: flex-start;
     gap: 2rem;
     grid-template-columns: repeat(2, auto);
   }
-  .profit-item .content .widgets svg {
+  .profit-item .content .widgets img {
     height: 100%;
     width: auto;
   }
@@ -2194,6 +2220,12 @@ header.sticky.active {
   display: grid;
   gap: 2rem;
   font-size: 1.4rem;
+}
+@media screen and (min-width: 1440px) {
+  .profit-item .content ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 3rem;
+  }
 }
 .profit-item .content li {
   padding-left: 2.8rem;
@@ -2205,13 +2237,48 @@ header.sticky.active {
   left: 0;
 }
 .profit-item .bottom {
-  display: flex;
-  position: absolute;
-  bottom: 2rem;
-  gap: 1rem;
-  align-items: center;
-  font-size: 1.2;
+  font-size: 1rem;
+  color: #fff;
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
   text-transform: uppercase;
+  border-radius: 0.6rem;
+  height: 2rem;
+  width: 9.8rem;
+  top: 2rem;
+  right: 2rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.profit-item .bottom svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.profit-item .bottom svg path {
+  fill: #fff;
+}
+@media screen and (min-width: 760px) {
+  .profit-item .bottom {
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    top: auto;
+    right: auto;
+    bottom: 2rem;
+    gap: 1rem;
+    color: #32364c;
+    font-size: 1.2;
+  }
+  .profit-item .bottom svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .profit-item .bottom svg path {
+    fill: #212223;
+  }
 }
 .ksl {
   padding: 10rem 1rem 0;

@@ -36,8 +36,8 @@
 .profit-item
     position absolute
     bottom 0
-    height 66.4rem
-    background-color #F1F1F1
+    height 63rem
+    background-color lGray
     border-radius 2rem
     padding 1rem 1rem 2rem
     box-sizing border-box
@@ -70,39 +70,67 @@
         transform translate(0, -3.2rem) scale(74%)
     header
         display grid
-        grid-template-columns 60%
+        grid-template-columns 18rem 1fr
         align-content space-between
-        padding 1rem
         height 19.9rem
         box-sizing border-box
-        background-position 200% 30%
-        background-size 80%
         background-repeat no-repeat
         background-color white
         border-radius 1.6rem
+        overflow hidden
         h3
+            padding 1rem 0 0 1rem
             font-size 1.8rem
             text-transform uppercase
         p
             font-size 1.2rem
             color inkDark60
+            padding 0 0 1rem 1rem
+            align-self flex-end
+        .profit_h_img
+            //height 100%
+            grid-row-end span 2
+            object-fit contain
+            overflow hidden
+            img
+                width 118%
         @media screen and (min-width: 760px)
+            grid-template-columns 15.1rem 1fr
             height 100%
-            padding 2rem
+            h3
+                padding 2rem 0 0 2rem
+            .profit_h_img
+                grid-column-start 2
+                grid-row-end 2
+                img
+                    width 165%
             p
+                grid-column-end span 2
                 width 19.9rem
+                padding 0 0 2rem 2rem
+
+            font-size 1.6rem
         @media screen and (min-width: 1440px)
             width 50.3rem
-    &:nth-child(1) > header
-        background-image url("./images/profit1.png")
-    &:nth-child(2) > header
-        background-image url("./images/profit2.png")
-    &:nth-child(3) > header
-        background-image url("./images/profit3.png")
-    &:nth-child(4) > header
-        background-image url("./images/profit4.png")
-    &:nth-child(5) > header
-        background-image url("./images/profit5.png")
+            grid-template-columns 1fr 31.8rem
+            grid-template-rows 1fr auto
+            h3
+                padding 3rem 0 0 3rem
+            .profit_h_img
+                img
+                    width 100%
+            p
+                padding 0 0 3rem 3rem
+    //&:nth-child(1) > header
+    //    background-image url("./images/profit1.png")
+    //&:nth-child(2) > header
+    //    background-image url("./images/profit2.png")
+    //&:nth-child(3) > header
+    //    background-image url("./images/profit3.png")
+    //&:nth-child(4) > header
+    //    background-image url("./images/profit4.png")
+    //&:nth-child(5) > header
+    //    background-image url("./images/profit5.png")
 
     .content
         padding 2rem 1rem 0
@@ -115,27 +143,35 @@
         p
             font-size 1.8rem
             margin-bottom 2rem
+            @media screen and (min-width: 1440px)
+                font-size: 2.2rem;
+                line-height 1
+                margin-bottom 3.3rem
             //letter-spacing -.018rem
         .widgets
             display grid
             grid-template-columns repeat(2, 1fr)
             gap 1.5rem
             margin-bottom 3rem
-            svg
+            img
                 width 100%
             @media screen and (min-width: 1440px)
+                margin-bottom 3.3rem
                 height 8.6rem
                 width auto
                 justify-content flex-start
                 gap 2rem
                 grid-template-columns repeat(2, auto)
-                svg
+                img
                     height 100%
                     width auto
         ul
             display grid
             gap 2rem
             font-size 1.4rem
+            @media screen and (min-width: 1440px)
+                grid-template-columns 1fr 1fr
+                gap 4rem 3rem
         li
             padding-left 2.8rem
             position relative
@@ -144,11 +180,38 @@
                 position absolute
                 left 0
     .bottom
-        //margin-top 6.4rem
-        display flex
-        position absolute
-        bottom 2rem
-        gap 1rem
-        align-items center
-        font-size 1.2
+        font-size 1rem
+        color white
+        background-color white20
+        backdrop-filter blur(10px)
         text-transform uppercase
+        border-radius .6rem
+        height 2rem
+        width 9.8rem
+        top 2rem
+        right 2rem
+        position absolute
+        display flex
+        align-items center
+        justify-content center
+        gap .2rem
+        svg
+            width 1.2rem
+            height 1.2rem
+            path
+                fill white
+        @media screen and (min-width: 760px)
+            background-color transparent
+            width auto
+            height auto
+            top auto
+            right auto
+            bottom 2rem
+            gap 1rem
+            color inkDark
+            font-size 1.2
+            svg
+                width 1.6rem
+                height 1.6rem
+                path
+                    fill #212223
