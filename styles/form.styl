@@ -1,0 +1,143 @@
+.form-layout
+    position fixed
+    top 0
+    left 0
+    right 0
+    bottom 0
+    background-color cloudyBlue20
+    backdrop-filter blur(20px)
+    opacity 0
+    z-index -1
+    transition opacity 500ms
+    &.active
+        opacity 1
+        z-index 10
+        .form-content
+            transition transform 500ms 500ms
+            transform translate(0)
+
+.form-content
+    max-width 64rem
+    background-color lGray
+    height 100%
+    position absolute
+    right 0
+    box-sizing border-box
+    padding 2rem
+    transition transform 500ms
+    transform translate(100%, 0)
+    label
+    button
+        cursor pointer
+    h3
+        margin-bottom 6rem
+        display flex
+        align-items center
+        justify-content space-between
+    p
+        color inkDark40
+        line-height 2rem
+        a
+            border-bottom .12rem solid
+    .form__x
+        svg
+            width 2.4rem
+            height 2.4rem
+            .fill_white
+                fill inkDark
+
+    @media screen and (min-width: 760px)
+        padding 3rem
+.form
+    display grid
+    margin-bottom 2rem
+    .btn
+        display flex
+        align-items center
+        justify-content center
+        gap 1rem
+        svg
+            width 1.6rem
+    @media screen and (min-width: 760px)
+        grid-template-columns repeat(2, 1fr)
+        gap 2rem
+.form__row
+    position relative
+    display flex
+    align-items center
+    margin-bottom 2rem
+    input
+        width 100%
+        height 4rem
+        border none
+        border-radius 0
+        padding 0
+        font-size 1.4rem
+        font-family inherit
+        color inherit
+        outline none
+        background-color transparent
+        border-bottom .12rem solid inkDark20
+        & + label
+            position absolute
+            font-size 1.4rem
+            color inkDark40
+            transform-origin left center
+            transition transform 300ms
+        &:focus + label
+            transform translate(0, -2.2rem) scale(.9)
+    label.active
+        transform translate(0, -2.2rem) scale(.9)
+.form__row_check
+    grid-column-end span 2
+    display flex
+    flex-wrap wrap
+    gap 1.6rem 2rem
+    margin-bottom 2rem
+    span
+        width 100%
+        font-size 1.4rem
+        transform-origin left center
+        transform scale(.9)
+        color inkDark40
+[type="checkbox"]
+    display none
+    & + label
+        padding-left 2.3rem
+        font-size 1.4rem
+        color inkDark40
+        position relative
+        &::before
+            position absolute
+            content ""
+            display block
+            width 1.4rem
+            height 1.4rem
+            left 0
+            top 0
+            border-radius 50%
+            border .12em solid inkDark40
+
+    &:checked + label
+        color inkDark
+        &::before
+            border-color transparent
+            background-image url("./images/check.svg")
+            background-position center
+            background-repeat no-repeat
+            background-size 120%
+textarea
+    font-size 1.4rem
+    font-family inherit
+    color inherit
+    outline none
+    background-color transparent
+    border .12rem solid inkDark20
+    border-radius .4rem
+    padding 1rem
+    width 100%
+    box-sizing border-box
+    grid-column-end span 2
+
+
+

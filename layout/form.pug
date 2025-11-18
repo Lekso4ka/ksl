@@ -1,0 +1,74 @@
+.form-layout
+    .form-content
+        h3
+            span Обсудить задачу
+            a.form__x(href="")
+                include vectors/x
+        form.form
+            .form__row
+                input#f1(type="text" name="name")
+                label(for="f1") Ваше имя
+            .form__row
+                input#f2(type="text" name="company")
+                label(for="f2") Компания
+            .form__row
+                input#f3(type="tel" name="phone")
+                label(for="f3") Телефон
+            .form__row
+                input#f4(type="email" name="email")
+                label(for="f4") Эл. почта
+            .form__row_check
+                span Удобный способ связи
+                .form__check
+                    input#f5(type="checkbox" name="modalFormСonnection1" value="Звонок")
+                    label(for="f5") Звонок
+                .form__check
+                    input#f6(type="checkbox" name="modalFormСonnection2" value="Телеграм")
+                    label(for="f6") Телеграм
+                .form__check
+                    input#f7(type="checkbox" name="modalFormСonnection3" value="Ватсапп")
+                    label(for="f7") Ватсапп
+                .form__check
+                    input#f8(type="checkbox" name="modalFormСonnection4" value="Эл. почта")
+                    label(for="f8") Эл. почта
+            textarea(placeholder="Опишите проект или задачу..." name="comment" rows="4")
+            button.btn(type="submit")
+                include ./vectors/arrow
+                span Отправить
+
+        p
+            |Нажимая кнопку «Отправить», вы соглашаетесь
+            |&#32;
+            a(href="") с обработкой персональных данных
+script.
+    const inputs = document.querySelectorAll("input:not([type=\"checkbox\"])")
+
+    inputs.forEach(inp => {
+        inp.addEventListener("change", () => {
+            console.log(inp.value)
+            if (inp.value) {
+                inp.nextElementSibling.classList.add("active")
+            } else {
+                inp.nextElementSibling.classList.remove("active")
+            }
+        })
+    })
+
+    const formBlock = document.querySelector(".form-layout")
+    document.querySelector(".form__x").addEventListener("click", () => {
+        formBlock.classList.remove("active")
+    })
+    formBlock.addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) {
+            formBlock.classList.remove("active")
+        }
+    })
+
+    document.querySelectorAll("[data-target=\"form\"]").forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault()
+            formBlock.classList.add("active")
+        })
+    })
+
+
