@@ -26,6 +26,7 @@
     padding 2rem
     transition transform 500ms
     transform translate(100%, 0)
+    overflow scroll
     label
     button
         cursor pointer
@@ -51,16 +52,20 @@
 .form
     display grid
     margin-bottom 2rem
-    .btn
-        display flex
-        align-items center
-        justify-content center
-        gap 1rem
-        svg
-            width 1.6rem
+    grid-template-columns 1fr
+    .btn_v2
+        margin-top 2rem
+        &:hover path
+            fill #fff
     @media screen and (min-width: 760px)
         grid-template-columns repeat(2, 1fr)
         gap 2rem
+        .form__row_check
+        textarea
+            grid-column-end span 2
+        .btn_v2
+            margin-top 0
+
 .form__row
     position relative
     display flex
@@ -89,7 +94,6 @@
     label.active
         transform translate(0, -2.2rem) scale(.9)
 .form__row_check
-    grid-column-end span 2
     display flex
     flex-wrap wrap
     gap 1.6rem 2rem
@@ -137,7 +141,6 @@ textarea
     padding 1rem
     width 100%
     box-sizing border-box
-    grid-column-end span 2
 
 
 
