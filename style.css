@@ -2731,7 +2731,7 @@ header.sticky.active {
 }
 .faq .list li.active {
   transition: max-height 300ms;
-  max-height: 20rem;
+  max-height: 24rem;
 }
 .faq .list li.active::after {
   transform: rotate(45deg);
