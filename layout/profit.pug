@@ -202,12 +202,15 @@ script.
             opacity: 1,
             duration: 1
         }, "-=1")
-
+    function remToPixelsP(rem) {
+        const size = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        return rem * size;
+    }
     const mobPr = document.querySelector(".profit .cnt")
     const dtPr = document.querySelector(".profit h2")
     ScrollTrigger.create({
         trigger: ".profit",
-        start: "bottom bottom",
+        start: window.innerWidth >= 1440 ? `top ${remToPixelsP(-16)} top` : "bottom bottom",
         end: "+=3000",
         scrub: true,
         pin: true,

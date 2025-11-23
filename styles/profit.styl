@@ -3,13 +3,22 @@
     background-size cover
     background-position bottom center
     padding 10rem 1rem 2rem
+    position relative
     @media screen and (min-width: 1440px)
-        padding 12rem 2rem 3rem
+        padding 12rem 2rem 5rem
         .primary-caption
             width 53.8rem
             margin-left auto
             margin-right auto
             margin-bottom 1rem
+        &::before
+            content: ""
+            height: 12rem;
+            width 100%
+            position absolute
+            bottom -12rem;
+            left 0;
+            background-color: lGray;
     h2
         color #E5E5E5
         margin 1rem 0 2rem

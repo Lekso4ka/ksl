@@ -51,29 +51,32 @@ section#specialists.container.container_h2.faq
 script.
     const faqBlock = document.querySelector(".faq__block")
     const faqList2 = faqBlock.querySelector(".list")
-
-    let faqScrollDistance = faqList2.scrollHeight - faqBlock.offsetHeight;
     const faqP = document.querySelectorAll(".list li")
-    const faqList = document.querySelectorAll(".list .q")
     const faqA = document.querySelectorAll(".list .a")
+    let h = faqList2.scrollHeight
     faqP.forEach((item, i) => {
         item.addEventListener("click", () => {
-            console.log("click", i)
             if (faqA[i]?.style.maxHeight) {
-                console.log(item.lastElementChild.style.maxHeight)
+                h -= parseFloat(faqA[i].style.maxHeight)
                 faqA[i].style.maxHeight = null
             } else {
                 faqA[i].style.maxHeight = faqA[i]?.scrollHeight + "px";
+                h += faqA[i]?.scrollHeight
             }
             item.classList.toggle("active")
-            faqScrollDistance = faqList2.scrollHeight - faqBlock.offsetHeight;
+            createFaqAnimation()
         })
     })
-    if (window.innerWidth >= 1440) {
+    function createFaqAnimation() {
+        const faqScrollDistance = h - faqBlock.offsetHeight;
+        console.log(faqScrollDistance)
+        ScrollTrigger.getById("faqAnimation")?.kill();
+
         gsap.to(faqList2, {
             y: -faqScrollDistance,
             ease: "none",
             scrollTrigger: {
+                id: "faqAnimation",
                 trigger: ".faq",
                 start: "bottom bottom",
                 end: `+=${ faqScrollDistance }`,
@@ -81,4 +84,8 @@ script.
                 pin: true
             }
         });
+    }
+
+    if (window.innerWidth >= 1440) {
+        createFaqAnimation()
     }
